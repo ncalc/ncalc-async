@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NCalcAsync.Domain;
 
 namespace NCalcAsync.Tests
 {
@@ -17,7 +17,7 @@ namespace NCalcAsync.Tests
         public TestContext TestContext { get; set; }
 
         [TestMethod]
-        public void ExpressionShouldEvaluate()
+        public async Task ExpressionShouldEvaluate()
         {
             var expressions = new []
             {
@@ -36,43 +36,43 @@ namespace NCalcAsync.Tests
             foreach (string expression in expressions)
                 Console.WriteLine("{0} = {1}",
                     expression,
-                    new Expression(expression).Evaluate());
+                    await new Expression(expression).EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldParseValues()
+        public async Task ShouldParseValues()
         {
-            Assert.AreEqual(123456, new Expression("123456").Evaluate());
-            Assert.AreEqual(new DateTime(2001, 01, 01), new Expression("#01/01/2001#").Evaluate());
-            Assert.AreEqual(123.456d, new Expression("123.456").Evaluate());
-            Assert.AreEqual(true, new Expression("true").Evaluate());
-            Assert.AreEqual("true", new Expression("'true'").Evaluate());
-            Assert.AreEqual("azerty", new Expression("'azerty'").Evaluate());
+            Assert.AreEqual(123456, await new Expression("123456").EvaluateAsync());
+            Assert.AreEqual(new DateTime(2001, 01, 01), await new Expression("#01/01/2001#").EvaluateAsync());
+            Assert.AreEqual(123.456d, await new Expression("123.456").EvaluateAsync());
+            Assert.AreEqual(true, await new Expression("true").EvaluateAsync());
+            Assert.AreEqual("true", await new Expression("'true'").EvaluateAsync());
+            Assert.AreEqual("azerty", await new Expression("'azerty'").EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldHandleUnicode()
+        public async Task ShouldHandleUnicode()
         {
-            Assert.AreEqual("経済協力開発機構", new Expression("'経済協力開発機構'").Evaluate());
-            Assert.AreEqual("Hello", new Expression(@"'\u0048\u0065\u006C\u006C\u006F'").Evaluate());
-            Assert.AreEqual("だ", new Expression(@"'\u3060'").Evaluate());
-            Assert.AreEqual("\u0100", new Expression(@"'\u0100'").Evaluate());
+            Assert.AreEqual("経済協力開発機構", await new Expression("'経済協力開発機構'").EvaluateAsync());
+            Assert.AreEqual("Hello", await new Expression(@"'\u0048\u0065\u006C\u006C\u006F'").EvaluateAsync());
+            Assert.AreEqual("だ", await new Expression(@"'\u3060'").EvaluateAsync());
+            Assert.AreEqual("\u0100", await new Expression(@"'\u0100'").EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldEscapeCharacters()
+        public async Task ShouldEscapeCharacters()
         {
-            Assert.AreEqual("'hello'", new Expression(@"'\'hello\''").Evaluate());
-            Assert.AreEqual(" ' hel lo ' ", new Expression(@"' \' hel lo \' '").Evaluate());
-            Assert.AreEqual("hel\nlo", new Expression(@"'hel\nlo'").Evaluate());
+            Assert.AreEqual("'hello'", await new Expression(@"'\'hello\''").EvaluateAsync());
+            Assert.AreEqual(" ' hel lo ' ", await new Expression(@"' \' hel lo \' '").EvaluateAsync());
+            Assert.AreEqual("hel\nlo", await new Expression(@"'hel\nlo'").EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldDisplayErrorMessages()
+        public async Task ShouldDisplayErrorMessages()
         {
             try
             {
-                new Expression("(3 + 2").Evaluate();
+                await new Expression("(3 + 2").EvaluateAsync();
                 Assert.Fail();
             }
             catch(EvaluationException e)
@@ -82,131 +82,135 @@ namespace NCalcAsync.Tests
         }
 
         [TestMethod]
-        public void Maths()
+        public async Task Maths()
         {
-            Assert.AreEqual(1M, new Expression("Abs(-1)").Evaluate());
-            Assert.AreEqual(0d, new Expression("Acos(1)").Evaluate());
-            Assert.AreEqual(0d, new Expression("Asin(0)").Evaluate());
-            Assert.AreEqual(0d, new Expression("Atan(0)").Evaluate());
-            Assert.AreEqual(2d, new Expression("Ceiling(1.5)").Evaluate());
-            Assert.AreEqual(1d, new Expression("Cos(0)").Evaluate());
-            Assert.AreEqual(1d, new Expression("Exp(0)").Evaluate());
-            Assert.AreEqual(1d, new Expression("Floor(1.5)").Evaluate());
-            Assert.AreEqual(-1d, new Expression("IEEERemainder(3,2)").Evaluate());
-            Assert.AreEqual(0d, new Expression("Log(1,10)").Evaluate());
-            Assert.AreEqual(0d, new Expression("Log10(1)").Evaluate());
-            Assert.AreEqual(9d, new Expression("Pow(3,2)").Evaluate());
-            Assert.AreEqual(3.22d, new Expression("Round(3.222,2)").Evaluate());
-            Assert.AreEqual(-1, new Expression("Sign(-10)").Evaluate());
-            Assert.AreEqual(0d, new Expression("Sin(0)").Evaluate());
-            Assert.AreEqual(2d, new Expression("Sqrt(4)").Evaluate());
-            Assert.AreEqual(0d, new Expression("Tan(0)").Evaluate());
-            Assert.AreEqual(1d, new Expression("Truncate(1.7)").Evaluate());
+            Assert.AreEqual(1M, await new Expression("Abs(-1)").EvaluateAsync());
+            Assert.AreEqual(0d, await new Expression("Acos(1)").EvaluateAsync());
+            Assert.AreEqual(0d, await new Expression("Asin(0)").EvaluateAsync());
+            Assert.AreEqual(0d, await new Expression("Atan(0)").EvaluateAsync());
+            Assert.AreEqual(2d, await new Expression("Ceiling(1.5)").EvaluateAsync());
+            Assert.AreEqual(1d, await new Expression("Cos(0)").EvaluateAsync());
+            Assert.AreEqual(1d, await new Expression("Exp(0)").EvaluateAsync());
+            Assert.AreEqual(1d, await new Expression("Floor(1.5)").EvaluateAsync());
+            Assert.AreEqual(-1d, await new Expression("IEEERemainder(3,2)").EvaluateAsync());
+            Assert.AreEqual(0d, await new Expression("Log(1,10)").EvaluateAsync());
+            Assert.AreEqual(0d, await new Expression("Log10(1)").EvaluateAsync());
+            Assert.AreEqual(9d, await new Expression("Pow(3,2)").EvaluateAsync());
+            Assert.AreEqual(3.22d, await new Expression("Round(3.222,2)").EvaluateAsync());
+            Assert.AreEqual(-1, await new Expression("Sign(-10)").EvaluateAsync());
+            Assert.AreEqual(0d, await new Expression("Sin(0)").EvaluateAsync());
+            Assert.AreEqual(2d, await new Expression("Sqrt(4)").EvaluateAsync());
+            Assert.AreEqual(0d, await new Expression("Tan(0)").EvaluateAsync());
+            Assert.AreEqual(1d, await new Expression("Truncate(1.7)").EvaluateAsync());
         }
 
         [TestMethod]
-        public void ExpressionShouldEvaluateCustomFunctions()
+        public async Task ExpressionShouldEvaluateCustomFunctions()
         {
             var e = new Expression("SecretOperation(3, 6)");
 
-            e.EvaluateFunction += delegate(string name, FunctionArgs args)
+            e.EvaluateFunctionAsync = async (name, args) =>
                 {
                     if (name == "SecretOperation")
-                        args.Result = (int)args.Parameters[0].Evaluate() + (int)args.Parameters[1].Evaluate();
+                        args.Result = (int)await args.Parameters[0].EvaluateAsync() + (int)await args.Parameters[1].EvaluateAsync();
                 };
 
-            Assert.AreEqual(9, e.Evaluate());
+            Assert.AreEqual(9, await e.EvaluateAsync());
         }
 
         [TestMethod]
-        public void ExpressionShouldEvaluateCustomFunctionsWithParameters()
+        public async Task ExpressionShouldEvaluateCustomFunctionsWithParameters()
         {
             var e = new Expression("SecretOperation([e], 6) + f");
             e.Parameters["e"] = 3;
             e.Parameters["f"] = 1;
 
-            e.EvaluateFunction += delegate(string name, FunctionArgs args)
+            e.EvaluateFunctionAsync = async (name, args) =>
                 {
                     if (name == "SecretOperation")
-                        args.Result = (int)args.Parameters[0].Evaluate() + (int)args.Parameters[1].Evaluate();
+                        args.Result = (int)await args.Parameters[0].EvaluateAsync() + (int)await args.Parameters[1].EvaluateAsync();
                 };
 
-            Assert.AreEqual(10, e.Evaluate());
+            Assert.AreEqual(10, await e.EvaluateAsync());
         }
 
         [TestMethod]
-        public void ExpressionShouldEvaluateParameters()
+        public async Task ExpressionShouldEvaluateParameters()
         {
             var e = new Expression("Round(Pow(Pi, 2) + Pow([Pi Squared], 2) + [X], 2)");
 
             e.Parameters["Pi Squared"] = new Expression("Pi * [Pi]");
             e.Parameters["X"] = 10;
 
-            e.EvaluateParameter += delegate(string name, ParameterArgs args)
+            e.EvaluateParameterAsync = (name, args) =>
                 {
                     if (name == "Pi")
                         args.Result = 3.14;
+
+                    return Task.CompletedTask;
                 };
 
-            Assert.AreEqual(117.07, e.Evaluate());
+            Assert.AreEqual(117.07, await e.EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldEvaluateConditionnal()
+        public async Task ShouldEvaluateConditionnal()
         {
             var eif = new Expression("if([divider] <> 0, [divided] / [divider], 0)");
             eif.Parameters["divider"] = 5;
             eif.Parameters["divided"] = 5;
 
-            Assert.AreEqual(1d, eif.Evaluate());
+            Assert.AreEqual(1d, await eif.EvaluateAsync());
 
             eif = new Expression("if([divider] <> 0, [divided] / [divider], 0)");
             eif.Parameters["divider"] = 0;
             eif.Parameters["divided"] = 5;
-            Assert.AreEqual(0, eif.Evaluate());
+            Assert.AreEqual(0, await eif.EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldOverrideExistingFunctions()
+        public async Task ShouldOverrideExistingFunctions()
         {
             var e = new Expression("Round(1.99, 2)");
 
-            Assert.AreEqual(1.99d, e.Evaluate());
+            Assert.AreEqual(1.99d, await e.EvaluateAsync());
 
-            e.EvaluateFunction += delegate(string name, FunctionArgs args)
+            e.EvaluateFunctionAsync = (name, args) =>
             {
                 if (name == "Round")
                     args.Result = 3;
+
+                return Task.CompletedTask;
             };
 
-            Assert.AreEqual(3, e.Evaluate());
+            Assert.AreEqual(3, await e.EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldEvaluateInOperator()
+        public async Task ShouldEvaluateInOperator()
         {
             // The last argument should not be evaluated
             var ein = new Expression("in((2 + 2), [1], [2], 1 + 2, 4, 1 / 0)");
             ein.Parameters["1"] = 2;
             ein.Parameters["2"] = 5;
 
-            Assert.AreEqual(true, ein.Evaluate());
+            Assert.AreEqual(true, await ein.EvaluateAsync());
 
             var eout = new Expression("in((2 + 2), [1], [2], 1 + 2, 3)");
             eout.Parameters["1"] = 2;
             eout.Parameters["2"] = 5;
 
-            Assert.AreEqual(false, eout.Evaluate());
+            Assert.AreEqual(false, await eout.EvaluateAsync());
 
             // Should work with strings
             var estring = new Expression("in('to' + 'to', 'titi', 'toto')");
 
-            Assert.AreEqual(true, estring.Evaluate());
+            Assert.AreEqual(true, await estring.EvaluateAsync());
 
         }
 
         [TestMethod]
-        public void ShouldEvaluateOperators()
+        public async Task ShouldEvaluateOperators()
         {
             var expressions = new Dictionary<string, object>
                                   {
@@ -243,35 +247,35 @@ namespace NCalcAsync.Tests
 
             foreach (KeyValuePair<string, object> pair in expressions)
             {
-                Assert.AreEqual(pair.Value, new Expression(pair.Key).Evaluate(), pair.Key + " failed");
+                Assert.AreEqual(pair.Value, await new Expression(pair.Key).EvaluateAsync(), pair.Key + " failed");
             }
 
         }
 
         [TestMethod]
-        public void ShouldHandleOperatorsPriority()
+        public async Task ShouldHandleOperatorsPriority()
         {
-            Assert.AreEqual(8, new Expression("2+2+2+2").Evaluate());
-            Assert.AreEqual(16, new Expression("2*2*2*2").Evaluate());
-            Assert.AreEqual(6, new Expression("2*2+2").Evaluate());
-            Assert.AreEqual(6, new Expression("2+2*2").Evaluate());
+            Assert.AreEqual(8, await new Expression("2+2+2+2").EvaluateAsync());
+            Assert.AreEqual(16, await new Expression("2*2*2*2").EvaluateAsync());
+            Assert.AreEqual(6, await new Expression("2*2+2").EvaluateAsync());
+            Assert.AreEqual(6, await new Expression("2+2*2").EvaluateAsync());
 
-            Assert.AreEqual(9d, new Expression("1 + 2 + 3 * 4 / 2").Evaluate());
-            Assert.AreEqual(13.5, new Expression("18/2/2*3").Evaluate());
+            Assert.AreEqual(9d, await new Expression("1 + 2 + 3 * 4 / 2").EvaluateAsync());
+            Assert.AreEqual(13.5, await new Expression("18/2/2*3").EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldNotLoosePrecision()
+        public async Task ShouldNotLoosePrecision()
         {
-            Assert.AreEqual(0.5, new Expression("3/6").Evaluate());
+            Assert.AreEqual(0.5, await new Expression("3/6").EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldThrowAnExpcetionWhenInvalidNumber()
+        public async Task ShouldThrowAnExpcetionWhenInvalidNumber()
         {
             try
             {
-                new Expression("4. + 2").Evaluate();
+                await new Expression("4. + 2").EvaluateAsync();
                 Assert.Fail();
             }
             catch (EvaluationException e)
@@ -281,55 +285,24 @@ namespace NCalcAsync.Tests
         }
 
         [TestMethod]
-        public void ShouldNotRoundDecimalValues()
+        public async Task ShouldNotRoundDecimalValues()
         {
-            Assert.AreEqual(false, new Expression("0 <= -0.6").Evaluate());
+            Assert.AreEqual(false, await new Expression("0 <= -0.6").EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldEvaluateTernaryExpression()
+        public async Task ShouldEvaluateTernaryExpression()
         {
-            Assert.AreEqual(1, new Expression("1+2<3 ? 3+4 : 1").Evaluate());
+            Assert.AreEqual(1, await new Expression("1+2<3 ? 3+4 : 1").EvaluateAsync());
         }
 
-        [TestMethod]
-        public void ShouldSerializeExpression()
-        {
-            Assert.AreEqual("True and False", new BinaryExpression(BinaryExpressionType.And, new ValueExpression(true), new ValueExpression(false)).ToString());
-            Assert.AreEqual("1 / 2", new BinaryExpression(BinaryExpressionType.Div, new ValueExpression(1), new ValueExpression(2)).ToString());
-            Assert.AreEqual("1 = 2", new BinaryExpression(BinaryExpressionType.Equal, new ValueExpression(1), new ValueExpression(2)).ToString());
-            Assert.AreEqual("1 > 2", new BinaryExpression(BinaryExpressionType.Greater, new ValueExpression(1), new ValueExpression(2)).ToString());
-            Assert.AreEqual("1 >= 2", new BinaryExpression(BinaryExpressionType.GreaterOrEqual, new ValueExpression(1), new ValueExpression(2)).ToString());
-            Assert.AreEqual("1 < 2", new BinaryExpression(BinaryExpressionType.Lesser, new ValueExpression(1), new ValueExpression(2)).ToString());
-            Assert.AreEqual("1 <= 2", new BinaryExpression(BinaryExpressionType.LesserOrEqual, new ValueExpression(1), new ValueExpression(2)).ToString());
-            Assert.AreEqual("1 - 2", new BinaryExpression(BinaryExpressionType.Minus, new ValueExpression(1), new ValueExpression(2)).ToString());
-            Assert.AreEqual("1 % 2", new BinaryExpression(BinaryExpressionType.Modulo, new ValueExpression(1), new ValueExpression(2)).ToString());
-            Assert.AreEqual("1 != 2", new BinaryExpression(BinaryExpressionType.NotEqual, new ValueExpression(1), new ValueExpression(2)).ToString());
-            Assert.AreEqual("True or False", new BinaryExpression(BinaryExpressionType.Or, new ValueExpression(true), new ValueExpression(false)).ToString());
-            Assert.AreEqual("1 + 2", new BinaryExpression(BinaryExpressionType.Plus, new ValueExpression(1), new ValueExpression(2)).ToString());
-            Assert.AreEqual("1 * 2", new BinaryExpression(BinaryExpressionType.Times, new ValueExpression(1), new ValueExpression(2)).ToString());
-
-            Assert.AreEqual("-(True and False)",new UnaryExpression(UnaryExpressionType.Negate, new BinaryExpression(BinaryExpressionType.And, new ValueExpression(true), new ValueExpression(false))).ToString());
-            Assert.AreEqual("!(True and False)",new UnaryExpression(UnaryExpressionType.Not, new BinaryExpression(BinaryExpressionType.And, new ValueExpression(true), new ValueExpression(false))).ToString());
-
-            Assert.AreEqual("test(True and False, -(True and False))",new Function(new Identifier("test"), new LogicalExpression[] { new BinaryExpression(BinaryExpressionType.And, new ValueExpression(true), new ValueExpression(false)), new UnaryExpression(UnaryExpressionType.Negate, new BinaryExpression(BinaryExpressionType.And, new ValueExpression(true), new ValueExpression(false))) }).ToString());
-
-            Assert.AreEqual("True", new ValueExpression(true).ToString());
-            Assert.AreEqual("False", new ValueExpression(false).ToString());
-            Assert.AreEqual("1", new ValueExpression(1).ToString());
-            Assert.AreEqual("1.234", new ValueExpression(1.234).ToString());
-            Assert.AreEqual("'hello'", new ValueExpression("hello").ToString());
-            Assert.AreEqual("#" + new DateTime(2009, 1, 1) + "#", new ValueExpression(new DateTime(2009, 1, 1)).ToString());
-
-            Assert.AreEqual("Sum(1 + 2)", new Function(new Identifier("Sum"), new [] { new BinaryExpression(BinaryExpressionType.Plus, new ValueExpression(1), new ValueExpression(2))}).ToString());
-        }
 
         [TestMethod]
-        public void ShouldHandleStringConcatenation()
+        public async Task ShouldHandleStringConcatenation()
         {
-            Assert.AreEqual("toto", new Expression("'to' + 'to'").Evaluate());
-            Assert.AreEqual("one2", new Expression("'one' + 2").Evaluate());
-            Assert.AreEqual(3M, new Expression("1 + '2'").Evaluate());
+            Assert.AreEqual("toto", await new Expression("'to' + 'to'").EvaluateAsync());
+            Assert.AreEqual("one2", await new Expression("'one' + 2").EvaluateAsync());
+            Assert.AreEqual(3M, await new Expression("1 + '2'").EvaluateAsync());
         }
 
         [TestMethod]
@@ -350,73 +323,24 @@ namespace NCalcAsync.Tests
         [TestMethod]
         public void ShouldReuseCompiledExpressionsInMultiThreadedMode()
         {
-            // Repeats the tests n times
-            for (int cpt = 0; cpt < 20; cpt++)
+            Parallel.For(0, 10000, async i =>
             {
-                const int nbthreads = 30;
-                _exceptions = new List<Exception>();
-                var threads = new Thread[nbthreads];
+                var expression = new Expression((i % 111).ToString());
 
-                // Starts threads
-                for (int i = 0; i < nbthreads; i++)
-                {
-                    var thread = new Thread(WorkerThread);
-                    thread.Start();
-                    threads[i] = thread;
-                }
-
-                // Waits for end of threads
-                bool running = true;
-                while (running)
-                {
-                    Thread.Sleep(100);
-                    running = false;
-                    for (int i = 0; i < nbthreads; i++)
-                    {
-                        if (threads[i].ThreadState == ThreadState.Running)
-                            running = true;
-                    }
-                }
-
-                if (_exceptions.Count > 0)
-                {
-                    Console.WriteLine(_exceptions[0].StackTrace);
-                    Assert.Fail(_exceptions[0].Message);
-                }
-            }
-        }
-
-        private List<Exception> _exceptions;
-
-        private void WorkerThread()
-        {
-            try
-            {
-                var r1 = new Random((int)DateTime.Now.Ticks);
-                var r2 = new Random((int)DateTime.Now.Ticks);
-                int n1 = r1.Next(10);
-                int n2 = r2.Next(10);
-
-                // Constructs a simple addition randomly. Odds are that the same expression gets constructed multiple times by different threads
-                var exp = n1 + " + " + n2;
-                var e = new Expression(exp);
-                Assert.IsTrue(e.Evaluate().Equals(n1 + n2));
-            }
-            catch (Exception e)
-            {
-                _exceptions.Add(e);
-            }
+                var result = await expression.EvaluateAsync();
+                Assert.AreEqual(i % 111, result);
+            });
         }
 
         [TestMethod]
-        public void ShouldHandleCaseSensitiveness()
+        public async Task ShouldHandleCaseSensitiveness()
         {
-            Assert.AreEqual(1M, new Expression("aBs(-1)", EvaluateOptions.IgnoreCase).Evaluate());
-            Assert.AreEqual(1M, new Expression("Abs(-1)", EvaluateOptions.None).Evaluate());
+            Assert.AreEqual(1M, await new Expression("aBs(-1)", EvaluateOptions.IgnoreCase).EvaluateAsync());
+            Assert.AreEqual(1M, await new Expression("Abs(-1)", EvaluateOptions.None).EvaluateAsync());
 
             try
             {
-                Assert.AreEqual(1M, new Expression("aBs(-1)", EvaluateOptions.None).Evaluate());
+                Assert.AreEqual(1M, await new Expression("aBs(-1)", EvaluateOptions.None).EvaluateAsync());
             }
             catch (ArgumentException)
             {
@@ -431,38 +355,40 @@ namespace NCalcAsync.Tests
         }
 
         [TestMethod]
-        public void ShouldHandleCustomParametersWhenNoSpecificParameterIsDefined()
+        public async Task ShouldHandleCustomParametersWhenNoSpecificParameterIsDefined()
         {
             var e = new Expression("Round(Pow([Pi], 2) + Pow([Pi], 2) + 10, 2)");
 
-            e.EvaluateParameter += delegate(string name, ParameterArgs arg)
+            e.EvaluateParameterAsync = (name, arg) =>
             {
                 if (name == "Pi")
                     arg.Result = 3.14;
+
+                return Task.CompletedTask;
             };
 
-            e.Evaluate();
+            await e.EvaluateAsync();
         }
 
         [TestMethod]
-        public void ShouldHandleCustomFunctionsInFunctions()
+        public async Task ShouldHandleCustomFunctionsInFunctions()
         {
             var e = new Expression("if(true, func1(x) + func2(func3(y)), 0)");
 
-            e.EvaluateFunction += delegate(string name, FunctionArgs arg)
+            e.EvaluateFunctionAsync = async (name, arg) =>
             {
                 switch (name)
                 {
                     case "func1": arg.Result = 1;
                         break;
-                    case "func2": arg.Result = 2 * Convert.ToDouble(arg.Parameters[0].Evaluate());
+                    case "func2": arg.Result = 2 * Convert.ToDouble(await arg.Parameters[0].EvaluateAsync());
                         break;
-                    case "func3": arg.Result = 3 * Convert.ToDouble(arg.Parameters[0].Evaluate());
+                    case "func3": arg.Result = 3 * Convert.ToDouble(await arg.Parameters[0].EvaluateAsync());
                         break;
                 }
             };
 
-            e.EvaluateParameter += delegate(string name, ParameterArgs arg)
+            e.EvaluateParameterAsync = (name, arg) =>
             {
                 switch (name)
                 {
@@ -473,30 +399,32 @@ namespace NCalcAsync.Tests
                     case "z": arg.Result = 3;
                         break;
                 }
+
+                return Task.CompletedTask;
             };
 
-            Assert.AreEqual(13d, e.Evaluate());
+            Assert.AreEqual(13d, await e.EvaluateAsync());
         }
 
 
         [TestMethod]
-        public void ShouldParseScientificNotation()
+        public async Task ShouldParseScientificNotation()
         {
-            Assert.AreEqual(12.2d, new Expression("1.22e1").Evaluate());
-            Assert.AreEqual(100d, new Expression("1e2").Evaluate());
-            Assert.AreEqual(100d, new Expression("1e+2").Evaluate());
-            Assert.AreEqual(0.01d, new Expression("1e-2").Evaluate());
-            Assert.AreEqual(0.001d, new Expression(".1e-2").Evaluate());
-            Assert.AreEqual(10000000000d, new Expression("1e10").Evaluate());
+            Assert.AreEqual(12.2d, await new Expression("1.22e1").EvaluateAsync());
+            Assert.AreEqual(100d, await new Expression("1e2").EvaluateAsync());
+            Assert.AreEqual(100d, await new Expression("1e+2").EvaluateAsync());
+            Assert.AreEqual(0.01d, await new Expression("1e-2").EvaluateAsync());
+            Assert.AreEqual(0.001d, await new Expression(".1e-2").EvaluateAsync());
+            Assert.AreEqual(10000000000d, await new Expression("1e10").EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldEvaluateArrayParameters()
+        public async Task ShouldEvaluateArrayParameters()
         {
             var e = new Expression("x * x", EvaluateOptions.IterateParameters);
             e.Parameters["x"] = new [] { 0, 1, 2, 3, 4 };
 
-            var result = (IList)e.Evaluate();
+            var result = (IList)await e.EvaluateAsync();
 
             Assert.AreEqual(0, result[0]);
             Assert.AreEqual(1, result[1]);
@@ -506,53 +434,57 @@ namespace NCalcAsync.Tests
         }
 
         [TestMethod]
-        public void CustomFunctionShouldReturnNull()
+        public async Task CustomFunctionShouldReturnNull()
         {
             var e = new Expression("SecretOperation(3, 6)");
 
-            e.EvaluateFunction += delegate(string name, FunctionArgs args)
+            e.EvaluateFunctionAsync = (name, args) =>
             {
                 Assert.IsFalse(args.HasResult);
                 if (name == "SecretOperation")
                     args.Result = null;
                 Assert.IsTrue(args.HasResult);
+                
+                return Task.CompletedTask;
             };
 
-            Assert.AreEqual(null, e.Evaluate());
+            Assert.AreEqual(null, await e.EvaluateAsync());
         }
 
         [TestMethod]
-        public void CustomParametersShouldReturnNull()
+        public async Task CustomParametersShouldReturnNull()
         {
             var e = new Expression("x");
 
-            e.EvaluateParameter += delegate(string name, ParameterArgs args)
+            e.EvaluateParameterAsync = (name, args) =>
             {
                 Assert.IsFalse(args.HasResult);
                 if (name == "x")
                     args.Result = null;
                 Assert.IsTrue(args.HasResult);
+
+                return Task.CompletedTask;
             };
 
-            Assert.AreEqual(null, e.Evaluate());
+            Assert.AreEqual(null, await e.EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldCompareDates()
+        public async Task ShouldCompareDates()
         {
-            Assert.AreEqual(true, new Expression("#1/1/2009#==#1/1/2009#").Evaluate());
-            Assert.AreEqual(false, new Expression("#2/1/2009#==#1/1/2009#").Evaluate());
+            Assert.AreEqual(true, await new Expression("#1/1/2009#==#1/1/2009#").EvaluateAsync());
+            Assert.AreEqual(false, await new Expression("#2/1/2009#==#1/1/2009#").EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldRoundAwayFromZero()
+        public async Task ShouldRoundAwayFromZero()
         {
-            Assert.AreEqual(22d, new Expression("Round(22.5, 0)").Evaluate());
-            Assert.AreEqual(23d, new Expression("Round(22.5, 0)", EvaluateOptions.RoundAwayFromZero).Evaluate());
+            Assert.AreEqual(22d, await new Expression("Round(22.5, 0)").EvaluateAsync());
+            Assert.AreEqual(23d, await new Expression("Round(22.5, 0)", EvaluateOptions.RoundAwayFromZero).EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldEvaluateSubExpressions()
+        public async Task ShouldEvaluateSubExpressions()
         {
             var volume = new Expression("[surface] * h");
             var surface = new Expression("[l] * [L]");
@@ -561,95 +493,137 @@ namespace NCalcAsync.Tests
             surface.Parameters["l"] = 1;
             surface.Parameters["L"] = 2;
 
-            Assert.AreEqual(6, volume.Evaluate());
+            Assert.AreEqual(6, await volume.EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldHandleLongValues()
+        public async Task ShouldHandleLongValues()
         {
-            Assert.AreEqual(40000000000 + 1f, new Expression("40000000000+1").Evaluate());
+            Assert.AreEqual(40000000000 + 1f, await new Expression("40000000000+1").EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldCompareLongValues()
+        public async Task ShouldCompareLongValues()
         {
-            Assert.AreEqual(false, new Expression("(0=1500000)||(((0+2200000000)-1500000)<0)").Evaluate());
+            Assert.AreEqual(false, await new Expression("(0=1500000)||(((0+2200000000)-1500000)<0)").EvaluateAsync());
         }
 
         [TestMethod, ExpectedException(typeof(InvalidOperationException))]
-        public void ShouldDisplayErrorIfUncompatibleTypes()
+        public async Task ShouldDisplayErrorIfUncompatibleTypes()
         {
             var e = new Expression("(a > b) + 10");
             e.Parameters["a"] = 1;
             e.Parameters["b"] = 2;
-            e.Evaluate();
+            await e.EvaluateAsync();
         }
 
         [TestMethod]
-        public void ShouldNotConvertRealTypes()
+        public async Task ShouldNotConvertRealTypes()
         {
             var e = new Expression("x/2");
             e.Parameters["x"] = 2F;
-            Assert.AreEqual(typeof(float), e.Evaluate().GetType());
+            Assert.AreEqual(typeof(float), (await e.EvaluateAsync()).GetType());
 
             e = new Expression("x/2");
             e.Parameters["x"] = 2D;
-            Assert.AreEqual(typeof(double), e.Evaluate().GetType());
+            Assert.AreEqual(typeof(double), (await e.EvaluateAsync()).GetType());
 
             e = new Expression("x/2");
             e.Parameters["x"] = 2m;
-            Assert.AreEqual(typeof(decimal), e.Evaluate().GetType());
+            Assert.AreEqual(typeof(decimal), (await e.EvaluateAsync()).GetType());
 
             e = new Expression("a / b * 100");
             e.Parameters["a"] = 20M;
             e.Parameters["b"] = 20M;
-            Assert.AreEqual(100M, e.Evaluate());
+            Assert.AreEqual(100M, await e.EvaluateAsync());
 
         }
 
         [TestMethod]
-        public void ShouldShortCircuitBooleanExpressions()
+        public async Task ShouldShortCircuitBooleanExpressions()
         {
             var e = new Expression("([a] != 0) && ([b]/[a]>2)");
             e.Parameters["a"] = 0;
 
-            Assert.AreEqual(false, e.Evaluate());
+            Assert.AreEqual(false, await e.EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldAddDoubleAndDecimal()
+        public async Task ShouldAddDoubleAndDecimal()
         {
             var e = new Expression("1.8 + Abs([var1])");
             e.Parameters["var1"] = 9.2;
 
-            Assert.AreEqual(11M, e.Evaluate());
+            Assert.AreEqual(11M, await e.EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldSubtractDoubleAndDecimal()
+        public async Task ShouldSubtractDoubleAndDecimal()
         {
             var e = new Expression("1.8 - Abs([var1])");
             e.Parameters["var1"] = 0.8;
 
-            Assert.AreEqual(1M, e.Evaluate());
+            Assert.AreEqual(1M, await e.EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldMultiplyDoubleAndDecimal()
+        public async Task ShouldMultiplyDoubleAndDecimal()
         {
             var e = new Expression("1.8 * Abs([var1])");
             e.Parameters["var1"] = 9.2;
 
-            Assert.AreEqual(16.56M, e.Evaluate());
+            Assert.AreEqual(16.56M, await e.EvaluateAsync());
         }
 
         [TestMethod]
-        public void ShouldDivideDoubleAndDecimal()
+        public async Task ShouldDivideDoubleAndDecimal()
         {
             var e = new Expression("1.8 / Abs([var1])");
             e.Parameters["var1"] = 0.5;
 
-            Assert.AreEqual(3.6M, e.Evaluate());
+            Assert.AreEqual(3.6M, await e.EvaluateAsync());
+        }
+
+        [TestMethod]
+        public async Task ShouldHandleDelayedAsyncFunctionsAndParameters()
+        {
+            var e = new Expression("delay(200) + delay(fixed_delay)")
+            {
+                EvaluateFunctionAsync = async (name, args) =>
+                {
+                    if (name == "delay")
+                    {
+                        var ms = (int) await args.Parameters[0].EvaluateAsync();
+                        await Task.Delay(ms);
+
+                        args.Result = ms;
+                        args.HasResult = true;
+                    }
+                },
+
+                EvaluateParameterAsync = async (name, args) =>
+                {
+                    if (name == "fixed_delay")
+                    {
+                        var ms = 100;
+                        await Task.Delay(ms);
+
+                        args.Result = ms;
+                        args.HasResult = true;
+                    }
+                }
+            };
+
+            var stopWatch = new Stopwatch();
+            stopWatch.Start();
+            var result = await e.EvaluateAsync();
+            stopWatch.Stop();
+
+            Assert.AreEqual(300, result);
+
+            // It's difficult to do exact timing tests in async code, but since delay(fixed_delay) will delay at least 200ms,
+            // and delay(200) will do the same, we know it should take at least 200ms to run.
+            Assert.IsTrue(stopWatch.ElapsedMilliseconds >= 200);
         }
     }
 }

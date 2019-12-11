@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace NCalcAsync
 {
@@ -26,12 +27,12 @@ namespace NCalcAsync
             set { _parameters = value; }
         }
 
-        public object[] EvaluateParameters()
+        public async Task<object[]> EvaluateParametersAsync()
         {
             var values = new object[_parameters.Length];
             for (int i = 0; i < values.Length; i++)
             {
-                values[i] = _parameters[i].Evaluate();
+                values[i] = await _parameters[i].EvaluateAsync();
             }
 
             return values;

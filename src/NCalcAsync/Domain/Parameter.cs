@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace NCalcAsync.Domain
 {
 	public class Identifier : LogicalExpression
@@ -10,9 +12,9 @@ namespace NCalcAsync.Domain
 	    public string Name { get; set; }
 
 
-	    public override void Accept(LogicalExpressionVisitor visitor)
+	    public override async Task AcceptAsync(LogicalExpressionVisitor visitor)
         {
-            visitor.Visit(this);
+            await visitor.VisitAsync(this);
         }
     }
 }

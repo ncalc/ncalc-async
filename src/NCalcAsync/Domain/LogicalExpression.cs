@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace NCalcAsync.Domain
 {
@@ -223,17 +224,9 @@ namespace NCalcAsync.Domain
             return new BinaryExpression(BinaryExpressionType.RightShift, this, new ValueExpression(operand));
         }
 
-        public override string ToString()
+        public virtual async Task AcceptAsync(LogicalExpressionVisitor visitor)
         {
-            SerializationVisitor serializer = new SerializationVisitor();
-            this.Accept(serializer);
-
-            return serializer.Result.ToString().TrimEnd(' ');
-        }
-
-        public virtual void Accept(LogicalExpressionVisitor visitor)
-        {
-            visitor.Visit(this);
+            await visitor.VisitAsync(this);
         }
     }
 }

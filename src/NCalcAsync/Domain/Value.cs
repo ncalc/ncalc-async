@@ -1,9 +1,10 @@
 using System;
+using System.Threading.Tasks;
 
 namespace NCalcAsync.Domain
 {
-	public class ValueExpression : LogicalExpression
-	{
+    public class ValueExpression : LogicalExpression
+    {
         public ValueExpression(object value, ValueType type)
         {
             Value = value;
@@ -15,17 +16,17 @@ namespace NCalcAsync.Domain
             switch (System.Type.GetTypeCode(value.GetType()))
             {
                 case TypeCode.Boolean :
-                    Type = ValueType.Boolean;
+                Type = ValueType.Boolean;
                     break;
 
                 case TypeCode.DateTime :
-                    Type = ValueType.DateTime;
+                Type = ValueType.DateTime;
                     break;
 
                 case TypeCode.Decimal:
                 case TypeCode.Double:
                 case TypeCode.Single:
-                    Type = ValueType.Float;
+                Type = ValueType.Float;
                     break;
 
                 case TypeCode.Byte:
@@ -36,11 +37,11 @@ namespace NCalcAsync.Domain
                 case TypeCode.UInt16:
                 case TypeCode.UInt32:
                 case TypeCode.UInt64:
-                    Type = ValueType.Integer;
+                Type = ValueType.Integer;
                     break;
 
                 case TypeCode.String:
-                    Type = ValueType.String;
+                Type = ValueType.String;
                     break;
 
                 default:
@@ -83,18 +84,19 @@ namespace NCalcAsync.Domain
         public object Value { get; set; }
         public ValueType Type { get; set; }
 
-        public override void Accept(LogicalExpressionVisitor visitor)
+
+        public override async Task AcceptAsync(LogicalExpressionVisitor visitor)
         {
-            visitor.Visit(this);
+            await visitor.VisitAsync(this);
         }
     }
 
-	public enum ValueType
-	{
-		Integer,
-		String,
-		DateTime,
-		Float,
-		Boolean
-	}
+    public enum ValueType
+    {
+        Integer,
+        String,
+        DateTime,
+        Float,
+        Boolean
+    }
 }

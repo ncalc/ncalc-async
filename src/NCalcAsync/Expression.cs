@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
+using System.Threading.Tasks;
 using Antlr.Runtime;
 using NCalcAsync.Domain;
 
@@ -17,6 +18,9 @@ namespace NCalcAsync
         /// </summary>
         protected string OriginalExpression;
 
+        public EvaluateParameterAsyncHandler EvaluateParameterAsync { get; set; }
+        public EvaluateFunctionAsyncHandler EvaluateFunctionAsync { get; set; }
+
         public Expression(string expression) : this(expression, EvaluateOptions.None)
         {
         }
@@ -24,8 +28,8 @@ namespace NCalcAsync
         public Expression(string expression, EvaluateOptions options)
         {
             if (String.IsNullOrEmpty(expression))
-                throw new 
-                    ArgumentException("Expression can't be empty", "expression");
+                throw new
+            ArgumentException("Expression can't be empty", "expression");
 
             OriginalExpression = expression;
             Options = options;
@@ -39,8 +43,8 @@ namespace NCalcAsync
         {
             if (expression == null)
                 throw new
-                    ArgumentException("Expression can't be null", "expression");
-
+            ArgumentException("Expression can't be null", "expression");
+            
             ParsedExpression = expression;
             Options = options;
         }
@@ -53,8 +57,8 @@ namespace NCalcAsync
         public static bool CacheEnabled
         {
             get { return _cacheEnabled; }
-            set 
-            { 
+            set
+            {
                 _cacheEnabled = value;
 
                 if (!CacheEnabled)
@@ -92,7 +96,7 @@ namespace NCalcAsync
             }
             finally
             {
-                Rwl.ReleaseReaderLock();
+                Rwl.ReleaseWriterLock();
             }
         }
 
@@ -113,7 +117,7 @@ namespace NCalcAsync
                         Trace.TraceInformation("Expression retrieved from cache: " + expression);
                         var wr = _compiledExpressions[expression];
                         logicalExpression = wr.Target as LogicalExpression;
-                    
+
                         if (wr.IsAlive && logicalExpression != null)
                         {
                             return logicalExpression;
@@ -176,7 +180,7 @@ namespace NCalcAsync
                 // In case HasErrors() is called multiple times for the same expression
                 return ParsedExpression != null && Error != null;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Error = e.Message;
                 return true;
@@ -190,7 +194,22 @@ namespace NCalcAsync
         protected Dictionary<string, IEnumerator> ParameterEnumerators;
         protected Dictionary<string, object> ParametersBackup;
 
-        public object Evaluate()
+        /// <summary>
+        /// Evaluate the expression asynchronously.
+        /// </summary>
+        /// <returns>A task that resolves to the result of the expression.</returns>
+        public async Task<object> EvaluateAsync()
+        {
+            return await EvaluateAsync(EvaluateParameterAsync, EvaluateFunctionAsync);
+        }
+
+        /// <summary>
+        /// Evaluate the expression asynchronously.
+        /// </summary>
+        /// <param name="evaluateParameterAsync">Override the value of <see cref="EvaluateParameterAsync"/></param>
+        /// <param name="evaluateFunctionAsync">Override the value of <see cref="EvaluateFunctionAsync"/></param>
+        /// <returns>A task that resolves to the result of the expression.</returns>
+        public async Task<object> EvaluateAsync(EvaluateParameterAsyncHandler evaluateParameterAsync, EvaluateFunctionAsyncHandler evaluateFunctionAsync)
         {
             if (HasErrors())
             {
@@ -202,11 +221,10 @@ namespace NCalcAsync
                 ParsedExpression = Compile(OriginalExpression, (Options & EvaluateOptions.NoCache) == EvaluateOptions.NoCache);
             }
 
-
-            var visitor = new EvaluationVisitor(Options);
-            visitor.EvaluateFunction += EvaluateFunction;
-            visitor.EvaluateParameter += EvaluateParameter;
-            visitor.Parameters = Parameters;
+            var visitor = new EvaluationVisitor(Options, evaluateParameterAsync, evaluateFunctionAsync)
+            {
+                Parameters = Parameters
+            };
 
             // if array evaluation, execute the same expression multiple times
             if ((Options & EvaluateOptions.IterateParameters) == EvaluateOptions.IterateParameters)
@@ -260,20 +278,16 @@ namespace NCalcAsync
                         Parameters[key] = enumerator.Current;
                     }
 
-                    ParsedExpression.Accept(visitor);
+                    await ParsedExpression.AcceptAsync(visitor);
                     results.Add(visitor.Result);
                 }
 
                 return results;
             }
 
-            ParsedExpression.Accept(visitor);
+            await ParsedExpression.AcceptAsync(visitor);
             return visitor.Result;
-            
         }
-
-        public event EvaluateFunctionHandler EvaluateFunction;
-        public event EvaluateParameterHandler EvaluateParameter;
 
         private Dictionary<string, object> _parameters;
 
@@ -282,6 +296,5 @@ namespace NCalcAsync
             get { return _parameters ?? (_parameters = new Dictionary<string, object>()); }
             set { _parameters = value; }
         }
-
     }
 }

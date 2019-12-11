@@ -1,40 +1,43 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace NCalcAsync.Domain
 {
-
-
     public class EvaluationVisitor : LogicalExpressionVisitor
     {
         private delegate T Func<T>();
 
         private readonly EvaluateOptions _options = EvaluateOptions.None;
+        private readonly EvaluateParameterAsyncHandler _evaluateParameterAsync;
+        private readonly EvaluateFunctionAsyncHandler _evaluateFunctionAsync;
 
         private bool IgnoreCase { get { return (_options & EvaluateOptions.IgnoreCase) == EvaluateOptions.IgnoreCase; } }
 
-        public EvaluationVisitor(EvaluateOptions options)
+        public EvaluationVisitor(EvaluateOptions options, EvaluateParameterAsyncHandler evaluateParameterAsync, EvaluateFunctionAsyncHandler evaluateFunctionAsync)
         {
             _options = options;
+            _evaluateParameterAsync = evaluateParameterAsync;
+            _evaluateFunctionAsync = evaluateFunctionAsync;
         }
 
         public object Result { get; private set; }
 
-        private object Evaluate(LogicalExpression expression)
+        private async Task<object> EvaluateAsync(LogicalExpression expression)
         {
-            expression.Accept(this);
+            await expression.AcceptAsync(this);
             return Result;
         }
 
-        public override void Visit(LogicalExpression expression)
+        public override Task VisitAsync(LogicalExpression expression)
         {
-            throw new Exception("The method or operation is not implemented.");
+            return Task.FromException(new Exception("The method or operation is not implemented."));
         }
 
         private static Type[] CommonTypes = new[] { typeof(Int64), typeof(Double), typeof(Boolean), typeof(String), typeof(Decimal) };
 
-    /// <summary>
+        /// <summary>
         /// Gets the the most precise type.
         /// </summary>
         /// <param name="a">Type a.</param>
@@ -70,19 +73,19 @@ namespace NCalcAsync.Domain
             return Comparer.Default.Compare(Convert.ChangeType(a, mpt), Convert.ChangeType(b, mpt));
         }
 
-        public override void Visit(TernaryExpression expression)
+        public override async Task VisitAsync(TernaryExpression expression)
         {
             // Evaluates the left expression and saves the value
-            expression.LeftExpression.Accept(this);
+            await expression.LeftExpression.AcceptAsync(this);
             bool left = Convert.ToBoolean(Result);
 
             if (left)
             {
-                expression.MiddleExpression.Accept(this);
+                await expression.MiddleExpression.AcceptAsync(this);
             }
             else
             {
-                expression.RightExpression.Accept(this);
+                await expression.RightExpression.AcceptAsync(this);
             }
         }
 
@@ -93,132 +96,130 @@ namespace NCalcAsync.Domain
             return typeCode == TypeCode.Decimal || typeCode == TypeCode.Double || typeCode == TypeCode.Single;
         }
 
-        public override void Visit(BinaryExpression expression)
+        public override async Task VisitAsync(BinaryExpression expression)
         {
             // simulate Lazy<Func<>> behavior for late evaluation
             object leftValue = null;
-            Func<object> left = () =>
-                                 {
-                                     if (leftValue == null)
-                                     {
-                                         expression.LeftExpression.Accept(this);
-                                         leftValue = Result;
-                                     }
-                                     return leftValue;
-                                 };
+            async Task<object> Left()
+            {
+                if (leftValue == null)
+                {
+                    await expression.LeftExpression.AcceptAsync(this);
+                    leftValue = Result;
+                }
+
+                return leftValue;
+            }
 
             // simulate Lazy<Func<>> behavior for late evaluation
             object rightValue = null;
-            Func<object> right = () =>
+            async Task<object> Right()
             {
                 if (rightValue == null)
                 {
-                    expression.RightExpression.Accept(this);
+                    await expression.RightExpression.AcceptAsync(this);
                     rightValue = Result;
                 }
+
                 return rightValue;
-            };
+            }
 
             switch (expression.Type)
             {
                 case BinaryExpressionType.And:
-                    Result = Convert.ToBoolean(left()) && Convert.ToBoolean(right());
+                    Result = Convert.ToBoolean(await Left()) && Convert.ToBoolean(await Right());
                     break;
 
                 case BinaryExpressionType.Or:
-                    Result = Convert.ToBoolean(left()) || Convert.ToBoolean(right());
+                    Result = Convert.ToBoolean(await Left()) || Convert.ToBoolean(await Right());
                     break;
 
                 case BinaryExpressionType.Div:
-                    Result = IsReal(left()) || IsReal(right())
-                                 ? Numbers.Divide(left(), right())
-                                 : Numbers.Divide(Convert.ToDouble(left()), right());
+                    Result = IsReal(await Left()) || IsReal(await Right())
+                                 ? Numbers.Divide(await Left(), await Right())
+                                 : Numbers.Divide(Convert.ToDouble(await Left()), await Right());
                     break;
 
                 case BinaryExpressionType.Equal:
                     // Use the type of the left operand to make the comparison
-                    Result = CompareUsingMostPreciseType(left(), right()) == 0;
+                    Result = CompareUsingMostPreciseType(await Left(), await Right()) == 0;
                     break;
 
                 case BinaryExpressionType.Greater:
                     // Use the type of the left operand to make the comparison
-                    Result = CompareUsingMostPreciseType(left(), right()) > 0;
+                    Result = CompareUsingMostPreciseType(await Left(), await Right()) > 0;
                     break;
 
                 case BinaryExpressionType.GreaterOrEqual:
                     // Use the type of the left operand to make the comparison
-                    Result = CompareUsingMostPreciseType(left(), right()) >= 0;
+                    Result = CompareUsingMostPreciseType(await Left(), await Right()) >= 0;
                     break;
 
                 case BinaryExpressionType.Lesser:
                     // Use the type of the left operand to make the comparison
-                    Result = CompareUsingMostPreciseType(left(), right()) < 0;
+                    Result = CompareUsingMostPreciseType(await Left(), await Right()) < 0;
                     break;
 
                 case BinaryExpressionType.LesserOrEqual:
                     // Use the type of the left operand to make the comparison
-                    Result = CompareUsingMostPreciseType(left(), right()) <= 0;
+                    Result = CompareUsingMostPreciseType(await Left(), await Right()) <= 0;
                     break;
 
                 case BinaryExpressionType.Minus:
-                    Result = Numbers.Soustract(left(), right());
+                    Result = Numbers.Soustract(await Left(), await Right());
                     break;
 
                 case BinaryExpressionType.Modulo:
-                    Result = Numbers.Modulo(left(), right());
+                    Result = Numbers.Modulo(await Left(), await Right());
                     break;
 
                 case BinaryExpressionType.NotEqual:
                     // Use the type of the left operand to make the comparison
-                    Result = CompareUsingMostPreciseType(left(), right()) != 0;
+                    Result = CompareUsingMostPreciseType(await Left(), await Right()) != 0;
                     break;
 
                 case BinaryExpressionType.Plus:
-                    if (left() is string)
+                    if (await Left() is string)
                     {
-                        Result = String.Concat(left(), right());
+                        Result = String.Concat(await Left(), await Right());
                     }
                     else
                     {
-                        Result = Numbers.Add(left(), right());
+                        Result = Numbers.Add(await Left(), await Right());
                     }
 
                     break;
 
                 case BinaryExpressionType.Times:
-                    Result = Numbers.Multiply(left(), right());
+                    Result = Numbers.Multiply(await Left(), await Right());
                     break;
 
                 case BinaryExpressionType.BitwiseAnd:
-                    Result = Convert.ToUInt16(left()) & Convert.ToUInt16(right());
+                    Result = Convert.ToUInt16(await Left()) & Convert.ToUInt16(await Right());
                     break;
-
 
                 case BinaryExpressionType.BitwiseOr:
-                    Result = Convert.ToUInt16(left()) | Convert.ToUInt16(right());
+                    Result = Convert.ToUInt16(await Left()) | Convert.ToUInt16(await Right());
                     break;
-
 
                 case BinaryExpressionType.BitwiseXOr:
-                    Result = Convert.ToUInt16(left()) ^ Convert.ToUInt16(right());
+                    Result = Convert.ToUInt16(await Left()) ^ Convert.ToUInt16(await Right());
                     break;
-
 
                 case BinaryExpressionType.LeftShift:
-                    Result = Convert.ToUInt16(left()) << Convert.ToUInt16(right());
+                    Result = Convert.ToUInt16(await Left()) << Convert.ToUInt16(await Right());
                     break;
 
-
                 case BinaryExpressionType.RightShift:
-                    Result = Convert.ToUInt16(left()) >> Convert.ToUInt16(right());
+                    Result = Convert.ToUInt16(await Left()) >> Convert.ToUInt16(await Right());
                     break;
             }
         }
 
-        public override void Visit(UnaryExpression expression)
+        public override async Task VisitAsync(UnaryExpression expression)
         {
             // Recursively evaluates the underlying expression
-            expression.Expression.Accept(this);
+            await expression.Expression.AcceptAsync(this);
 
             switch (expression.Type)
             {
@@ -236,12 +237,13 @@ namespace NCalcAsync.Domain
             }
         }
 
-        public override void Visit(ValueExpression expression)
+        public override Task VisitAsync(ValueExpression expression)
         {
             Result = expression.Value;
+            return Task.CompletedTask;
         }
 
-        public override void Visit(Function function)
+        public override async Task VisitAsync(Function function)
         {
             var args = new FunctionArgs
                            {
@@ -251,18 +253,25 @@ namespace NCalcAsync.Domain
             // Don't call parameters right now, instead let the function do it as needed.
             // Some parameters shouldn't be called, for instance, in a if(), the "not" value might be a division by zero
             // Evaluating every value could produce unexpected behaviour
-            for (int i = 0; i < function.Expressions.Length; i++ )
+            for (int i = 0; i < function.Expressions.Length; i++)
             {
-                args.Parameters[i] =  new Expression(function.Expressions[i], _options);
-                args.Parameters[i].EvaluateFunction += EvaluateFunction;
-                args.Parameters[i].EvaluateParameter += EvaluateParameter;
+                args.Parameters[i] = new Expression(function.Expressions[i], _options)
+                {
+                    // Assign the parameters of the Expression to the arguments so that custom Functions and Parameters can use them
+                    Parameters = Parameters,
 
-                // Assign the parameters of the Expression to the arguments so that custom Functions and Parameters can use them
-                args.Parameters[i].Parameters = Parameters;
-            }            
+                    // Pass on the parameter and function evaluators, if any
+                    EvaluateParameterAsync = _evaluateParameterAsync,
+                    EvaluateFunctionAsync = _evaluateFunctionAsync
+                };
 
-            // Calls external implementation
-            OnEvaluateFunction(IgnoreCase ? function.Identifier.Name.ToLower() : function.Identifier.Name, args);
+            }
+
+            if (_evaluateFunctionAsync != null)
+            {
+                // Calls external implementation
+                await _evaluateFunctionAsync(IgnoreCase ? function.Identifier.Name.ToLower() : function.Identifier.Name, args);
+            }
 
             // If an external implementation was found get the result back
             if (args.HasResult)
@@ -282,7 +291,7 @@ namespace NCalcAsync.Domain
                         throw new ArgumentException("Abs() takes exactly 1 argument");
 
                     Result = Math.Abs(Convert.ToDecimal(
-                        Evaluate(function.Expressions[0]))
+                        await EvaluateAsync(function.Expressions[0]))
                         );
 
                     break;
@@ -297,7 +306,7 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 1)
                         throw new ArgumentException("Acos() takes exactly 1 argument");
 
-                    Result = Math.Acos(Convert.ToDouble(Evaluate(function.Expressions[0])));
+                    Result = Math.Acos(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])));
 
                     break;
 
@@ -311,7 +320,7 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 1)
                         throw new ArgumentException("Asin() takes exactly 1 argument");
 
-                    Result = Math.Asin(Convert.ToDouble(Evaluate(function.Expressions[0])));
+                    Result = Math.Asin(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])));
 
                     break;
 
@@ -325,7 +334,7 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 1)
                         throw new ArgumentException("Atan() takes exactly 1 argument");
 
-                    Result = Math.Atan(Convert.ToDouble(Evaluate(function.Expressions[0])));
+                    Result = Math.Atan(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])));
 
                     break;
 
@@ -339,7 +348,7 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 1)
                         throw new ArgumentException("Ceiling() takes exactly 1 argument");
 
-                    Result = Math.Ceiling(Convert.ToDouble(Evaluate(function.Expressions[0])));
+                    Result = Math.Ceiling(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])));
 
                     break;
 
@@ -354,7 +363,7 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 1)
                         throw new ArgumentException("Cos() takes exactly 1 argument");
 
-                    Result = Math.Cos(Convert.ToDouble(Evaluate(function.Expressions[0])));
+                    Result = Math.Cos(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])));
 
                     break;
 
@@ -368,7 +377,7 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 1)
                         throw new ArgumentException("Exp() takes exactly 1 argument");
 
-                    Result = Math.Exp(Convert.ToDouble(Evaluate(function.Expressions[0])));
+                    Result = Math.Exp(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])));
 
                     break;
 
@@ -382,7 +391,7 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 1)
                         throw new ArgumentException("Floor() takes exactly 1 argument");
 
-                    Result = Math.Floor(Convert.ToDouble(Evaluate(function.Expressions[0])));
+                    Result = Math.Floor(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])));
 
                     break;
 
@@ -396,7 +405,7 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 2)
                         throw new ArgumentException("IEEERemainder() takes exactly 2 arguments");
 
-                    Result = Math.IEEERemainder(Convert.ToDouble(Evaluate(function.Expressions[0])), Convert.ToDouble(Evaluate(function.Expressions[1])));
+                    Result = Math.IEEERemainder(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])), Convert.ToDouble(await EvaluateAsync(function.Expressions[1])));
 
                     break;
 
@@ -410,7 +419,7 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 2)
                         throw new ArgumentException("Log() takes exactly 2 arguments");
 
-                    Result = Math.Log(Convert.ToDouble(Evaluate(function.Expressions[0])), Convert.ToDouble(Evaluate(function.Expressions[1])));
+                    Result = Math.Log(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])), Convert.ToDouble(await EvaluateAsync(function.Expressions[1])));
 
                     break;
 
@@ -424,7 +433,7 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 1)
                         throw new ArgumentException("Log10() takes exactly 1 argument");
 
-                    Result = Math.Log10(Convert.ToDouble(Evaluate(function.Expressions[0])));
+                    Result = Math.Log10(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])));
 
                     break;
 
@@ -438,7 +447,7 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 2)
                         throw new ArgumentException("Pow() takes exactly 2 arguments");
 
-                    Result = Math.Pow(Convert.ToDouble(Evaluate(function.Expressions[0])), Convert.ToDouble(Evaluate(function.Expressions[1])));
+                    Result = Math.Pow(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])), Convert.ToDouble(await EvaluateAsync(function.Expressions[1])));
 
                     break;
 
@@ -454,7 +463,7 @@ namespace NCalcAsync.Domain
 
                     MidpointRounding rounding = (_options & EvaluateOptions.RoundAwayFromZero) == EvaluateOptions.RoundAwayFromZero ? MidpointRounding.AwayFromZero : MidpointRounding.ToEven;
 
-                    Result = Math.Round(Convert.ToDouble(Evaluate(function.Expressions[0])), Convert.ToInt16(Evaluate(function.Expressions[1])), rounding);
+                    Result = Math.Round(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])), Convert.ToInt16(await EvaluateAsync(function.Expressions[1])), rounding);
 
                     break;
 
@@ -468,7 +477,7 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 1)
                         throw new ArgumentException("Sign() takes exactly 1 argument");
 
-                    Result = Math.Sign(Convert.ToDouble(Evaluate(function.Expressions[0])));
+                    Result = Math.Sign(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])));
 
                     break;
 
@@ -482,7 +491,7 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 1)
                         throw new ArgumentException("Sin() takes exactly 1 argument");
 
-                    Result = Math.Sin(Convert.ToDouble(Evaluate(function.Expressions[0])));
+                    Result = Math.Sin(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])));
 
                     break;
 
@@ -496,7 +505,7 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 1)
                         throw new ArgumentException("Sqrt() takes exactly 1 argument");
 
-                    Result = Math.Sqrt(Convert.ToDouble(Evaluate(function.Expressions[0])));
+                    Result = Math.Sqrt(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])));
 
                     break;
 
@@ -510,7 +519,7 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 1)
                         throw new ArgumentException("Tan() takes exactly 1 argument");
 
-                    Result = Math.Tan(Convert.ToDouble(Evaluate(function.Expressions[0])));
+                    Result = Math.Tan(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])));
 
                     break;
 
@@ -524,12 +533,12 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 1)
                         throw new ArgumentException("Truncate() takes exactly 1 argument");
 
-                    Result = Math.Truncate(Convert.ToDouble(Evaluate(function.Expressions[0])));
+                    Result = Math.Truncate(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])));
 
                     break;
 
                 #endregion
-                
+
                 #region Max
                 case "max":
 
@@ -538,8 +547,8 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 2)
                         throw new ArgumentException("Max() takes exactly 2 arguments");
 
-                    object maxleft = Evaluate(function.Expressions[0]);
-                    object maxright = Evaluate(function.Expressions[1]);
+                    object maxleft = await EvaluateAsync(function.Expressions[0]);
+                    object maxright = await EvaluateAsync(function.Expressions[1]);
 
                     Result = Numbers.Max(maxleft, maxright);
                     break;
@@ -554,8 +563,8 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 2)
                         throw new ArgumentException("Min() takes exactly 2 arguments");
 
-                    object minleft = Evaluate(function.Expressions[0]);
-                    object minright = Evaluate(function.Expressions[1]);
+                    object minleft = await EvaluateAsync(function.Expressions[0]);
+                    object minright = await EvaluateAsync(function.Expressions[1]);
 
                     Result = Numbers.Min(minleft, minright);
                     break;
@@ -570,9 +579,9 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length != 3)
                         throw new ArgumentException("if() takes exactly 3 arguments");
 
-                    bool cond = Convert.ToBoolean(Evaluate(function.Expressions[0]));
+                    bool cond = Convert.ToBoolean(await EvaluateAsync(function.Expressions[0]));
 
-                    Result = cond ? Evaluate(function.Expressions[1]) : Evaluate(function.Expressions[2]);
+                    Result = cond ? await EvaluateAsync(function.Expressions[1]) : await EvaluateAsync(function.Expressions[2]);
                     break;
 
                 #endregion
@@ -585,14 +594,14 @@ namespace NCalcAsync.Domain
                     if (function.Expressions.Length < 2)
                         throw new ArgumentException("in() takes at least 2 arguments");
 
-                    object parameter = Evaluate(function.Expressions[0]);
+                    object parameter = await EvaluateAsync(function.Expressions[0]);
 
                     bool evaluation = false;
 
                     // Goes through any values, and stop whe one is found
                     for (int i = 1; i < function.Expressions.Length; i++)
                     {
-                        object argument = Evaluate(function.Expressions[i]);
+                        object argument = await EvaluateAsync(function.Expressions[i]);
                         if (CompareUsingMostPreciseType(parameter, argument) == 0)
                         {
                             evaluation = true;
@@ -606,7 +615,7 @@ namespace NCalcAsync.Domain
                 #endregion
 
                 default:
-                    throw new ArgumentException("Function not found", 
+                    throw new ArgumentException("Function not found",
                         function.Identifier.Name);
             }
         }
@@ -629,34 +638,22 @@ namespace NCalcAsync.Domain
             }
         }
 
-        public event EvaluateFunctionHandler EvaluateFunction;
-
-        private void OnEvaluateFunction(string name, FunctionArgs args)
-        {
-            if (EvaluateFunction != null)
-                EvaluateFunction(name, args);
-        }
-
-        public override void Visit(Identifier parameter)
+        public override async Task VisitAsync(Identifier parameter)
         {
             if (Parameters.ContainsKey(parameter.Name))
             {
                 // The parameter is defined in the hashtable
-                if (Parameters[parameter.Name] is Expression)
+                if (Parameters[parameter.Name] is Expression expression)
                 {
                     // The parameter is itself another Expression
-                    var expression = (Expression)Parameters[parameter.Name];
 
-                    // Overloads parameters 
+                    // Overloads parameters
                     foreach (var p in Parameters)
                     {
                         expression.Parameters[p.Key] = p.Value;
                     }
 
-                    expression.EvaluateFunction += EvaluateFunction;
-                    expression.EvaluateParameter += EvaluateParameter;
-
-                    Result = ((Expression)Parameters[parameter.Name]).Evaluate();
+                    Result = await expression.EvaluateAsync(_evaluateParameterAsync, _evaluateFunctionAsync);
                 }
                 else
                     Result = Parameters[parameter.Name];
@@ -666,8 +663,11 @@ namespace NCalcAsync.Domain
                 // The parameter should be defined in a call back method
                 var args = new ParameterArgs();
 
-                // Calls external implementation
-                OnEvaluateParameter(parameter.Name, args);
+                if (_evaluateParameterAsync != null)
+                {
+                    // Calls external implementation
+                    await _evaluateParameterAsync(parameter.Name, args);
+                }
 
                 if (!args.HasResult)
                     throw new ArgumentException("Parameter was not defined", parameter.Name);
@@ -676,15 +676,6 @@ namespace NCalcAsync.Domain
             }
         }
 
-        public event EvaluateParameterHandler EvaluateParameter;
-
-        private void OnEvaluateParameter(string name, ParameterArgs args)
-        {
-            if (EvaluateParameter != null)
-                EvaluateParameter(name, args);
-        }
-
         public Dictionary<string, object> Parameters { get; set; }
-
     }
 }
