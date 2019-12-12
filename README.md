@@ -1,4 +1,5 @@
 [![Build Status](https://dev.azure.com/ncalc-async/ncalc-async/_apis/build/status/ncalc.ncalc-async?branchName=master)](https://dev.azure.com/ncalc-async/ncalc-async/_build/latest?definitionId=1&branchName=master)
+![Nuget](https://img.shields.io/nuget/v/NCalcAsync)
 
 # NCalcAsync
 
