@@ -14,17 +14,36 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+- script: dotnet restore
+  displayName: Restore packages
+
+- script: dotnet build -c $(BuildConfiguration) --no-restore
+  displayName: Build
+
+- script: dotnet pack -c $(BuildConfiguration) --no-build
+  displayName: Pack
+
+- task: CopyFiles@2
+  displayName: Collect packages
+  inputs:
+    SourceFolder: bin/$(BuildConfiguration)
+    Contents: |
+      *.nupkg
+      *.snupkg
+    TargetFolder: $(Build.ArtifactStagingDirectory)/Packages
+  condition: eq(variables['BuildConfiguration'], 'Release')
+
+- task: PublishBuildArtifacts@1
+  displayName: Publish packages as build artifacts
+  inputs:
+    PathtoPublish: $(Build.ArtifactStagingDirectory)/Packages
+    ArtifactName: Packages
+    publishLocation: Container
+  condition: eq(variables['BuildConfiguration'], 'Release')
 
 - task: DotNetCoreCLI@2
+  displayName: Run unit tests
   inputs:
     command: test
     projects: '**/*Tests/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
-
-- task: NuGetCommand@2
-  inputs:
-    command: 'pack'
-    packagesToPack: 'src/NCalcAsync/NCalcAsync.csproj'
-    versioningScheme: 'off'
