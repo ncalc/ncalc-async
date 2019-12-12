@@ -26,7 +26,7 @@ steps:
 - task: CopyFiles@2
   displayName: Collect packages
   inputs:
-    SourceFolder: bin/$(BuildConfiguration)
+    SourceFolder: src/NCalcAsync/bin/$(BuildConfiguration)
     Contents: |
       *.nupkg
       *.snupkg
