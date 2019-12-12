@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/ncalc-async/ncalc-async/_apis/build/status/ncalc.ncalc-async?branchName=master)](https://dev.azure.com/ncalc-async/ncalc-async/_build/latest?definitionId=1&branchName=master)
+
 # NCalcAsync
 
 NCalcAsync is a fully async port of the [NCalc](https://github.com/ncalc/ncalc) mathematical expressions evaluator in .NET. NCalc can parse any expression and evaluate the result, including static or dynamic parameters and custom functions.
