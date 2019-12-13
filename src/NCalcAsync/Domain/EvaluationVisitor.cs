@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace NCalcAsync.Domain
@@ -269,8 +270,14 @@ namespace NCalcAsync.Domain
 
             if (_evaluateFunctionAsync != null)
             {
-                // Calls external implementation
-                await _evaluateFunctionAsync(IgnoreCase ? function.Identifier.Name.ToLower() : function.Identifier.Name, args);
+                var name = IgnoreCase ? function.Identifier.Name.ToLower() : function.Identifier.Name;
+
+                // Calls external implementations, which  may be a MulticastDelegate which 
+                // requires manual handling for async delegates.
+                foreach (var handler in _evaluateFunctionAsync.GetInvocationList().Cast<EvaluateFunctionAsyncHandler>())
+                {
+                    await handler.Invoke(name, args);
+                }
             }
 
             // If an external implementation was found get the result back
@@ -665,8 +672,14 @@ namespace NCalcAsync.Domain
 
                 if (_evaluateParameterAsync != null)
                 {
-                    // Calls external implementation
-                    await _evaluateParameterAsync(parameter.Name, args);
+                    var name = IgnoreCase ? parameter.Name.ToLower() : parameter.Name;
+
+                    // Calls external implementations, which  may be a MulticastDelegate which 
+                    // requires manual handling for async delegates.
+                    foreach (var handler in _evaluateParameterAsync.GetInvocationList().Cast<EvaluateParameterAsyncHandler>())
+                    {
+                        await handler.Invoke(name, args);
+                    }
                 }
 
                 if (!args.HasResult)

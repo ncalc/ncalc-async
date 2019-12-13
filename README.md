@@ -16,9 +16,14 @@ For general documentation refer to the NCalc wiki:
 
 Expressions are evaluated using `Expression.EvaluateAsync()` instead of `Expression.Evaluate()`.
 
-Async custom parameter and function handlers are assigned to `Expression.EvaluateParameterAsync` and `Expression.EvalauteFunctionAsync`, instead of adding event handlers.  They are asynchronous and thus return a `Task` but otherwise behave the same way as the handlers in NCalc, i.e. they set `args.Result` to pass back the result and indicate that it handled the symbol.  However, only a single handler each for parameters and functions are supported, where NCalc allows multiple event handlers.  If you need multiple handlers you need to wrap them in an async function calling each in turn.
+Async custom parameter and function handlers are assigned to `Expression.EvaluateParameterAsync` 
+and `Expression.EvalauteFunctionAsync`, instead of adding event handlers.  They are asynchronous 
+and thus return a `Task` but otherwise behave the same way as the handlers in NCalc, i.e. they set 
+`args.Result` to pass back the result and indicate that it handled the symbol.  Multiple handlers 
+can be added with `+=`, just like in NCalc.  They are awaited in order, so if one of them blocks 
+the following handlers will not be called until it returns.
 
-`FunctionArgs.EvaluateParametersAsync` replaces `FunctionArgs.EvaluateParameters`.
+`FunctionArgs.EvaluateParametersAsync()` replaces `FunctionArgs.EvaluateParameters()`.
 
 Custom `LogicalExpressionVisitor` implementations must be fully asynchronous.
 

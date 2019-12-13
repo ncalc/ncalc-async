@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace NCalcAsync.Tests
 {
@@ -624,6 +624,62 @@ namespace NCalcAsync.Tests
             // It's difficult to do exact timing tests in async code, but since delay(fixed_delay) will delay at least 200ms,
             // and delay(200) will do the same, we know it should take at least 200ms to run.
             Assert.IsTrue(stopWatch.ElapsedMilliseconds >= 200);
+        }
+
+        [TestMethod]
+        public async Task MultipleEvaluateFunctionHandlersCanBeAdded()
+        {
+            var e = new Expression("a(10) + b(20)");
+
+            // Delaying in the first function handler that's added but not in the second
+            // seems to reliably cause a() not to be found when the code doesn't handle
+            // MulticastDelegate itself.  (Timing-dependent unit tests are always suspect, though).
+            e.EvaluateFunctionAsync += async (name, args) =>
+            {
+                await Task.Delay(200);
+                if (name == "a")
+                {
+                    args.Result = 10 * (int) await args.Parameters[0].EvaluateAsync();
+                }
+            };
+
+            e.EvaluateFunctionAsync += async (name, args) =>
+            {
+                if (name == "b")
+                {
+                    args.Result = 100 * (int) await args.Parameters[0].EvaluateAsync();
+                }
+            };
+
+            Assert.AreEqual(2100, await e.EvaluateAsync());
+        }
+
+        [TestMethod]
+        public async Task MultipleEvaluateParameterHandlersCanBeAdded()
+        {
+            var e = new Expression("a + b");
+
+            // Same kind of timing as in the test above
+            e.EvaluateParameterAsync += async (name, args) =>
+            {
+                await Task.Delay(200);
+                if (name == "a")
+                {
+                    args.Result = 10;
+                }
+            };
+
+            e.EvaluateParameterAsync += (name, args) =>
+            {
+                if (name == "b")
+                {
+                    args.Result = 20;
+                }
+
+                return Task.CompletedTask;
+            };
+
+            Assert.AreEqual(30, await e.EvaluateAsync());
         }
     }
 }
