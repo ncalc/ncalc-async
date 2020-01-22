@@ -93,6 +93,7 @@ namespace NCalcAsync.Tests
             Assert.AreEqual(1d, await new Expression("Exp(0)").EvaluateAsync());
             Assert.AreEqual(1d, await new Expression("Floor(1.5)").EvaluateAsync());
             Assert.AreEqual(-1d, await new Expression("IEEERemainder(3,2)").EvaluateAsync());
+            Assert.AreEqual(0d, await new Expression("Ln(1)").EvaluateAsync());
             Assert.AreEqual(0d, await new Expression("Log(1,10)").EvaluateAsync());
             Assert.AreEqual(0d, await new Expression("Log10(1)").EvaluateAsync());
             Assert.AreEqual(9d, await new Expression("Pow(3,2)").EvaluateAsync());
