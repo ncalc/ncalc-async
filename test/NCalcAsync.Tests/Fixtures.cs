@@ -500,7 +500,7 @@ namespace NCalcAsync.Tests
         [TestMethod]
         public async Task ShouldHandleLongValues()
         {
-            Assert.AreEqual(40000000000 + 1f, await new Expression("40000000000+1").EvaluateAsync());
+            Assert.AreEqual(40_000_000_000 + 1, await new Expression("40000000000+1").EvaluateAsync());
         }
 
         [TestMethod]
@@ -681,6 +681,16 @@ namespace NCalcAsync.Tests
             };
 
             Assert.AreEqual(30, await e.EvaluateAsync());
+        }
+
+        [TestMethod]
+        public async Task IncorrectCalculation_Issue_4()
+        {
+            Expression e = new Expression("(1604326026000-1604325747000)/60000");
+            var evalutedResult = await e.EvaluateAsync();
+
+            Assert.IsInstanceOfType(evalutedResult, typeof(double));
+            Assert.AreEqual(4.65, (double)evalutedResult, 0.001);
         }
     }
 }
