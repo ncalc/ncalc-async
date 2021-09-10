@@ -445,7 +445,7 @@ namespace NCalcAsync.Tests
                 if (name == "SecretOperation")
                     args.Result = null;
                 Assert.IsTrue(args.HasResult);
-                
+
                 return Task.CompletedTask;
             };
 
@@ -703,6 +703,27 @@ namespace NCalcAsync.Tests
 
             var result2 = Assert.ThrowsException<EvaluationException>(() => Expression.Compile("Format(\"{0:(###) ###-####}\", \"9999999999\")", true));
             Assert.AreEqual("line 1:8 no viable alternative at character '\"'", result2.Message);
+        }
+
+        [TestMethod]
+        public async Task Should_Divide_Decimal_By_Double_Issue_16()
+        {
+            // https://github.com/ncalc/ncalc/issues/16
+
+            var e = new Expression("x / 1.0");
+            e.Parameters["x"] = 1m;
+
+            Assert.AreEqual(1m, await e.EvaluateAsync());
+        }
+
+        [TestMethod]
+        public async Task Should_Divide_Decimal_By_Single()
+        {
+            var e = new Expression("x / y");
+            e.Parameters["x"] = 1m;
+            e.Parameters["y"] = 1f;
+
+            Assert.AreEqual(1m, await e.EvaluateAsync());
         }
     }
 }

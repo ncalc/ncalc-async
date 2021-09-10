@@ -847,8 +847,8 @@ namespace NCalcAsync
                         case TypeCode.UInt32: return (Decimal)a / (UInt32)b;
                         case TypeCode.Int64: return (Decimal)a / (Int64)b;
                         case TypeCode.UInt64: return (Decimal)a / (UInt64)b;
-                        case TypeCode.Single: throw new InvalidOperationException("Operator '/' can't be applied to operands of types 'decimal' and 'float'");
-                        case TypeCode.Double: return Convert.ToDecimal(a) / (Decimal)b;
+                        case TypeCode.Single: return (Decimal)a / Convert.ToDecimal(b);
+                        case TypeCode.Double: return (Decimal)a / Convert.ToDecimal(b);
                         case TypeCode.Decimal: return (Decimal)a / (Decimal)b;
                     }
                     break;
