@@ -1,4 +1,4 @@
-[![Build Status](https://dev.azure.com/ncalc-async/ncalc-async/_apis/build/status/ncalc.ncalc-async?branchName=master)](https://dev.azure.com/ncalc-async/ncalc-async/_build/latest?definitionId=1&branchName=master)
+[![Continuous Integration](https://github.com/ncalc/ncalc-async/actions/workflows/ci.yml/badge.svg)](https://github.com/ncalc/ncalc-async/actions/workflows/ci.yml)
 [![Nuget](https://img.shields.io/nuget/v/NCalcAsync)](https://www.nuget.org/packages/NCalcAsync/)
 
 # NCalcAsync
