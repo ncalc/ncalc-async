@@ -217,6 +217,7 @@ namespace NCalcAsync.Tests
                                   {
                                       {"!true", false},
                                       {"not false", true},
+                                      {"2**-1", 0.5 },
                                       {"2 * 3", 6},
                                       {"6 / 2", 3d},
                                       {"7 % 2", 1},
@@ -263,6 +264,13 @@ namespace NCalcAsync.Tests
 
             Assert.AreEqual(9d, await new Expression("1 + 2 + 3 * 4 / 2").EvaluateAsync());
             Assert.AreEqual(13.5, await new Expression("18/2/2*3").EvaluateAsync());
+
+            Assert.AreEqual(-1d, await new Expression("-1 ** 2").EvaluateAsync());
+            Assert.AreEqual(1d, await new Expression("(-1) ** 2").EvaluateAsync());
+            Assert.AreEqual(512d, await new Expression("2 ** 3 ** 2").EvaluateAsync());
+            Assert.AreEqual(64d, await new Expression("(2 ** 3) ** 2").EvaluateAsync());
+            Assert.AreEqual(18d, await new Expression("2 * 3 ** 2").EvaluateAsync());
+            Assert.AreEqual(8d, await new Expression("2 ** 4 / 2").EvaluateAsync());
         }
 
         [TestMethod]
