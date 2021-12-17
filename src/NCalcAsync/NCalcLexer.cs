@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.5.0.2 NCalc.g 2021-12-17 09:11:58
+// $ANTLR 3.5.0.2 NCalc.g 2021-12-17 11:32:45
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -1134,17 +1134,17 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = TRUE;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:247:5: ( T R U E )
+			// NCalc.g:248:5: ( T R U E )
 			DebugEnterAlt(1);
-			// NCalc.g:247:7: T R U E
+			// NCalc.g:248:7: T R U E
 			{
-			DebugLocation(247, 7);
+			DebugLocation(248, 7);
 			mT(); 
-			DebugLocation(247, 9);
+			DebugLocation(248, 9);
 			mR(); 
-			DebugLocation(247, 11);
+			DebugLocation(248, 11);
 			mU(); 
-			DebugLocation(247, 13);
+			DebugLocation(248, 13);
 			mE(); 
 
 			}
@@ -1175,19 +1175,19 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = FALSE;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:248:6: ( F A L S E )
+			// NCalc.g:249:6: ( F A L S E )
 			DebugEnterAlt(1);
-			// NCalc.g:248:8: F A L S E
+			// NCalc.g:249:8: F A L S E
 			{
-			DebugLocation(248, 8);
+			DebugLocation(249, 8);
 			mF(); 
-			DebugLocation(248, 10);
+			DebugLocation(249, 10);
 			mA(); 
-			DebugLocation(248, 12);
+			DebugLocation(249, 12);
 			mL(); 
-			DebugLocation(248, 14);
+			DebugLocation(249, 14);
 			mS(); 
-			DebugLocation(248, 16);
+			DebugLocation(249, 16);
 			mE(); 
 
 			}
@@ -1218,15 +1218,15 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = AND;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:249:4: ( A N D )
+			// NCalc.g:250:4: ( A N D )
 			DebugEnterAlt(1);
-			// NCalc.g:249:6: A N D
+			// NCalc.g:250:6: A N D
 			{
-			DebugLocation(249, 6);
+			DebugLocation(250, 6);
 			mA(); 
-			DebugLocation(249, 8);
+			DebugLocation(250, 8);
 			mN(); 
-			DebugLocation(249, 10);
+			DebugLocation(250, 10);
 			mD(); 
 
 			}
@@ -1257,13 +1257,13 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = OR;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:250:3: ( O R )
+			// NCalc.g:251:3: ( O R )
 			DebugEnterAlt(1);
-			// NCalc.g:250:5: O R
+			// NCalc.g:251:6: O R
 			{
-			DebugLocation(250, 5);
+			DebugLocation(251, 6);
 			mO(); 
-			DebugLocation(250, 7);
+			DebugLocation(251, 8);
 			mR(); 
 
 			}
@@ -1294,15 +1294,15 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = NOT;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:251:4: ( N O T )
+			// NCalc.g:252:4: ( N O T )
 			DebugEnterAlt(1);
-			// NCalc.g:251:6: N O T
+			// NCalc.g:252:6: N O T
 			{
-			DebugLocation(251, 6);
+			DebugLocation(252, 6);
 			mN(); 
-			DebugLocation(251, 8);
+			DebugLocation(252, 8);
 			mO(); 
-			DebugLocation(251, 10);
+			DebugLocation(252, 10);
 			mT(); 
 
 			}
@@ -1333,14 +1333,14 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = ID;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:254:2: ( LETTER ( LETTER | DIGIT )* )
+			// NCalc.g:255:2: ( LETTER ( LETTER | DIGIT )* )
 			DebugEnterAlt(1);
-			// NCalc.g:254:5: LETTER ( LETTER | DIGIT )*
+			// NCalc.g:255:5: LETTER ( LETTER | DIGIT )*
 			{
-			DebugLocation(254, 5);
+			DebugLocation(255, 5);
 			mLETTER(); 
-			DebugLocation(254, 12);
-			// NCalc.g:254:12: ( LETTER | DIGIT )*
+			DebugLocation(255, 12);
+			// NCalc.g:255:12: ( LETTER | DIGIT )*
 			try { DebugEnterSubRule(1);
 			while (true)
 			{
@@ -1361,7 +1361,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// NCalc.g:
 					{
-					DebugLocation(254, 12);
+					DebugLocation(255, 12);
 					input.Consume();
 
 
@@ -1407,12 +1407,12 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = INTEGER;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:258:2: ( ( DIGIT )+ )
+			// NCalc.g:259:2: ( ( DIGIT )+ )
 			DebugEnterAlt(1);
-			// NCalc.g:258:4: ( DIGIT )+
+			// NCalc.g:259:4: ( DIGIT )+
 			{
-			DebugLocation(258, 4);
-			// NCalc.g:258:4: ( DIGIT )+
+			DebugLocation(259, 4);
+			// NCalc.g:259:4: ( DIGIT )+
 			int cnt2=0;
 			try { DebugEnterSubRule(2);
 			while (true)
@@ -1434,7 +1434,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// NCalc.g:
 					{
-					DebugLocation(258, 4);
+					DebugLocation(259, 4);
 					input.Consume();
 
 
@@ -1485,7 +1485,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = FLOAT;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:262:2: ( ( DIGIT )* '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | ( DIGIT )+ EXPONENT )
+			// NCalc.g:263:2: ( ( DIGIT )* '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | ( DIGIT )+ EXPONENT )
 			int alt10=3;
 			try { DebugEnterDecision(10, false);
 			try
@@ -1502,10 +1502,10 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// NCalc.g:262:4: ( DIGIT )* '.' ( DIGIT )+ ( EXPONENT )?
+				// NCalc.g:263:4: ( DIGIT )* '.' ( DIGIT )+ ( EXPONENT )?
 				{
-				DebugLocation(262, 4);
-				// NCalc.g:262:4: ( DIGIT )*
+				DebugLocation(263, 4);
+				// NCalc.g:263:4: ( DIGIT )*
 				try { DebugEnterSubRule(3);
 				while (true)
 				{
@@ -1526,7 +1526,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 						DebugEnterAlt(1);
 						// NCalc.g:
 						{
-						DebugLocation(262, 4);
+						DebugLocation(263, 4);
 						input.Consume();
 
 
@@ -1543,10 +1543,10 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 
 				} finally { DebugExitSubRule(3); }
 
-				DebugLocation(262, 11);
+				DebugLocation(263, 11);
 				Match('.'); 
-				DebugLocation(262, 15);
-				// NCalc.g:262:15: ( DIGIT )+
+				DebugLocation(263, 15);
+				// NCalc.g:263:15: ( DIGIT )+
 				int cnt4=0;
 				try { DebugEnterSubRule(4);
 				while (true)
@@ -1568,7 +1568,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 						DebugEnterAlt(1);
 						// NCalc.g:
 						{
-						DebugLocation(262, 15);
+						DebugLocation(263, 15);
 						input.Consume();
 
 
@@ -1590,8 +1590,8 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 
 				} finally { DebugExitSubRule(4); }
 
-				DebugLocation(262, 22);
-				// NCalc.g:262:22: ( EXPONENT )?
+				DebugLocation(263, 22);
+				// NCalc.g:263:22: ( EXPONENT )?
 				int alt5=2;
 				try { DebugEnterSubRule(5);
 				try { DebugEnterDecision(5, false);
@@ -1606,9 +1606,9 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// NCalc.g:262:22: EXPONENT
+					// NCalc.g:263:22: EXPONENT
 					{
-					DebugLocation(262, 22);
+					DebugLocation(263, 22);
 					mEXPONENT(); 
 
 					}
@@ -1622,10 +1622,10 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// NCalc.g:263:4: ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )?
+				// NCalc.g:264:4: ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )?
 				{
-				DebugLocation(263, 4);
-				// NCalc.g:263:4: ( DIGIT )+
+				DebugLocation(264, 4);
+				// NCalc.g:264:4: ( DIGIT )+
 				int cnt6=0;
 				try { DebugEnterSubRule(6);
 				while (true)
@@ -1647,7 +1647,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 						DebugEnterAlt(1);
 						// NCalc.g:
 						{
-						DebugLocation(263, 4);
+						DebugLocation(264, 4);
 						input.Consume();
 
 
@@ -1669,10 +1669,10 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 
 				} finally { DebugExitSubRule(6); }
 
-				DebugLocation(263, 11);
+				DebugLocation(264, 11);
 				Match('.'); 
-				DebugLocation(263, 15);
-				// NCalc.g:263:15: ( DIGIT )*
+				DebugLocation(264, 15);
+				// NCalc.g:264:15: ( DIGIT )*
 				try { DebugEnterSubRule(7);
 				while (true)
 				{
@@ -1693,7 +1693,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 						DebugEnterAlt(1);
 						// NCalc.g:
 						{
-						DebugLocation(263, 15);
+						DebugLocation(264, 15);
 						input.Consume();
 
 
@@ -1710,8 +1710,8 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 
 				} finally { DebugExitSubRule(7); }
 
-				DebugLocation(263, 22);
-				// NCalc.g:263:22: ( EXPONENT )?
+				DebugLocation(264, 22);
+				// NCalc.g:264:22: ( EXPONENT )?
 				int alt8=2;
 				try { DebugEnterSubRule(8);
 				try { DebugEnterDecision(8, false);
@@ -1726,9 +1726,9 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// NCalc.g:263:22: EXPONENT
+					// NCalc.g:264:22: EXPONENT
 					{
-					DebugLocation(263, 22);
+					DebugLocation(264, 22);
 					mEXPONENT(); 
 
 					}
@@ -1742,10 +1742,10 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// NCalc.g:264:4: ( DIGIT )+ EXPONENT
+				// NCalc.g:265:4: ( DIGIT )+ EXPONENT
 				{
-				DebugLocation(264, 4);
-				// NCalc.g:264:4: ( DIGIT )+
+				DebugLocation(265, 4);
+				// NCalc.g:265:4: ( DIGIT )+
 				int cnt9=0;
 				try { DebugEnterSubRule(9);
 				while (true)
@@ -1767,7 +1767,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 						DebugEnterAlt(1);
 						// NCalc.g:
 						{
-						DebugLocation(264, 4);
+						DebugLocation(265, 4);
 						input.Consume();
 
 
@@ -1789,7 +1789,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 
 				} finally { DebugExitSubRule(9); }
 
-				DebugLocation(264, 11);
+				DebugLocation(265, 11);
 				mEXPONENT(); 
 
 				}
@@ -1822,14 +1822,14 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = STRING;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:268:6: ( '\\'' ( EscapeSequence | ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) ) )* '\\'' )
+			// NCalc.g:269:6: ( '\\'' ( EscapeSequence | ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) ) )* '\\'' )
 			DebugEnterAlt(1);
-			// NCalc.g:268:10: '\\'' ( EscapeSequence | ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) ) )* '\\''
+			// NCalc.g:269:10: '\\'' ( EscapeSequence | ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) ) )* '\\''
 			{
-			DebugLocation(268, 10);
+			DebugLocation(269, 10);
 			Match('\''); 
-			DebugLocation(268, 15);
-			// NCalc.g:268:15: ( EscapeSequence | ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) ) )*
+			DebugLocation(269, 15);
+			// NCalc.g:269:15: ( EscapeSequence | ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) ) )*
 			try { DebugEnterSubRule(11);
 			while (true)
 			{
@@ -1852,23 +1852,23 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// NCalc.g:268:17: EscapeSequence
+					// NCalc.g:269:17: EscapeSequence
 					{
-					DebugLocation(268, 17);
+					DebugLocation(269, 17);
 					mEscapeSequence(); 
 
 					}
 					break;
 				case 2:
 					DebugEnterAlt(2);
-					// NCalc.g:268:34: ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) )
+					// NCalc.g:269:34: ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) )
 					{
-					DebugLocation(268, 34);
-					// NCalc.g:268:34: ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) )
+					DebugLocation(269, 34);
+					// NCalc.g:269:34: ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) )
 					DebugEnterAlt(1);
-					// NCalc.g:268:61: ~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' )
+					// NCalc.g:269:61: ~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' )
 					{
-					DebugLocation(268, 61);
+					DebugLocation(269, 61);
 					input.Consume();
 
 
@@ -1888,7 +1888,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 
 			} finally { DebugExitSubRule(11); }
 
-			DebugLocation(268, 103);
+			DebugLocation(269, 103);
 			Match('\''); 
 
 			}
@@ -1919,19 +1919,19 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = DATETIME;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:272:3: ( '#' ( options {greedy=false; } : (~ ( '#' ) )* ) '#' )
+			// NCalc.g:273:3: ( '#' ( options {greedy=false; } : (~ ( '#' ) )* ) '#' )
 			DebugEnterAlt(1);
-			// NCalc.g:272:5: '#' ( options {greedy=false; } : (~ ( '#' ) )* ) '#'
+			// NCalc.g:273:5: '#' ( options {greedy=false; } : (~ ( '#' ) )* ) '#'
 			{
-			DebugLocation(272, 5);
+			DebugLocation(273, 5);
 			Match('#'); 
-			DebugLocation(272, 9);
-			// NCalc.g:272:9: ( options {greedy=false; } : (~ ( '#' ) )* )
+			DebugLocation(273, 9);
+			// NCalc.g:273:9: ( options {greedy=false; } : (~ ( '#' ) )* )
 			DebugEnterAlt(1);
-			// NCalc.g:272:36: (~ ( '#' ) )*
+			// NCalc.g:273:36: (~ ( '#' ) )*
 			{
-			DebugLocation(272, 36);
-			// NCalc.g:272:36: (~ ( '#' ) )*
+			DebugLocation(273, 36);
+			// NCalc.g:273:36: (~ ( '#' ) )*
 			try { DebugEnterSubRule(12);
 			while (true)
 			{
@@ -1952,7 +1952,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// NCalc.g:
 					{
-					DebugLocation(272, 36);
+					DebugLocation(273, 36);
 					input.Consume();
 
 
@@ -1972,7 +1972,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 
 			}
 
-			DebugLocation(272, 45);
+			DebugLocation(273, 45);
 			Match('#'); 
 
 			}
@@ -2003,19 +2003,19 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = NAME;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:275:6: ( '[' ( options {greedy=false; } : (~ ( ']' ) )* ) ']' )
+			// NCalc.g:276:6: ( '[' ( options {greedy=false; } : (~ ( ']' ) )* ) ']' )
 			DebugEnterAlt(1);
-			// NCalc.g:275:8: '[' ( options {greedy=false; } : (~ ( ']' ) )* ) ']'
+			// NCalc.g:276:8: '[' ( options {greedy=false; } : (~ ( ']' ) )* ) ']'
 			{
-			DebugLocation(275, 8);
+			DebugLocation(276, 8);
 			Match('['); 
-			DebugLocation(275, 12);
-			// NCalc.g:275:12: ( options {greedy=false; } : (~ ( ']' ) )* )
+			DebugLocation(276, 12);
+			// NCalc.g:276:12: ( options {greedy=false; } : (~ ( ']' ) )* )
 			DebugEnterAlt(1);
-			// NCalc.g:275:39: (~ ( ']' ) )*
+			// NCalc.g:276:39: (~ ( ']' ) )*
 			{
-			DebugLocation(275, 39);
-			// NCalc.g:275:39: (~ ( ']' ) )*
+			DebugLocation(276, 39);
+			// NCalc.g:276:39: (~ ( ']' ) )*
 			try { DebugEnterSubRule(13);
 			while (true)
 			{
@@ -2036,7 +2036,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// NCalc.g:
 					{
-					DebugLocation(275, 39);
+					DebugLocation(276, 39);
 					input.Consume();
 
 
@@ -2056,7 +2056,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 
 			}
 
-			DebugLocation(275, 48);
+			DebugLocation(276, 48);
 			Match(']'); 
 
 			}
@@ -2087,11 +2087,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = EXPONENT;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:279:2: ( ( 'E' | 'e' ) ( '+' | '-' )? ( DIGIT )+ )
+			// NCalc.g:280:2: ( ( 'E' | 'e' ) ( '+' | '-' )? ( DIGIT )+ )
 			DebugEnterAlt(1);
-			// NCalc.g:279:4: ( 'E' | 'e' ) ( '+' | '-' )? ( DIGIT )+
+			// NCalc.g:280:4: ( 'E' | 'e' ) ( '+' | '-' )? ( DIGIT )+
 			{
-			DebugLocation(279, 4);
+			DebugLocation(280, 4);
 			if (input.LA(1)=='E'||input.LA(1)=='e')
 			{
 				input.Consume();
@@ -2104,8 +2104,8 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 				throw mse;
 			}
 
-			DebugLocation(279, 14);
-			// NCalc.g:279:14: ( '+' | '-' )?
+			DebugLocation(280, 14);
+			// NCalc.g:280:14: ( '+' | '-' )?
 			int alt14=2;
 			try { DebugEnterSubRule(14);
 			try { DebugEnterDecision(14, false);
@@ -2122,7 +2122,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 				DebugEnterAlt(1);
 				// NCalc.g:
 				{
-				DebugLocation(279, 14);
+				DebugLocation(280, 14);
 				input.Consume();
 
 
@@ -2132,8 +2132,8 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 			}
 			} finally { DebugExitSubRule(14); }
 
-			DebugLocation(279, 25);
-			// NCalc.g:279:25: ( DIGIT )+
+			DebugLocation(280, 25);
+			// NCalc.g:280:25: ( DIGIT )+
 			int cnt15=0;
 			try { DebugEnterSubRule(15);
 			while (true)
@@ -2155,7 +2155,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// NCalc.g:
 					{
-					DebugLocation(279, 25);
+					DebugLocation(280, 25);
 					input.Consume();
 
 
@@ -2204,11 +2204,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("LETTER", 41);
 		try
 		{
-			// NCalc.g:283:2: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )
+			// NCalc.g:284:2: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(283, 2);
+			DebugLocation(284, 2);
 			if ((input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z'))
 			{
 				input.Consume();
@@ -2246,11 +2246,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("DIGIT", 42);
 		try
 		{
-			// NCalc.g:289:2: ( '0' .. '9' )
+			// NCalc.g:290:2: ( '0' .. '9' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(289, 2);
+			DebugLocation(290, 2);
 			if ((input.LA(1)>='0' && input.LA(1)<='9'))
 			{
 				input.Consume();
@@ -2288,14 +2288,14 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("EscapeSequence", 43);
 		try
 		{
-			// NCalc.g:293:2: ( '\\\\' ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape ) )
+			// NCalc.g:294:2: ( '\\\\' ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape ) )
 			DebugEnterAlt(1);
-			// NCalc.g:293:4: '\\\\' ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape )
+			// NCalc.g:294:4: '\\\\' ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape )
 			{
-			DebugLocation(293, 4);
-			Match('\\'); 
 			DebugLocation(294, 4);
-			// NCalc.g:294:4: ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape )
+			Match('\\'); 
+			DebugLocation(295, 4);
+			// NCalc.g:295:4: ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape )
 			int alt16=6;
 			try { DebugEnterSubRule(16);
 			try { DebugEnterDecision(16, false);
@@ -2344,54 +2344,54 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// NCalc.g:295:5: 'n'
+				// NCalc.g:296:5: 'n'
 				{
-				DebugLocation(295, 5);
+				DebugLocation(296, 5);
 				Match('n'); 
 
 				}
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// NCalc.g:296:4: 'r'
+				// NCalc.g:297:4: 'r'
 				{
-				DebugLocation(296, 4);
+				DebugLocation(297, 4);
 				Match('r'); 
 
 				}
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// NCalc.g:297:4: 't'
+				// NCalc.g:298:4: 't'
 				{
-				DebugLocation(297, 4);
+				DebugLocation(298, 4);
 				Match('t'); 
 
 				}
 				break;
 			case 4:
 				DebugEnterAlt(4);
-				// NCalc.g:298:4: '\\''
+				// NCalc.g:299:4: '\\''
 				{
-				DebugLocation(298, 4);
+				DebugLocation(299, 4);
 				Match('\''); 
 
 				}
 				break;
 			case 5:
 				DebugEnterAlt(5);
-				// NCalc.g:299:4: '\\\\'
+				// NCalc.g:300:4: '\\\\'
 				{
-				DebugLocation(299, 4);
+				DebugLocation(300, 4);
 				Match('\\'); 
 
 				}
 				break;
 			case 6:
 				DebugEnterAlt(6);
-				// NCalc.g:300:4: UnicodeEscape
+				// NCalc.g:301:4: UnicodeEscape
 				{
-				DebugLocation(300, 4);
+				DebugLocation(301, 4);
 				mUnicodeEscape(); 
 
 				}
@@ -2425,11 +2425,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("HexDigit", 44);
 		try
 		{
-			// NCalc.g:305:2: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+			// NCalc.g:306:2: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(305, 2);
+			DebugLocation(306, 2);
 			if ((input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f'))
 			{
 				input.Consume();
@@ -2467,19 +2467,19 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("UnicodeEscape", 45);
 		try
 		{
-			// NCalc.g:309:6: ( 'u' HexDigit HexDigit HexDigit HexDigit )
+			// NCalc.g:310:6: ( 'u' HexDigit HexDigit HexDigit HexDigit )
 			DebugEnterAlt(1);
-			// NCalc.g:309:12: 'u' HexDigit HexDigit HexDigit HexDigit
+			// NCalc.g:310:12: 'u' HexDigit HexDigit HexDigit HexDigit
 			{
-			DebugLocation(309, 12);
+			DebugLocation(310, 12);
 			Match('u'); 
-			DebugLocation(309, 16);
+			DebugLocation(310, 16);
 			mHexDigit(); 
-			DebugLocation(309, 25);
+			DebugLocation(310, 25);
 			mHexDigit(); 
-			DebugLocation(309, 34);
+			DebugLocation(310, 34);
 			mHexDigit(); 
-			DebugLocation(309, 43);
+			DebugLocation(310, 43);
 			mHexDigit(); 
 
 			}
@@ -2508,11 +2508,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = WS;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:313:4: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
+			// NCalc.g:314:4: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
 			DebugEnterAlt(1);
-			// NCalc.g:313:7: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
+			// NCalc.g:314:7: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
 			{
-			DebugLocation(313, 7);
+			DebugLocation(314, 7);
 			if ((input.LA(1)>='\t' && input.LA(1)<='\n')||(input.LA(1)>='\f' && input.LA(1)<='\r')||input.LA(1)==' ')
 			{
 				input.Consume();
@@ -2525,7 +2525,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 				throw mse;
 			}
 
-			DebugLocation(313, 37);
+			DebugLocation(314, 37);
 			_channel=Hidden;
 
 			}
@@ -2554,11 +2554,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("A", 47);
 		try
 		{
-			// NCalc.g:319:11: ( 'a' | 'A' )
+			// NCalc.g:320:11: ( 'a' | 'A' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(319, 11);
+			DebugLocation(320, 11);
 			if (input.LA(1)=='A'||input.LA(1)=='a')
 			{
 				input.Consume();
@@ -2596,11 +2596,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("B", 48);
 		try
 		{
-			// NCalc.g:320:11: ( 'b' | 'B' )
+			// NCalc.g:321:11: ( 'b' | 'B' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(320, 11);
+			DebugLocation(321, 11);
 			if (input.LA(1)=='B'||input.LA(1)=='b')
 			{
 				input.Consume();
@@ -2638,11 +2638,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("C", 49);
 		try
 		{
-			// NCalc.g:321:11: ( 'c' | 'C' )
+			// NCalc.g:322:11: ( 'c' | 'C' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(321, 11);
+			DebugLocation(322, 11);
 			if (input.LA(1)=='C'||input.LA(1)=='c')
 			{
 				input.Consume();
@@ -2680,11 +2680,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("D", 50);
 		try
 		{
-			// NCalc.g:322:11: ( 'd' | 'D' )
+			// NCalc.g:323:11: ( 'd' | 'D' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(322, 11);
+			DebugLocation(323, 11);
 			if (input.LA(1)=='D'||input.LA(1)=='d')
 			{
 				input.Consume();
@@ -2722,11 +2722,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("E", 51);
 		try
 		{
-			// NCalc.g:323:11: ( 'e' | 'E' )
+			// NCalc.g:324:11: ( 'e' | 'E' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(323, 11);
+			DebugLocation(324, 11);
 			if (input.LA(1)=='E'||input.LA(1)=='e')
 			{
 				input.Consume();
@@ -2764,11 +2764,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("F", 52);
 		try
 		{
-			// NCalc.g:324:11: ( 'f' | 'F' )
+			// NCalc.g:325:11: ( 'f' | 'F' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(324, 11);
+			DebugLocation(325, 11);
 			if (input.LA(1)=='F'||input.LA(1)=='f')
 			{
 				input.Consume();
@@ -2806,11 +2806,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("G", 53);
 		try
 		{
-			// NCalc.g:325:11: ( 'g' | 'G' )
+			// NCalc.g:326:11: ( 'g' | 'G' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(325, 11);
+			DebugLocation(326, 11);
 			if (input.LA(1)=='G'||input.LA(1)=='g')
 			{
 				input.Consume();
@@ -2848,11 +2848,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("H", 54);
 		try
 		{
-			// NCalc.g:326:11: ( 'h' | 'H' )
+			// NCalc.g:327:11: ( 'h' | 'H' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(326, 11);
+			DebugLocation(327, 11);
 			if (input.LA(1)=='H'||input.LA(1)=='h')
 			{
 				input.Consume();
@@ -2890,11 +2890,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("I", 55);
 		try
 		{
-			// NCalc.g:327:11: ( 'i' | 'I' )
+			// NCalc.g:328:11: ( 'i' | 'I' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(327, 11);
+			DebugLocation(328, 11);
 			if (input.LA(1)=='I'||input.LA(1)=='i')
 			{
 				input.Consume();
@@ -2932,11 +2932,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("J", 56);
 		try
 		{
-			// NCalc.g:328:11: ( 'j' | 'J' )
+			// NCalc.g:329:11: ( 'j' | 'J' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(328, 11);
+			DebugLocation(329, 11);
 			if (input.LA(1)=='J'||input.LA(1)=='j')
 			{
 				input.Consume();
@@ -2974,11 +2974,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("K", 57);
 		try
 		{
-			// NCalc.g:329:11: ( 'k' | 'K' )
+			// NCalc.g:330:11: ( 'k' | 'K' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(329, 11);
+			DebugLocation(330, 11);
 			if (input.LA(1)=='K'||input.LA(1)=='k')
 			{
 				input.Consume();
@@ -3016,11 +3016,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("L", 58);
 		try
 		{
-			// NCalc.g:330:11: ( 'l' | 'L' )
+			// NCalc.g:331:11: ( 'l' | 'L' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(330, 11);
+			DebugLocation(331, 11);
 			if (input.LA(1)=='L'||input.LA(1)=='l')
 			{
 				input.Consume();
@@ -3058,11 +3058,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("M", 59);
 		try
 		{
-			// NCalc.g:331:11: ( 'm' | 'M' )
+			// NCalc.g:332:11: ( 'm' | 'M' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(331, 11);
+			DebugLocation(332, 11);
 			if (input.LA(1)=='M'||input.LA(1)=='m')
 			{
 				input.Consume();
@@ -3100,11 +3100,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("N", 60);
 		try
 		{
-			// NCalc.g:332:11: ( 'n' | 'N' )
+			// NCalc.g:333:11: ( 'n' | 'N' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(332, 11);
+			DebugLocation(333, 11);
 			if (input.LA(1)=='N'||input.LA(1)=='n')
 			{
 				input.Consume();
@@ -3142,11 +3142,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("O", 61);
 		try
 		{
-			// NCalc.g:333:11: ( 'o' | 'O' )
+			// NCalc.g:334:11: ( 'o' | 'O' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(333, 11);
+			DebugLocation(334, 11);
 			if (input.LA(1)=='O'||input.LA(1)=='o')
 			{
 				input.Consume();
@@ -3184,11 +3184,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("P", 62);
 		try
 		{
-			// NCalc.g:334:11: ( 'p' | 'P' )
+			// NCalc.g:335:11: ( 'p' | 'P' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(334, 11);
+			DebugLocation(335, 11);
 			if (input.LA(1)=='P'||input.LA(1)=='p')
 			{
 				input.Consume();
@@ -3226,11 +3226,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("Q", 63);
 		try
 		{
-			// NCalc.g:335:11: ( 'q' | 'Q' )
+			// NCalc.g:336:11: ( 'q' | 'Q' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(335, 11);
+			DebugLocation(336, 11);
 			if (input.LA(1)=='Q'||input.LA(1)=='q')
 			{
 				input.Consume();
@@ -3268,11 +3268,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("R", 64);
 		try
 		{
-			// NCalc.g:336:11: ( 'r' | 'R' )
+			// NCalc.g:337:11: ( 'r' | 'R' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(336, 11);
+			DebugLocation(337, 11);
 			if (input.LA(1)=='R'||input.LA(1)=='r')
 			{
 				input.Consume();
@@ -3310,11 +3310,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("S", 65);
 		try
 		{
-			// NCalc.g:337:11: ( 's' | 'S' )
+			// NCalc.g:338:11: ( 's' | 'S' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(337, 11);
+			DebugLocation(338, 11);
 			if (input.LA(1)=='S'||input.LA(1)=='s')
 			{
 				input.Consume();
@@ -3352,11 +3352,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("T", 66);
 		try
 		{
-			// NCalc.g:338:11: ( 't' | 'T' )
+			// NCalc.g:339:11: ( 't' | 'T' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(338, 11);
+			DebugLocation(339, 11);
 			if (input.LA(1)=='T'||input.LA(1)=='t')
 			{
 				input.Consume();
@@ -3394,11 +3394,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("U", 67);
 		try
 		{
-			// NCalc.g:339:11: ( 'u' | 'U' )
+			// NCalc.g:340:11: ( 'u' | 'U' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(339, 11);
+			DebugLocation(340, 11);
 			if (input.LA(1)=='U'||input.LA(1)=='u')
 			{
 				input.Consume();
@@ -3436,11 +3436,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("V", 68);
 		try
 		{
-			// NCalc.g:340:11: ( 'v' | 'V' )
+			// NCalc.g:341:11: ( 'v' | 'V' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(340, 11);
+			DebugLocation(341, 11);
 			if (input.LA(1)=='V'||input.LA(1)=='v')
 			{
 				input.Consume();
@@ -3478,11 +3478,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("W", 69);
 		try
 		{
-			// NCalc.g:341:11: ( 'w' | 'W' )
+			// NCalc.g:342:11: ( 'w' | 'W' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(341, 11);
+			DebugLocation(342, 11);
 			if (input.LA(1)=='W'||input.LA(1)=='w')
 			{
 				input.Consume();
@@ -3520,11 +3520,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("X", 70);
 		try
 		{
-			// NCalc.g:342:11: ( 'x' | 'X' )
+			// NCalc.g:343:11: ( 'x' | 'X' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(342, 11);
+			DebugLocation(343, 11);
 			if (input.LA(1)=='X'||input.LA(1)=='x')
 			{
 				input.Consume();
@@ -3562,11 +3562,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("Y", 71);
 		try
 		{
-			// NCalc.g:343:11: ( 'y' | 'Y' )
+			// NCalc.g:344:11: ( 'y' | 'Y' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(343, 11);
+			DebugLocation(344, 11);
 			if (input.LA(1)=='Y'||input.LA(1)=='y')
 			{
 				input.Consume();
@@ -3604,11 +3604,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("Z", 72);
 		try
 		{
-			// NCalc.g:344:11: ( 'z' | 'Z' )
+			// NCalc.g:345:11: ( 'z' | 'Z' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(344, 11);
+			DebugLocation(345, 11);
 			if (input.LA(1)=='Z'||input.LA(1)=='z')
 			{
 				input.Consume();
@@ -4093,7 +4093,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 			this.transition = DFA10_transition;
 		}
 
-		public override string Description { get { return "261:1: FLOAT : ( ( DIGIT )* '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | ( DIGIT )+ EXPONENT );"; } }
+		public override string Description { get { return "262:1: FLOAT : ( ( DIGIT )* '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | ( DIGIT )+ EXPONENT );"; } }
 
 		public override void Error(NoViableAltException nvae)
 		{

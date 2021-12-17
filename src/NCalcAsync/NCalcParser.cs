@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.5.0.2 NCalc.g 2021-12-17 09:11:57
+// $ANTLR 3.5.0.2 NCalc.g 2021-12-17 11:32:45
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -2059,7 +2059,7 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 	partial void EnterRule_unaryExpression();
 	partial void LeaveRule_unaryExpression();
 	// $ANTLR start "unaryExpression"
-	// NCalc.g:199:1: unaryExpression returns [LogicalExpression value] : ( exponentialExpression | ( '!' | NOT ) exponentialExpression | ( '~' ) exponentialExpression | '-' exponentialExpression );
+	// NCalc.g:199:1: unaryExpression returns [LogicalExpression value] : ( exponentialExpression | ( '!' | NOT ) exponentialExpression | ( '~' ) exponentialExpression | '-' exponentialExpression | '+' exponentialExpression );
 	[GrammarRule("unaryExpression")]
 	private NCalcParser.unaryExpression_return unaryExpression()
 	{
@@ -2074,20 +2074,23 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 		IToken set24 = default(IToken);
 		IToken char_literal26 = default(IToken);
 		IToken char_literal28 = default(IToken);
+		IToken char_literal30 = default(IToken);
 		AstParserRuleReturnScope<CommonTree, IToken> exponentialExpression23 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 		AstParserRuleReturnScope<CommonTree, IToken> exponentialExpression25 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 		AstParserRuleReturnScope<CommonTree, IToken> exponentialExpression27 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 		AstParserRuleReturnScope<CommonTree, IToken> exponentialExpression29 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+		AstParserRuleReturnScope<CommonTree, IToken> exponentialExpression31 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
 		CommonTree set24_tree = default(CommonTree);
 		CommonTree char_literal26_tree = default(CommonTree);
 		CommonTree char_literal28_tree = default(CommonTree);
+		CommonTree char_literal30_tree = default(CommonTree);
 		try { DebugEnterRule(GrammarFileName, "unaryExpression");
 		DebugLocation(199, 4);
 		try
 		{
-			// NCalc.g:200:2: ( exponentialExpression | ( '!' | NOT ) exponentialExpression | ( '~' ) exponentialExpression | '-' exponentialExpression )
-			int alt17=4;
+			// NCalc.g:200:2: ( exponentialExpression | ( '!' | NOT ) exponentialExpression | ( '~' ) exponentialExpression | '-' exponentialExpression | '+' exponentialExpression )
+			int alt17=5;
 			try { DebugEnterDecision(17, false);
 			switch (input.LA(1))
 			{
@@ -2118,6 +2121,11 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 			case 59:
 				{
 				alt17 = 4;
+				}
+				break;
+			case 57:
+				{
+				alt17 = 5;
 				}
 				break;
 			default:
@@ -2231,6 +2239,27 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 
 				}
 				break;
+			case 5:
+				DebugEnterAlt(5);
+				// NCalc.g:204:7: '+' exponentialExpression
+				{
+				root_0 = (CommonTree)adaptor.Nil();
+
+				DebugLocation(204, 7);
+				char_literal30=(IToken)Match(input,57,Follow._57_in_unaryExpression830); 
+				char_literal30_tree = (CommonTree)adaptor.Create(char_literal30);
+				adaptor.AddChild(root_0, char_literal30_tree);
+				DebugLocation(204, 11);
+				PushFollow(Follow._exponentialExpression_in_unaryExpression832);
+				exponentialExpression31=exponentialExpression();
+				PopFollow();
+
+				adaptor.AddChild(root_0, exponentialExpression31.Tree);
+				DebugLocation(204, 33);
+				 retval.value = (exponentialExpression31!=null?((NCalcParser.exponentialExpression_return)exponentialExpression31).value:default(LogicalExpression)); 
+
+				}
+				break;
 
 			}
 			retval.Stop = (IToken)input.LT(-1);
@@ -2252,7 +2281,7 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 			LeaveRule("unaryExpression", 13);
 			LeaveRule_unaryExpression();
 		}
-		DebugLocation(204, 4);
+		DebugLocation(205, 4);
 		} finally { DebugExitRule(GrammarFileName, "unaryExpression"); }
 		return retval;
 
@@ -2269,7 +2298,7 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 	partial void EnterRule_exponentialExpression();
 	partial void LeaveRule_exponentialExpression();
 	// $ANTLR start "exponentialExpression"
-	// NCalc.g:206:1: exponentialExpression returns [LogicalExpression value] : left= primaryExpression ( '**' right= unaryExpression )* ;
+	// NCalc.g:207:1: exponentialExpression returns [LogicalExpression value] : left= primaryExpression ( '**' right= unaryExpression )* ;
 	[GrammarRule("exponentialExpression")]
 	private NCalcParser.exponentialExpression_return exponentialExpression()
 	{
@@ -2281,31 +2310,31 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 
 		CommonTree root_0 = default(CommonTree);
 
-		IToken string_literal30 = default(IToken);
+		IToken string_literal32 = default(IToken);
 		AstParserRuleReturnScope<CommonTree, IToken> left = default(AstParserRuleReturnScope<CommonTree, IToken>);
 		AstParserRuleReturnScope<CommonTree, IToken> right = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-		CommonTree string_literal30_tree = default(CommonTree);
+		CommonTree string_literal32_tree = default(CommonTree);
 		try { DebugEnterRule(GrammarFileName, "exponentialExpression");
-		DebugLocation(206, 1);
+		DebugLocation(207, 1);
 		try
 		{
-			// NCalc.g:207:2: (left= primaryExpression ( '**' right= unaryExpression )* )
+			// NCalc.g:208:2: (left= primaryExpression ( '**' right= unaryExpression )* )
 			DebugEnterAlt(1);
-			// NCalc.g:207:5: left= primaryExpression ( '**' right= unaryExpression )*
+			// NCalc.g:208:5: left= primaryExpression ( '**' right= unaryExpression )*
 			{
 			root_0 = (CommonTree)adaptor.Nil();
 
-			DebugLocation(207, 9);
-			PushFollow(Follow._primaryExpression_in_exponentialExpression845);
+			DebugLocation(208, 9);
+			PushFollow(Follow._primaryExpression_in_exponentialExpression857);
 			left=primaryExpression();
 			PopFollow();
 
 			adaptor.AddChild(root_0, left.Tree);
-			DebugLocation(207, 28);
+			DebugLocation(208, 28);
 			 retval.value = (left!=null?((NCalcParser.primaryExpression_return)left).value:default(LogicalExpression)); 
-			DebugLocation(207, 54);
-			// NCalc.g:207:54: ( '**' right= unaryExpression )*
+			DebugLocation(208, 54);
+			// NCalc.g:208:54: ( '**' right= unaryExpression )*
 			try { DebugEnterSubRule(18);
 			while (true)
 			{
@@ -2324,19 +2353,19 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// NCalc.g:208:4: '**' right= unaryExpression
+					// NCalc.g:209:4: '**' right= unaryExpression
 					{
-					DebugLocation(208, 4);
-					string_literal30=(IToken)Match(input,56,Follow._56_in_exponentialExpression854); 
-					string_literal30_tree = (CommonTree)adaptor.Create(string_literal30);
-					adaptor.AddChild(root_0, string_literal30_tree);
-					DebugLocation(208, 14);
-					PushFollow(Follow._unaryExpression_in_exponentialExpression858);
+					DebugLocation(209, 4);
+					string_literal32=(IToken)Match(input,56,Follow._56_in_exponentialExpression866); 
+					string_literal32_tree = (CommonTree)adaptor.Create(string_literal32);
+					adaptor.AddChild(root_0, string_literal32_tree);
+					DebugLocation(209, 14);
+					PushFollow(Follow._unaryExpression_in_exponentialExpression870);
 					right=unaryExpression();
 					PopFollow();
 
 					adaptor.AddChild(root_0, right.Tree);
-					DebugLocation(208, 31);
+					DebugLocation(209, 31);
 					 retval.value = new BinaryExpression(BinaryExpressionType.Exponentiation, retval.value, (right!=null?((NCalcParser.unaryExpression_return)right).value:default(LogicalExpression))); 
 
 					}
@@ -2374,7 +2403,7 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 			LeaveRule("exponentialExpression", 14);
 			LeaveRule_exponentialExpression();
 		}
-		DebugLocation(210, 1);
+		DebugLocation(211, 1);
 		} finally { DebugExitRule(GrammarFileName, "exponentialExpression"); }
 		return retval;
 
@@ -2391,7 +2420,7 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 	partial void EnterRule_primaryExpression();
 	partial void LeaveRule_primaryExpression();
 	// $ANTLR start "primaryExpression"
-	// NCalc.g:212:1: primaryExpression returns [LogicalExpression value] : ( '(' logicalExpression ')' |expr= value | identifier ( arguments )? );
+	// NCalc.g:213:1: primaryExpression returns [LogicalExpression value] : ( '(' logicalExpression ')' |expr= value | identifier ( arguments )? );
 	[GrammarRule("primaryExpression")]
 	private NCalcParser.primaryExpression_return primaryExpression()
 	{
@@ -2403,20 +2432,20 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 
 		CommonTree root_0 = default(CommonTree);
 
-		IToken char_literal31 = default(IToken);
 		IToken char_literal33 = default(IToken);
+		IToken char_literal35 = default(IToken);
 		AstParserRuleReturnScope<CommonTree, IToken> expr = default(AstParserRuleReturnScope<CommonTree, IToken>);
-		AstParserRuleReturnScope<CommonTree, IToken> logicalExpression32 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-		AstParserRuleReturnScope<CommonTree, IToken> identifier34 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-		AstParserRuleReturnScope<CommonTree, IToken> arguments35 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+		AstParserRuleReturnScope<CommonTree, IToken> logicalExpression34 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+		AstParserRuleReturnScope<CommonTree, IToken> identifier36 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+		AstParserRuleReturnScope<CommonTree, IToken> arguments37 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-		CommonTree char_literal31_tree = default(CommonTree);
 		CommonTree char_literal33_tree = default(CommonTree);
+		CommonTree char_literal35_tree = default(CommonTree);
 		try { DebugEnterRule(GrammarFileName, "primaryExpression");
-		DebugLocation(212, 1);
+		DebugLocation(213, 1);
 		try
 		{
-			// NCalc.g:213:2: ( '(' logicalExpression ')' |expr= value | identifier ( arguments )? )
+			// NCalc.g:214:2: ( '(' logicalExpression ')' |expr= value | identifier ( arguments )? )
 			int alt20=3;
 			try { DebugEnterDecision(20, false);
 			switch (input.LA(1))
@@ -2455,62 +2484,62 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// NCalc.g:213:4: '(' logicalExpression ')'
+				// NCalc.g:214:4: '(' logicalExpression ')'
 				{
 				root_0 = (CommonTree)adaptor.Nil();
 
-				DebugLocation(213, 4);
-				char_literal31=(IToken)Match(input,53,Follow._53_in_primaryExpression881); 
-				char_literal31_tree = (CommonTree)adaptor.Create(char_literal31);
-				adaptor.AddChild(root_0, char_literal31_tree);
-				DebugLocation(213, 8);
-				PushFollow(Follow._logicalExpression_in_primaryExpression883);
-				logicalExpression32=logicalExpression();
-				PopFollow();
-
-				adaptor.AddChild(root_0, logicalExpression32.Tree);
-				DebugLocation(213, 26);
-				char_literal33=(IToken)Match(input,54,Follow._54_in_primaryExpression885); 
+				DebugLocation(214, 4);
+				char_literal33=(IToken)Match(input,53,Follow._53_in_primaryExpression893); 
 				char_literal33_tree = (CommonTree)adaptor.Create(char_literal33);
 				adaptor.AddChild(root_0, char_literal33_tree);
-				DebugLocation(213, 31);
-				 retval.value = (logicalExpression32!=null?((NCalcParser.logicalExpression_return)logicalExpression32).value:default(LogicalExpression)); 
+				DebugLocation(214, 8);
+				PushFollow(Follow._logicalExpression_in_primaryExpression895);
+				logicalExpression34=logicalExpression();
+				PopFollow();
+
+				adaptor.AddChild(root_0, logicalExpression34.Tree);
+				DebugLocation(214, 26);
+				char_literal35=(IToken)Match(input,54,Follow._54_in_primaryExpression897); 
+				char_literal35_tree = (CommonTree)adaptor.Create(char_literal35);
+				adaptor.AddChild(root_0, char_literal35_tree);
+				DebugLocation(214, 31);
+				 retval.value = (logicalExpression34!=null?((NCalcParser.logicalExpression_return)logicalExpression34).value:default(LogicalExpression)); 
 
 				}
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// NCalc.g:214:4: expr= value
+				// NCalc.g:215:4: expr= value
 				{
 				root_0 = (CommonTree)adaptor.Nil();
 
-				DebugLocation(214, 8);
-				PushFollow(Follow._value_in_primaryExpression895);
+				DebugLocation(215, 8);
+				PushFollow(Follow._value_in_primaryExpression907);
 				expr=value();
 				PopFollow();
 
 				adaptor.AddChild(root_0, expr.Tree);
-				DebugLocation(214, 16);
+				DebugLocation(215, 16);
 				 retval.value = (expr!=null?((NCalcParser.value_return)expr).value:default(ValueExpression)); 
 
 				}
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// NCalc.g:215:4: identifier ( arguments )?
+				// NCalc.g:216:4: identifier ( arguments )?
 				{
 				root_0 = (CommonTree)adaptor.Nil();
 
-				DebugLocation(215, 4);
-				PushFollow(Follow._identifier_in_primaryExpression903);
-				identifier34=identifier();
+				DebugLocation(216, 4);
+				PushFollow(Follow._identifier_in_primaryExpression915);
+				identifier36=identifier();
 				PopFollow();
 
-				adaptor.AddChild(root_0, identifier34.Tree);
-				DebugLocation(215, 15);
-				retval.value = (LogicalExpression) (identifier34!=null?((NCalcParser.identifier_return)identifier34).value:default(Identifier)); 
-				DebugLocation(215, 66);
-				// NCalc.g:215:66: ( arguments )?
+				adaptor.AddChild(root_0, identifier36.Tree);
+				DebugLocation(216, 15);
+				retval.value = (LogicalExpression) (identifier36!=null?((NCalcParser.identifier_return)identifier36).value:default(Identifier)); 
+				DebugLocation(216, 66);
+				// NCalc.g:216:66: ( arguments )?
 				int alt19=2;
 				try { DebugEnterSubRule(19);
 				try { DebugEnterDecision(19, false);
@@ -2525,16 +2554,16 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// NCalc.g:215:67: arguments
+					// NCalc.g:216:67: arguments
 					{
-					DebugLocation(215, 67);
-					PushFollow(Follow._arguments_in_primaryExpression908);
-					arguments35=arguments();
+					DebugLocation(216, 67);
+					PushFollow(Follow._arguments_in_primaryExpression920);
+					arguments37=arguments();
 					PopFollow();
 
-					adaptor.AddChild(root_0, arguments35.Tree);
-					DebugLocation(215, 77);
-					retval.value = new Function((identifier34!=null?((NCalcParser.identifier_return)identifier34).value:default(Identifier)), ((arguments35!=null?((NCalcParser.arguments_return)arguments35).value:default(List<LogicalExpression>))).ToArray()); 
+					adaptor.AddChild(root_0, arguments37.Tree);
+					DebugLocation(216, 77);
+					retval.value = new Function((identifier36!=null?((NCalcParser.identifier_return)identifier36).value:default(Identifier)), ((arguments37!=null?((NCalcParser.arguments_return)arguments37).value:default(List<LogicalExpression>))).ToArray()); 
 
 					}
 					break;
@@ -2566,7 +2595,7 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 			LeaveRule("primaryExpression", 15);
 			LeaveRule_primaryExpression();
 		}
-		DebugLocation(216, 1);
+		DebugLocation(217, 1);
 		} finally { DebugExitRule(GrammarFileName, "primaryExpression"); }
 		return retval;
 
@@ -2583,7 +2612,7 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 	partial void EnterRule_value();
 	partial void LeaveRule_value();
 	// $ANTLR start "value"
-	// NCalc.g:218:1: value returns [ValueExpression value] : ( INTEGER | FLOAT | STRING | DATETIME | TRUE | FALSE );
+	// NCalc.g:219:1: value returns [ValueExpression value] : ( INTEGER | FLOAT | STRING | DATETIME | TRUE | FALSE );
 	[GrammarRule("value")]
 	private NCalcParser.value_return value()
 	{
@@ -2595,24 +2624,24 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 
 		CommonTree root_0 = default(CommonTree);
 
-		IToken INTEGER36 = default(IToken);
-		IToken FLOAT37 = default(IToken);
-		IToken STRING38 = default(IToken);
-		IToken DATETIME39 = default(IToken);
-		IToken TRUE40 = default(IToken);
-		IToken FALSE41 = default(IToken);
+		IToken INTEGER38 = default(IToken);
+		IToken FLOAT39 = default(IToken);
+		IToken STRING40 = default(IToken);
+		IToken DATETIME41 = default(IToken);
+		IToken TRUE42 = default(IToken);
+		IToken FALSE43 = default(IToken);
 
-		CommonTree INTEGER36_tree = default(CommonTree);
-		CommonTree FLOAT37_tree = default(CommonTree);
-		CommonTree STRING38_tree = default(CommonTree);
-		CommonTree DATETIME39_tree = default(CommonTree);
-		CommonTree TRUE40_tree = default(CommonTree);
-		CommonTree FALSE41_tree = default(CommonTree);
+		CommonTree INTEGER38_tree = default(CommonTree);
+		CommonTree FLOAT39_tree = default(CommonTree);
+		CommonTree STRING40_tree = default(CommonTree);
+		CommonTree DATETIME41_tree = default(CommonTree);
+		CommonTree TRUE42_tree = default(CommonTree);
+		CommonTree FALSE43_tree = default(CommonTree);
 		try { DebugEnterRule(GrammarFileName, "value");
-		DebugLocation(218, 1);
+		DebugLocation(219, 1);
 		try
 		{
-			// NCalc.g:219:2: ( INTEGER | FLOAT | STRING | DATETIME | TRUE | FALSE )
+			// NCalc.g:220:2: ( INTEGER | FLOAT | STRING | DATETIME | TRUE | FALSE )
 			int alt21=6;
 			try { DebugEnterDecision(21, false);
 			switch (input.LA(1))
@@ -2660,90 +2689,90 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// NCalc.g:219:5: INTEGER
+				// NCalc.g:220:5: INTEGER
 				{
 				root_0 = (CommonTree)adaptor.Nil();
 
-				DebugLocation(219, 5);
-				INTEGER36=(IToken)Match(input,INTEGER,Follow._INTEGER_in_value928); 
-				INTEGER36_tree = (CommonTree)adaptor.Create(INTEGER36);
-				adaptor.AddChild(root_0, INTEGER36_tree);
-				DebugLocation(219, 14);
-				 try { retval.value = new ValueExpression(int.Parse((INTEGER36!=null?INTEGER36.Text:default(string)))); } catch(System.OverflowException) { retval.value = new ValueExpression(long.Parse((INTEGER36!=null?INTEGER36.Text:default(string)))); } 
+				DebugLocation(220, 5);
+				INTEGER38=(IToken)Match(input,INTEGER,Follow._INTEGER_in_value940); 
+				INTEGER38_tree = (CommonTree)adaptor.Create(INTEGER38);
+				adaptor.AddChild(root_0, INTEGER38_tree);
+				DebugLocation(220, 14);
+				 try { retval.value = new ValueExpression(int.Parse((INTEGER38!=null?INTEGER38.Text:default(string)))); } catch(System.OverflowException) { retval.value = new ValueExpression(long.Parse((INTEGER38!=null?INTEGER38.Text:default(string)))); } 
 
 				}
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// NCalc.g:220:4: FLOAT
+				// NCalc.g:221:4: FLOAT
 				{
 				root_0 = (CommonTree)adaptor.Nil();
 
-				DebugLocation(220, 4);
-				FLOAT37=(IToken)Match(input,FLOAT,Follow._FLOAT_in_value936); 
-				FLOAT37_tree = (CommonTree)adaptor.Create(FLOAT37);
-				adaptor.AddChild(root_0, FLOAT37_tree);
-				DebugLocation(220, 11);
-				 retval.value = new ValueExpression(double.Parse((FLOAT37!=null?FLOAT37.Text:default(string)), NumberStyles.Float, numberFormatInfo)); 
+				DebugLocation(221, 4);
+				FLOAT39=(IToken)Match(input,FLOAT,Follow._FLOAT_in_value948); 
+				FLOAT39_tree = (CommonTree)adaptor.Create(FLOAT39);
+				adaptor.AddChild(root_0, FLOAT39_tree);
+				DebugLocation(221, 11);
+				 retval.value = new ValueExpression(double.Parse((FLOAT39!=null?FLOAT39.Text:default(string)), NumberStyles.Float, numberFormatInfo)); 
 
 				}
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// NCalc.g:221:4: STRING
+				// NCalc.g:222:4: STRING
 				{
 				root_0 = (CommonTree)adaptor.Nil();
 
-				DebugLocation(221, 4);
-				STRING38=(IToken)Match(input,STRING,Follow._STRING_in_value944); 
-				STRING38_tree = (CommonTree)adaptor.Create(STRING38);
-				adaptor.AddChild(root_0, STRING38_tree);
-				DebugLocation(221, 12);
-				 retval.value = new ValueExpression(extractString((STRING38!=null?STRING38.Text:default(string)))); 
+				DebugLocation(222, 4);
+				STRING40=(IToken)Match(input,STRING,Follow._STRING_in_value956); 
+				STRING40_tree = (CommonTree)adaptor.Create(STRING40);
+				adaptor.AddChild(root_0, STRING40_tree);
+				DebugLocation(222, 12);
+				 retval.value = new ValueExpression(extractString((STRING40!=null?STRING40.Text:default(string)))); 
 
 				}
 				break;
 			case 4:
 				DebugEnterAlt(4);
-				// NCalc.g:222:5: DATETIME
+				// NCalc.g:223:5: DATETIME
 				{
 				root_0 = (CommonTree)adaptor.Nil();
 
-				DebugLocation(222, 5);
-				DATETIME39=(IToken)Match(input,DATETIME,Follow._DATETIME_in_value953); 
-				DATETIME39_tree = (CommonTree)adaptor.Create(DATETIME39);
-				adaptor.AddChild(root_0, DATETIME39_tree);
-				DebugLocation(222, 14);
-				 retval.value = new ValueExpression(DateTime.Parse((DATETIME39!=null?DATETIME39.Text:default(string)).Substring(1, (DATETIME39!=null?DATETIME39.Text:default(string)).Length-2))); 
+				DebugLocation(223, 5);
+				DATETIME41=(IToken)Match(input,DATETIME,Follow._DATETIME_in_value965); 
+				DATETIME41_tree = (CommonTree)adaptor.Create(DATETIME41);
+				adaptor.AddChild(root_0, DATETIME41_tree);
+				DebugLocation(223, 14);
+				 retval.value = new ValueExpression(DateTime.Parse((DATETIME41!=null?DATETIME41.Text:default(string)).Substring(1, (DATETIME41!=null?DATETIME41.Text:default(string)).Length-2))); 
 
 				}
 				break;
 			case 5:
 				DebugEnterAlt(5);
-				// NCalc.g:223:4: TRUE
+				// NCalc.g:224:4: TRUE
 				{
 				root_0 = (CommonTree)adaptor.Nil();
 
-				DebugLocation(223, 4);
-				TRUE40=(IToken)Match(input,TRUE,Follow._TRUE_in_value960); 
-				TRUE40_tree = (CommonTree)adaptor.Create(TRUE40);
-				adaptor.AddChild(root_0, TRUE40_tree);
-				DebugLocation(223, 10);
+				DebugLocation(224, 4);
+				TRUE42=(IToken)Match(input,TRUE,Follow._TRUE_in_value972); 
+				TRUE42_tree = (CommonTree)adaptor.Create(TRUE42);
+				adaptor.AddChild(root_0, TRUE42_tree);
+				DebugLocation(224, 10);
 				 retval.value = new ValueExpression(true); 
 
 				}
 				break;
 			case 6:
 				DebugEnterAlt(6);
-				// NCalc.g:224:4: FALSE
+				// NCalc.g:225:4: FALSE
 				{
 				root_0 = (CommonTree)adaptor.Nil();
 
-				DebugLocation(224, 4);
-				FALSE41=(IToken)Match(input,FALSE,Follow._FALSE_in_value968); 
-				FALSE41_tree = (CommonTree)adaptor.Create(FALSE41);
-				adaptor.AddChild(root_0, FALSE41_tree);
-				DebugLocation(224, 11);
+				DebugLocation(225, 4);
+				FALSE43=(IToken)Match(input,FALSE,Follow._FALSE_in_value980); 
+				FALSE43_tree = (CommonTree)adaptor.Create(FALSE43);
+				adaptor.AddChild(root_0, FALSE43_tree);
+				DebugLocation(225, 11);
 				 retval.value = new ValueExpression(false); 
 
 				}
@@ -2769,7 +2798,7 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 			LeaveRule("value", 16);
 			LeaveRule_value();
 		}
-		DebugLocation(225, 1);
+		DebugLocation(226, 1);
 		} finally { DebugExitRule(GrammarFileName, "value"); }
 		return retval;
 
@@ -2786,7 +2815,7 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 	partial void EnterRule_identifier();
 	partial void LeaveRule_identifier();
 	// $ANTLR start "identifier"
-	// NCalc.g:227:1: identifier returns [Identifier value] : ( ID | NAME );
+	// NCalc.g:228:1: identifier returns [Identifier value] : ( ID | NAME );
 	[GrammarRule("identifier")]
 	private NCalcParser.identifier_return identifier()
 	{
@@ -2798,16 +2827,16 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 
 		CommonTree root_0 = default(CommonTree);
 
-		IToken ID42 = default(IToken);
-		IToken NAME43 = default(IToken);
+		IToken ID44 = default(IToken);
+		IToken NAME45 = default(IToken);
 
-		CommonTree ID42_tree = default(CommonTree);
-		CommonTree NAME43_tree = default(CommonTree);
+		CommonTree ID44_tree = default(CommonTree);
+		CommonTree NAME45_tree = default(CommonTree);
 		try { DebugEnterRule(GrammarFileName, "identifier");
-		DebugLocation(227, 1);
+		DebugLocation(228, 1);
 		try
 		{
-			// NCalc.g:228:2: ( ID | NAME )
+			// NCalc.g:229:2: ( ID | NAME )
 			int alt22=2;
 			try { DebugEnterDecision(22, false);
 			int LA22_1 = input.LA(1);
@@ -2831,31 +2860,31 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// NCalc.g:228:5: ID
+				// NCalc.g:229:5: ID
 				{
 				root_0 = (CommonTree)adaptor.Nil();
 
-				DebugLocation(228, 5);
-				ID42=(IToken)Match(input,ID,Follow._ID_in_identifier986); 
-				ID42_tree = (CommonTree)adaptor.Create(ID42);
-				adaptor.AddChild(root_0, ID42_tree);
-				DebugLocation(228, 8);
-				 retval.value = new Identifier((ID42!=null?ID42.Text:default(string))); 
+				DebugLocation(229, 5);
+				ID44=(IToken)Match(input,ID,Follow._ID_in_identifier998); 
+				ID44_tree = (CommonTree)adaptor.Create(ID44);
+				adaptor.AddChild(root_0, ID44_tree);
+				DebugLocation(229, 8);
+				 retval.value = new Identifier((ID44!=null?ID44.Text:default(string))); 
 
 				}
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// NCalc.g:229:5: NAME
+				// NCalc.g:230:5: NAME
 				{
 				root_0 = (CommonTree)adaptor.Nil();
 
-				DebugLocation(229, 5);
-				NAME43=(IToken)Match(input,NAME,Follow._NAME_in_identifier994); 
-				NAME43_tree = (CommonTree)adaptor.Create(NAME43);
-				adaptor.AddChild(root_0, NAME43_tree);
-				DebugLocation(229, 10);
-				 retval.value = new Identifier((NAME43!=null?NAME43.Text:default(string)).Substring(1, (NAME43!=null?NAME43.Text:default(string)).Length-2)); 
+				DebugLocation(230, 5);
+				NAME45=(IToken)Match(input,NAME,Follow._NAME_in_identifier1006); 
+				NAME45_tree = (CommonTree)adaptor.Create(NAME45);
+				adaptor.AddChild(root_0, NAME45_tree);
+				DebugLocation(230, 10);
+				 retval.value = new Identifier((NAME45!=null?NAME45.Text:default(string)).Substring(1, (NAME45!=null?NAME45.Text:default(string)).Length-2)); 
 
 				}
 				break;
@@ -2880,7 +2909,7 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 			LeaveRule("identifier", 17);
 			LeaveRule_identifier();
 		}
-		DebugLocation(230, 1);
+		DebugLocation(231, 1);
 		} finally { DebugExitRule(GrammarFileName, "identifier"); }
 		return retval;
 
@@ -2897,7 +2926,7 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 	partial void EnterRule_expressionList();
 	partial void LeaveRule_expressionList();
 	// $ANTLR start "expressionList"
-	// NCalc.g:232:1: expressionList returns [List<LogicalExpression> value] : first= logicalExpression ( ',' follow= logicalExpression )* ;
+	// NCalc.g:233:1: expressionList returns [List<LogicalExpression> value] : first= logicalExpression ( ',' follow= logicalExpression )* ;
 	[GrammarRule("expressionList")]
 	private NCalcParser.expressionList_return expressionList()
 	{
@@ -2909,34 +2938,34 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 
 		CommonTree root_0 = default(CommonTree);
 
-		IToken char_literal44 = default(IToken);
+		IToken char_literal46 = default(IToken);
 		AstParserRuleReturnScope<CommonTree, IToken> first = default(AstParserRuleReturnScope<CommonTree, IToken>);
 		AstParserRuleReturnScope<CommonTree, IToken> follow = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-		CommonTree char_literal44_tree = default(CommonTree);
+		CommonTree char_literal46_tree = default(CommonTree);
 
 		List<LogicalExpression> expressions = new List<LogicalExpression>();
 
 		try { DebugEnterRule(GrammarFileName, "expressionList");
-		DebugLocation(232, 1);
+		DebugLocation(233, 1);
 		try
 		{
-			// NCalc.g:236:2: (first= logicalExpression ( ',' follow= logicalExpression )* )
+			// NCalc.g:237:2: (first= logicalExpression ( ',' follow= logicalExpression )* )
 			DebugEnterAlt(1);
-			// NCalc.g:236:4: first= logicalExpression ( ',' follow= logicalExpression )*
+			// NCalc.g:237:4: first= logicalExpression ( ',' follow= logicalExpression )*
 			{
 			root_0 = (CommonTree)adaptor.Nil();
 
-			DebugLocation(236, 9);
-			PushFollow(Follow._logicalExpression_in_expressionList1018);
+			DebugLocation(237, 9);
+			PushFollow(Follow._logicalExpression_in_expressionList1030);
 			first=logicalExpression();
 			PopFollow();
 
 			adaptor.AddChild(root_0, first.Tree);
-			DebugLocation(236, 28);
+			DebugLocation(237, 28);
 			expressions.Add((first!=null?((NCalcParser.logicalExpression_return)first).value:default(LogicalExpression)));
-			DebugLocation(236, 62);
-			// NCalc.g:236:62: ( ',' follow= logicalExpression )*
+			DebugLocation(237, 62);
+			// NCalc.g:237:62: ( ',' follow= logicalExpression )*
 			try { DebugEnterSubRule(23);
 			while (true)
 			{
@@ -2955,19 +2984,19 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// NCalc.g:236:64: ',' follow= logicalExpression
+					// NCalc.g:237:64: ',' follow= logicalExpression
 					{
-					DebugLocation(236, 64);
-					char_literal44=(IToken)Match(input,58,Follow._58_in_expressionList1025); 
-					char_literal44_tree = (CommonTree)adaptor.Create(char_literal44);
-					adaptor.AddChild(root_0, char_literal44_tree);
-					DebugLocation(236, 74);
-					PushFollow(Follow._logicalExpression_in_expressionList1029);
+					DebugLocation(237, 64);
+					char_literal46=(IToken)Match(input,58,Follow._58_in_expressionList1037); 
+					char_literal46_tree = (CommonTree)adaptor.Create(char_literal46);
+					adaptor.AddChild(root_0, char_literal46_tree);
+					DebugLocation(237, 74);
+					PushFollow(Follow._logicalExpression_in_expressionList1041);
 					follow=logicalExpression();
 					PopFollow();
 
 					adaptor.AddChild(root_0, follow.Tree);
-					DebugLocation(236, 93);
+					DebugLocation(237, 93);
 					expressions.Add((follow!=null?((NCalcParser.logicalExpression_return)follow).value:default(LogicalExpression)));
 
 					}
@@ -2983,7 +3012,7 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 
 			} finally { DebugExitSubRule(23); }
 
-			DebugLocation(237, 2);
+			DebugLocation(238, 2);
 			 retval.value = expressions; 
 
 			}
@@ -3007,7 +3036,7 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 			LeaveRule("expressionList", 18);
 			LeaveRule_expressionList();
 		}
-		DebugLocation(238, 1);
+		DebugLocation(239, 1);
 		} finally { DebugExitRule(GrammarFileName, "expressionList"); }
 		return retval;
 
@@ -3024,7 +3053,7 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 	partial void EnterRule_arguments();
 	partial void LeaveRule_arguments();
 	// $ANTLR start "arguments"
-	// NCalc.g:240:1: arguments returns [List<LogicalExpression> value] : '(' ( expressionList )? ')' ;
+	// NCalc.g:241:1: arguments returns [List<LogicalExpression> value] : '(' ( expressionList )? ')' ;
 	[GrammarRule("arguments")]
 	private NCalcParser.arguments_return arguments()
 	{
@@ -3036,37 +3065,37 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 
 		CommonTree root_0 = default(CommonTree);
 
-		IToken char_literal45 = default(IToken);
 		IToken char_literal47 = default(IToken);
-		AstParserRuleReturnScope<CommonTree, IToken> expressionList46 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+		IToken char_literal49 = default(IToken);
+		AstParserRuleReturnScope<CommonTree, IToken> expressionList48 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-		CommonTree char_literal45_tree = default(CommonTree);
 		CommonTree char_literal47_tree = default(CommonTree);
+		CommonTree char_literal49_tree = default(CommonTree);
 
 		retval.value = new List<LogicalExpression>();
 
 		try { DebugEnterRule(GrammarFileName, "arguments");
-		DebugLocation(240, 1);
+		DebugLocation(241, 1);
 		try
 		{
-			// NCalc.g:244:2: ( '(' ( expressionList )? ')' )
+			// NCalc.g:245:2: ( '(' ( expressionList )? ')' )
 			DebugEnterAlt(1);
-			// NCalc.g:244:4: '(' ( expressionList )? ')'
+			// NCalc.g:245:4: '(' ( expressionList )? ')'
 			{
 			root_0 = (CommonTree)adaptor.Nil();
 
-			DebugLocation(244, 4);
-			char_literal45=(IToken)Match(input,53,Follow._53_in_arguments1058); 
-			char_literal45_tree = (CommonTree)adaptor.Create(char_literal45);
-			adaptor.AddChild(root_0, char_literal45_tree);
-			DebugLocation(244, 8);
-			// NCalc.g:244:8: ( expressionList )?
+			DebugLocation(245, 4);
+			char_literal47=(IToken)Match(input,53,Follow._53_in_arguments1070); 
+			char_literal47_tree = (CommonTree)adaptor.Create(char_literal47);
+			adaptor.AddChild(root_0, char_literal47_tree);
+			DebugLocation(245, 8);
+			// NCalc.g:245:8: ( expressionList )?
 			int alt24=2;
 			try { DebugEnterSubRule(24);
 			try { DebugEnterDecision(24, false);
 			int LA24_1 = input.LA(1);
 
-			if ((LA24_1==DATETIME||(LA24_1>=FALSE && LA24_1<=FLOAT)||(LA24_1>=ID && LA24_1<=INTEGER)||(LA24_1>=NAME && LA24_1<=NOT)||LA24_1==STRING||LA24_1==TRUE||LA24_1==48||LA24_1==53||LA24_1==59||LA24_1==75))
+			if ((LA24_1==DATETIME||(LA24_1>=FALSE && LA24_1<=FLOAT)||(LA24_1>=ID && LA24_1<=INTEGER)||(LA24_1>=NAME && LA24_1<=NOT)||LA24_1==STRING||LA24_1==TRUE||LA24_1==48||LA24_1==53||LA24_1==57||LA24_1==59||LA24_1==75))
 			{
 				alt24 = 1;
 			}
@@ -3075,16 +3104,16 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// NCalc.g:244:10: expressionList
+				// NCalc.g:245:10: expressionList
 				{
-				DebugLocation(244, 10);
-				PushFollow(Follow._expressionList_in_arguments1062);
-				expressionList46=expressionList();
+				DebugLocation(245, 10);
+				PushFollow(Follow._expressionList_in_arguments1074);
+				expressionList48=expressionList();
 				PopFollow();
 
-				adaptor.AddChild(root_0, expressionList46.Tree);
-				DebugLocation(244, 25);
-				retval.value = (expressionList46!=null?((NCalcParser.expressionList_return)expressionList46).value:default(List<LogicalExpression>));
+				adaptor.AddChild(root_0, expressionList48.Tree);
+				DebugLocation(245, 25);
+				retval.value = (expressionList48!=null?((NCalcParser.expressionList_return)expressionList48).value:default(List<LogicalExpression>));
 
 				}
 				break;
@@ -3092,10 +3121,10 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 			}
 			} finally { DebugExitSubRule(24); }
 
-			DebugLocation(244, 62);
-			char_literal47=(IToken)Match(input,54,Follow._54_in_arguments1069); 
-			char_literal47_tree = (CommonTree)adaptor.Create(char_literal47);
-			adaptor.AddChild(root_0, char_literal47_tree);
+			DebugLocation(245, 62);
+			char_literal49=(IToken)Match(input,54,Follow._54_in_arguments1081); 
+			char_literal49_tree = (CommonTree)adaptor.Create(char_literal49);
+			adaptor.AddChild(root_0, char_literal49_tree);
 
 			}
 
@@ -3118,7 +3147,7 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 			LeaveRule("arguments", 19);
 			LeaveRule_arguments();
 		}
-		DebugLocation(245, 1);
+		DebugLocation(246, 1);
 		} finally { DebugExitRule(GrammarFileName, "arguments"); }
 		return retval;
 
@@ -3133,47 +3162,47 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 		public static readonly BitSet _logicalExpression_in_ncalcExpression73 = new BitSet(new ulong[]{0x0UL});
 		public static readonly BitSet _EOF_in_ncalcExpression75 = new BitSet(new ulong[]{0x2UL});
 		public static readonly BitSet _conditionalExpression_in_logicalExpression95 = new BitSet(new ulong[]{0x2UL,0x80UL});
-		public static readonly BitSet _71_in_logicalExpression101 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
+		public static readonly BitSet _71_in_logicalExpression101 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
 		public static readonly BitSet _conditionalExpression_in_logicalExpression105 = new BitSet(new ulong[]{0x2000000000000000UL});
-		public static readonly BitSet _61_in_logicalExpression107 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
+		public static readonly BitSet _61_in_logicalExpression107 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
 		public static readonly BitSet _conditionalExpression_in_logicalExpression111 = new BitSet(new ulong[]{0x2UL});
 		public static readonly BitSet _booleanAndExpression_in_conditionalExpression138 = new BitSet(new ulong[]{0x100000002UL,0x400UL});
-		public static readonly BitSet _set_in_conditionalExpression147 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
+		public static readonly BitSet _set_in_conditionalExpression147 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
 		public static readonly BitSet _conditionalExpression_in_conditionalExpression163 = new BitSet(new ulong[]{0x100000002UL,0x400UL});
 		public static readonly BitSet _bitwiseOrExpression_in_booleanAndExpression197 = new BitSet(new ulong[]{0x8000000000022UL});
-		public static readonly BitSet _set_in_booleanAndExpression206 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
+		public static readonly BitSet _set_in_booleanAndExpression206 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
 		public static readonly BitSet _bitwiseOrExpression_in_booleanAndExpression222 = new BitSet(new ulong[]{0x8000000000022UL});
 		public static readonly BitSet _bitwiseXOrExpression_in_bitwiseOrExpression254 = new BitSet(new ulong[]{0x2UL,0x200UL});
-		public static readonly BitSet _73_in_bitwiseOrExpression263 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
+		public static readonly BitSet _73_in_bitwiseOrExpression263 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
 		public static readonly BitSet _bitwiseOrExpression_in_bitwiseOrExpression273 = new BitSet(new ulong[]{0x2UL,0x200UL});
 		public static readonly BitSet _bitwiseAndExpression_in_bitwiseXOrExpression307 = new BitSet(new ulong[]{0x2UL,0x100UL});
-		public static readonly BitSet _72_in_bitwiseXOrExpression316 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
+		public static readonly BitSet _72_in_bitwiseXOrExpression316 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
 		public static readonly BitSet _bitwiseAndExpression_in_bitwiseXOrExpression326 = new BitSet(new ulong[]{0x2UL,0x100UL});
 		public static readonly BitSet _equalityExpression_in_bitwiseAndExpression358 = new BitSet(new ulong[]{0x10000000000002UL});
-		public static readonly BitSet _52_in_bitwiseAndExpression367 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
+		public static readonly BitSet _52_in_bitwiseAndExpression367 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
 		public static readonly BitSet _equalityExpression_in_bitwiseAndExpression377 = new BitSet(new ulong[]{0x10000000000002UL});
 		public static readonly BitSet _relationalExpression_in_equalityExpression411 = new BitSet(new ulong[]{0x2000000000002UL,0xEUL});
-		public static readonly BitSet _set_in_equalityExpression422 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
-		public static readonly BitSet _set_in_equalityExpression439 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
+		public static readonly BitSet _set_in_equalityExpression422 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
+		public static readonly BitSet _set_in_equalityExpression439 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
 		public static readonly BitSet _relationalExpression_in_equalityExpression458 = new BitSet(new ulong[]{0x2000000000002UL,0xEUL});
 		public static readonly BitSet _shiftExpression_in_relationalExpression491 = new BitSet(new ulong[]{0x4000000000000002UL,0x31UL});
-		public static readonly BitSet _62_in_relationalExpression502 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
-		public static readonly BitSet _64_in_relationalExpression512 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
-		public static readonly BitSet _68_in_relationalExpression523 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
-		public static readonly BitSet _69_in_relationalExpression533 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
+		public static readonly BitSet _62_in_relationalExpression502 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
+		public static readonly BitSet _64_in_relationalExpression512 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
+		public static readonly BitSet _68_in_relationalExpression523 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
+		public static readonly BitSet _69_in_relationalExpression533 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
 		public static readonly BitSet _shiftExpression_in_relationalExpression545 = new BitSet(new ulong[]{0x4000000000000002UL,0x31UL});
 		public static readonly BitSet _additiveExpression_in_shiftExpression577 = new BitSet(new ulong[]{0x8000000000000002UL,0x40UL});
-		public static readonly BitSet _63_in_shiftExpression588 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
-		public static readonly BitSet _70_in_shiftExpression598 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
+		public static readonly BitSet _63_in_shiftExpression588 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
+		public static readonly BitSet _70_in_shiftExpression598 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
 		public static readonly BitSet _additiveExpression_in_shiftExpression610 = new BitSet(new ulong[]{0x8000000000000002UL,0x40UL});
 		public static readonly BitSet _multiplicativeExpression_in_additiveExpression642 = new BitSet(new ulong[]{0xA00000000000002UL});
-		public static readonly BitSet _57_in_additiveExpression653 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
-		public static readonly BitSet _59_in_additiveExpression663 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
+		public static readonly BitSet _57_in_additiveExpression653 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
+		public static readonly BitSet _59_in_additiveExpression663 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
 		public static readonly BitSet _multiplicativeExpression_in_additiveExpression675 = new BitSet(new ulong[]{0xA00000000000002UL});
 		public static readonly BitSet _unaryExpression_in_multiplicativeExpression707 = new BitSet(new ulong[]{0x1084000000000002UL});
-		public static readonly BitSet _55_in_multiplicativeExpression718 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
-		public static readonly BitSet _60_in_multiplicativeExpression728 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
-		public static readonly BitSet _50_in_multiplicativeExpression738 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
+		public static readonly BitSet _55_in_multiplicativeExpression718 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
+		public static readonly BitSet _60_in_multiplicativeExpression728 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
+		public static readonly BitSet _50_in_multiplicativeExpression738 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
 		public static readonly BitSet _unaryExpression_in_multiplicativeExpression750 = new BitSet(new ulong[]{0x1084000000000002UL});
 		public static readonly BitSet _exponentialExpression_in_unaryExpression776 = new BitSet(new ulong[]{0x2UL});
 		public static readonly BitSet _set_in_unaryExpression786 = new BitSet(new ulong[]{0x2000A020618200UL});
@@ -3182,29 +3211,31 @@ public partial class NCalcParser : Antlr.Runtime.Parser
 		public static readonly BitSet _exponentialExpression_in_unaryExpression808 = new BitSet(new ulong[]{0x2UL});
 		public static readonly BitSet _59_in_unaryExpression818 = new BitSet(new ulong[]{0x2000A020618200UL});
 		public static readonly BitSet _exponentialExpression_in_unaryExpression820 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _primaryExpression_in_exponentialExpression845 = new BitSet(new ulong[]{0x100000000000002UL});
-		public static readonly BitSet _56_in_exponentialExpression854 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
-		public static readonly BitSet _unaryExpression_in_exponentialExpression858 = new BitSet(new ulong[]{0x100000000000002UL});
-		public static readonly BitSet _53_in_primaryExpression881 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
-		public static readonly BitSet _logicalExpression_in_primaryExpression883 = new BitSet(new ulong[]{0x40000000000000UL});
-		public static readonly BitSet _54_in_primaryExpression885 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _value_in_primaryExpression895 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _identifier_in_primaryExpression903 = new BitSet(new ulong[]{0x20000000000002UL});
-		public static readonly BitSet _arguments_in_primaryExpression908 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _INTEGER_in_value928 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _FLOAT_in_value936 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _STRING_in_value944 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _DATETIME_in_value953 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _TRUE_in_value960 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _FALSE_in_value968 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _ID_in_identifier986 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _NAME_in_identifier994 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _logicalExpression_in_expressionList1018 = new BitSet(new ulong[]{0x400000000000002UL});
-		public static readonly BitSet _58_in_expressionList1025 = new BitSet(new ulong[]{0x82100A060618200UL,0x800UL});
-		public static readonly BitSet _logicalExpression_in_expressionList1029 = new BitSet(new ulong[]{0x400000000000002UL});
-		public static readonly BitSet _53_in_arguments1058 = new BitSet(new ulong[]{0x86100A060618200UL,0x800UL});
-		public static readonly BitSet _expressionList_in_arguments1062 = new BitSet(new ulong[]{0x40000000000000UL});
-		public static readonly BitSet _54_in_arguments1069 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _57_in_unaryExpression830 = new BitSet(new ulong[]{0x2000A020618200UL});
+		public static readonly BitSet _exponentialExpression_in_unaryExpression832 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _primaryExpression_in_exponentialExpression857 = new BitSet(new ulong[]{0x100000000000002UL});
+		public static readonly BitSet _56_in_exponentialExpression866 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
+		public static readonly BitSet _unaryExpression_in_exponentialExpression870 = new BitSet(new ulong[]{0x100000000000002UL});
+		public static readonly BitSet _53_in_primaryExpression893 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
+		public static readonly BitSet _logicalExpression_in_primaryExpression895 = new BitSet(new ulong[]{0x40000000000000UL});
+		public static readonly BitSet _54_in_primaryExpression897 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _value_in_primaryExpression907 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _identifier_in_primaryExpression915 = new BitSet(new ulong[]{0x20000000000002UL});
+		public static readonly BitSet _arguments_in_primaryExpression920 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _INTEGER_in_value940 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _FLOAT_in_value948 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _STRING_in_value956 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _DATETIME_in_value965 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _TRUE_in_value972 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _FALSE_in_value980 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _ID_in_identifier998 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _NAME_in_identifier1006 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _logicalExpression_in_expressionList1030 = new BitSet(new ulong[]{0x400000000000002UL});
+		public static readonly BitSet _58_in_expressionList1037 = new BitSet(new ulong[]{0xA2100A060618200UL,0x800UL});
+		public static readonly BitSet _logicalExpression_in_expressionList1041 = new BitSet(new ulong[]{0x400000000000002UL});
+		public static readonly BitSet _53_in_arguments1070 = new BitSet(new ulong[]{0xA6100A060618200UL,0x800UL});
+		public static readonly BitSet _expressionList_in_arguments1074 = new BitSet(new ulong[]{0x40000000000000UL});
+		public static readonly BitSet _54_in_arguments1081 = new BitSet(new ulong[]{0x2UL});
 	}
 	#endregion Follow sets
 }

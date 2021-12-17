@@ -222,7 +222,10 @@ namespace NCalcAsync.Tests
                                       {"not false", true},
                                       {"Not false", true},
                                       {"NOT false", true},
-                                      {"2**-1", 0.5 },
+                                      {"-10", -10},
+                                      {"+20", 20},
+                                      {"2**-1", 0.5},
+                                      {"2**+2", 4.0},
                                       {"2 * 3", 6},
                                       {"6 / 2", 3d},
                                       {"7 % 2", 1},
@@ -333,7 +336,7 @@ namespace NCalcAsync.Tests
             Assert.IsTrue(e.HasErrors());
             Assert.IsNotNull(e.Error);
 
-            e = new Expression("+ b ");
+            e = new Expression("* b ");
             Assert.IsNull(e.Error);
             Assert.IsTrue(e.HasErrors());
             Assert.IsNotNull(e.Error);

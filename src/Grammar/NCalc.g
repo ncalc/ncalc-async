@@ -201,6 +201,7 @@ unaryExpression returns [LogicalExpression value]
     |	('!' | NOT) exponentialExpression { $value = new UnaryExpression(UnaryExpressionType.Not, $exponentialExpression.value); }
     |	('~') exponentialExpression { $value = new UnaryExpression(UnaryExpressionType.BitwiseNot, $exponentialExpression.value); }
     |	'-' exponentialExpression { $value = new UnaryExpression(UnaryExpressionType.Negate, $exponentialExpression.value); }
+    |	'+' exponentialExpression { $value = new UnaryExpression(UnaryExpressionType.Positive, $exponentialExpression.value); }
    	;
 		
 exponentialExpression returns [LogicalExpression value]
@@ -244,11 +245,11 @@ $value = new List<LogicalExpression>();
 	:	'(' ( expressionList {$value = $expressionList.value;} )? ')' 
 	;			
 
-TRUE: T R U E ;
-FALSE: F A L S E ;
-AND: A N D ;
-OR: O R ;
-NOT: N O T ;
+TRUE:	T R U E ;
+FALSE:	F A L S E ;
+AND:	A N D ;
+OR:		O R ;
+NOT:	N O T ;
 
 ID 
 	: 	LETTER (LETTER | DIGIT)*
