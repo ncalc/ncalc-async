@@ -44,7 +44,10 @@ namespace NCalcAsync.Tests
         {
             Assert.AreEqual(123456, await new Expression("123456").EvaluateAsync());
             Assert.AreEqual(new DateTime(2001, 01, 01), await new Expression("#01/01/2001#").EvaluateAsync());
+            Assert.AreEqual(0.2d, await new Expression(".2").EvaluateAsync());
             Assert.AreEqual(123.456d, await new Expression("123.456").EvaluateAsync());
+            Assert.AreEqual(123d, await new Expression("123.").EvaluateAsync());
+            Assert.AreEqual(12300d, await new Expression("123.E2").EvaluateAsync());
             Assert.AreEqual(true, await new Expression("true").EvaluateAsync());
             Assert.AreEqual("true", await new Expression("'true'").EvaluateAsync());
             Assert.AreEqual("azerty", await new Expression("'azerty'").EvaluateAsync());
@@ -291,7 +294,7 @@ namespace NCalcAsync.Tests
         {
             try
             {
-                await new Expression("4. + 2").EvaluateAsync();
+                await new Expression(". + 2").EvaluateAsync();
                 Assert.Fail();
             }
             catch (EvaluationException e)
