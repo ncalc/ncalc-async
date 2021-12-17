@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.5.0.2 NCalc.g 2021-12-10 18:18:55
+// $ANTLR 3.5.0.2 NCalc.g 2021-12-17 09:06:28
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -31,52 +31,78 @@ namespace  NCalcAsync
 public partial class NCalcLexer : Antlr.Runtime.Lexer
 {
 	public const int EOF=-1;
-	public const int DATETIME=4;
-	public const int DIGIT=5;
-	public const int E=6;
-	public const int EscapeSequence=7;
-	public const int FALSE=8;
-	public const int FLOAT=9;
-	public const int HexDigit=10;
-	public const int ID=11;
-	public const int INTEGER=12;
-	public const int LETTER=13;
-	public const int NAME=14;
-	public const int STRING=15;
-	public const int TRUE=16;
-	public const int UnicodeEscape=17;
-	public const int WS=18;
-	public const int T__19=19;
-	public const int T__20=20;
-	public const int T__21=21;
-	public const int T__22=22;
-	public const int T__23=23;
-	public const int T__24=24;
-	public const int T__25=25;
-	public const int T__26=26;
-	public const int T__27=27;
-	public const int T__28=28;
-	public const int T__29=29;
-	public const int T__30=30;
-	public const int T__31=31;
-	public const int T__32=32;
-	public const int T__33=33;
-	public const int T__34=34;
-	public const int T__35=35;
-	public const int T__36=36;
-	public const int T__37=37;
-	public const int T__38=38;
-	public const int T__39=39;
-	public const int T__40=40;
-	public const int T__41=41;
-	public const int T__42=42;
-	public const int T__43=43;
-	public const int T__44=44;
-	public const int T__45=45;
-	public const int T__46=46;
-	public const int T__47=47;
+	public const int A=4;
+	public const int AND=5;
+	public const int B=6;
+	public const int C=7;
+	public const int D=8;
+	public const int DATETIME=9;
+	public const int DIGIT=10;
+	public const int E=11;
+	public const int EXPONENT=12;
+	public const int EscapeSequence=13;
+	public const int F=14;
+	public const int FALSE=15;
+	public const int FLOAT=16;
+	public const int G=17;
+	public const int H=18;
+	public const int HexDigit=19;
+	public const int I=20;
+	public const int ID=21;
+	public const int INTEGER=22;
+	public const int J=23;
+	public const int K=24;
+	public const int L=25;
+	public const int LETTER=26;
+	public const int M=27;
+	public const int N=28;
+	public const int NAME=29;
+	public const int NOT=30;
+	public const int O=31;
+	public const int OR=32;
+	public const int P=33;
+	public const int Q=34;
+	public const int R=35;
+	public const int S=36;
+	public const int STRING=37;
+	public const int T=38;
+	public const int TRUE=39;
+	public const int U=40;
+	public const int UnicodeEscape=41;
+	public const int V=42;
+	public const int W=43;
+	public const int WS=44;
+	public const int X=45;
+	public const int Y=46;
+	public const int Z=47;
 	public const int T__48=48;
 	public const int T__49=49;
+	public const int T__50=50;
+	public const int T__51=51;
+	public const int T__52=52;
+	public const int T__53=53;
+	public const int T__54=54;
+	public const int T__55=55;
+	public const int T__56=56;
+	public const int T__57=57;
+	public const int T__58=58;
+	public const int T__59=59;
+	public const int T__60=60;
+	public const int T__61=61;
+	public const int T__62=62;
+	public const int T__63=63;
+	public const int T__64=64;
+	public const int T__65=65;
+	public const int T__66=66;
+	public const int T__67=67;
+	public const int T__68=68;
+	public const int T__69=69;
+	public const int T__70=70;
+	public const int T__71=71;
+	public const int T__72=72;
+	public const int T__73=73;
+	public const int T__74=74;
+	public const int T__75=75;
 
 	// delegates
 	// delegators
@@ -104,19 +130,19 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 	partial void EnterRule(string ruleName, int ruleIndex);
 	partial void LeaveRule(string ruleName, int ruleIndex);
 
-	partial void EnterRule_T__19();
-	partial void LeaveRule_T__19();
+	partial void EnterRule_T__48();
+	partial void LeaveRule_T__48();
 
-	// $ANTLR start "T__19"
-	[GrammarRule("T__19")]
-	private void mT__19()
+	// $ANTLR start "T__48"
+	[GrammarRule("T__48")]
+	private void mT__48()
 	{
-		EnterRule_T__19();
-		EnterRule("T__19", 1);
-		TraceIn("T__19", 1);
+		EnterRule_T__48();
+		EnterRule("T__48", 1);
+		TraceIn("T__48", 1);
 		try
 		{
-			int _type = T__19;
+			int _type = T__48;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:9:7: ( '!' )
 			DebugEnterAlt(1);
@@ -132,26 +158,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__19", 1);
-			LeaveRule("T__19", 1);
-			LeaveRule_T__19();
+			TraceOut("T__48", 1);
+			LeaveRule("T__48", 1);
+			LeaveRule_T__48();
 		}
 	}
-	// $ANTLR end "T__19"
+	// $ANTLR end "T__48"
 
-	partial void EnterRule_T__20();
-	partial void LeaveRule_T__20();
+	partial void EnterRule_T__49();
+	partial void LeaveRule_T__49();
 
-	// $ANTLR start "T__20"
-	[GrammarRule("T__20")]
-	private void mT__20()
+	// $ANTLR start "T__49"
+	[GrammarRule("T__49")]
+	private void mT__49()
 	{
-		EnterRule_T__20();
-		EnterRule("T__20", 2);
-		TraceIn("T__20", 2);
+		EnterRule_T__49();
+		EnterRule("T__49", 2);
+		TraceIn("T__49", 2);
 		try
 		{
-			int _type = T__20;
+			int _type = T__49;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:10:7: ( '!=' )
 			DebugEnterAlt(1);
@@ -168,26 +194,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__20", 2);
-			LeaveRule("T__20", 2);
-			LeaveRule_T__20();
+			TraceOut("T__49", 2);
+			LeaveRule("T__49", 2);
+			LeaveRule_T__49();
 		}
 	}
-	// $ANTLR end "T__20"
+	// $ANTLR end "T__49"
 
-	partial void EnterRule_T__21();
-	partial void LeaveRule_T__21();
+	partial void EnterRule_T__50();
+	partial void LeaveRule_T__50();
 
-	// $ANTLR start "T__21"
-	[GrammarRule("T__21")]
-	private void mT__21()
+	// $ANTLR start "T__50"
+	[GrammarRule("T__50")]
+	private void mT__50()
 	{
-		EnterRule_T__21();
-		EnterRule("T__21", 3);
-		TraceIn("T__21", 3);
+		EnterRule_T__50();
+		EnterRule("T__50", 3);
+		TraceIn("T__50", 3);
 		try
 		{
-			int _type = T__21;
+			int _type = T__50;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:11:7: ( '%' )
 			DebugEnterAlt(1);
@@ -203,26 +229,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__21", 3);
-			LeaveRule("T__21", 3);
-			LeaveRule_T__21();
+			TraceOut("T__50", 3);
+			LeaveRule("T__50", 3);
+			LeaveRule_T__50();
 		}
 	}
-	// $ANTLR end "T__21"
+	// $ANTLR end "T__50"
 
-	partial void EnterRule_T__22();
-	partial void LeaveRule_T__22();
+	partial void EnterRule_T__51();
+	partial void LeaveRule_T__51();
 
-	// $ANTLR start "T__22"
-	[GrammarRule("T__22")]
-	private void mT__22()
+	// $ANTLR start "T__51"
+	[GrammarRule("T__51")]
+	private void mT__51()
 	{
-		EnterRule_T__22();
-		EnterRule("T__22", 4);
-		TraceIn("T__22", 4);
+		EnterRule_T__51();
+		EnterRule("T__51", 4);
+		TraceIn("T__51", 4);
 		try
 		{
-			int _type = T__22;
+			int _type = T__51;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:12:7: ( '&&' )
 			DebugEnterAlt(1);
@@ -239,26 +265,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__22", 4);
-			LeaveRule("T__22", 4);
-			LeaveRule_T__22();
+			TraceOut("T__51", 4);
+			LeaveRule("T__51", 4);
+			LeaveRule_T__51();
 		}
 	}
-	// $ANTLR end "T__22"
+	// $ANTLR end "T__51"
 
-	partial void EnterRule_T__23();
-	partial void LeaveRule_T__23();
+	partial void EnterRule_T__52();
+	partial void LeaveRule_T__52();
 
-	// $ANTLR start "T__23"
-	[GrammarRule("T__23")]
-	private void mT__23()
+	// $ANTLR start "T__52"
+	[GrammarRule("T__52")]
+	private void mT__52()
 	{
-		EnterRule_T__23();
-		EnterRule("T__23", 5);
-		TraceIn("T__23", 5);
+		EnterRule_T__52();
+		EnterRule("T__52", 5);
+		TraceIn("T__52", 5);
 		try
 		{
-			int _type = T__23;
+			int _type = T__52;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:13:7: ( '&' )
 			DebugEnterAlt(1);
@@ -274,26 +300,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__23", 5);
-			LeaveRule("T__23", 5);
-			LeaveRule_T__23();
+			TraceOut("T__52", 5);
+			LeaveRule("T__52", 5);
+			LeaveRule_T__52();
 		}
 	}
-	// $ANTLR end "T__23"
+	// $ANTLR end "T__52"
 
-	partial void EnterRule_T__24();
-	partial void LeaveRule_T__24();
+	partial void EnterRule_T__53();
+	partial void LeaveRule_T__53();
 
-	// $ANTLR start "T__24"
-	[GrammarRule("T__24")]
-	private void mT__24()
+	// $ANTLR start "T__53"
+	[GrammarRule("T__53")]
+	private void mT__53()
 	{
-		EnterRule_T__24();
-		EnterRule("T__24", 6);
-		TraceIn("T__24", 6);
+		EnterRule_T__53();
+		EnterRule("T__53", 6);
+		TraceIn("T__53", 6);
 		try
 		{
-			int _type = T__24;
+			int _type = T__53;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:14:7: ( '(' )
 			DebugEnterAlt(1);
@@ -309,26 +335,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__24", 6);
-			LeaveRule("T__24", 6);
-			LeaveRule_T__24();
+			TraceOut("T__53", 6);
+			LeaveRule("T__53", 6);
+			LeaveRule_T__53();
 		}
 	}
-	// $ANTLR end "T__24"
+	// $ANTLR end "T__53"
 
-	partial void EnterRule_T__25();
-	partial void LeaveRule_T__25();
+	partial void EnterRule_T__54();
+	partial void LeaveRule_T__54();
 
-	// $ANTLR start "T__25"
-	[GrammarRule("T__25")]
-	private void mT__25()
+	// $ANTLR start "T__54"
+	[GrammarRule("T__54")]
+	private void mT__54()
 	{
-		EnterRule_T__25();
-		EnterRule("T__25", 7);
-		TraceIn("T__25", 7);
+		EnterRule_T__54();
+		EnterRule("T__54", 7);
+		TraceIn("T__54", 7);
 		try
 		{
-			int _type = T__25;
+			int _type = T__54;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:15:7: ( ')' )
 			DebugEnterAlt(1);
@@ -344,26 +370,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__25", 7);
-			LeaveRule("T__25", 7);
-			LeaveRule_T__25();
+			TraceOut("T__54", 7);
+			LeaveRule("T__54", 7);
+			LeaveRule_T__54();
 		}
 	}
-	// $ANTLR end "T__25"
+	// $ANTLR end "T__54"
 
-	partial void EnterRule_T__26();
-	partial void LeaveRule_T__26();
+	partial void EnterRule_T__55();
+	partial void LeaveRule_T__55();
 
-	// $ANTLR start "T__26"
-	[GrammarRule("T__26")]
-	private void mT__26()
+	// $ANTLR start "T__55"
+	[GrammarRule("T__55")]
+	private void mT__55()
 	{
-		EnterRule_T__26();
-		EnterRule("T__26", 8);
-		TraceIn("T__26", 8);
+		EnterRule_T__55();
+		EnterRule("T__55", 8);
+		TraceIn("T__55", 8);
 		try
 		{
-			int _type = T__26;
+			int _type = T__55;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:16:7: ( '*' )
 			DebugEnterAlt(1);
@@ -379,26 +405,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__26", 8);
-			LeaveRule("T__26", 8);
-			LeaveRule_T__26();
+			TraceOut("T__55", 8);
+			LeaveRule("T__55", 8);
+			LeaveRule_T__55();
 		}
 	}
-	// $ANTLR end "T__26"
+	// $ANTLR end "T__55"
 
-	partial void EnterRule_T__27();
-	partial void LeaveRule_T__27();
+	partial void EnterRule_T__56();
+	partial void LeaveRule_T__56();
 
-	// $ANTLR start "T__27"
-	[GrammarRule("T__27")]
-	private void mT__27()
+	// $ANTLR start "T__56"
+	[GrammarRule("T__56")]
+	private void mT__56()
 	{
-		EnterRule_T__27();
-		EnterRule("T__27", 9);
-		TraceIn("T__27", 9);
+		EnterRule_T__56();
+		EnterRule("T__56", 9);
+		TraceIn("T__56", 9);
 		try
 		{
-			int _type = T__27;
+			int _type = T__56;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:17:7: ( '**' )
 			DebugEnterAlt(1);
@@ -415,26 +441,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__27", 9);
-			LeaveRule("T__27", 9);
-			LeaveRule_T__27();
+			TraceOut("T__56", 9);
+			LeaveRule("T__56", 9);
+			LeaveRule_T__56();
 		}
 	}
-	// $ANTLR end "T__27"
+	// $ANTLR end "T__56"
 
-	partial void EnterRule_T__28();
-	partial void LeaveRule_T__28();
+	partial void EnterRule_T__57();
+	partial void LeaveRule_T__57();
 
-	// $ANTLR start "T__28"
-	[GrammarRule("T__28")]
-	private void mT__28()
+	// $ANTLR start "T__57"
+	[GrammarRule("T__57")]
+	private void mT__57()
 	{
-		EnterRule_T__28();
-		EnterRule("T__28", 10);
-		TraceIn("T__28", 10);
+		EnterRule_T__57();
+		EnterRule("T__57", 10);
+		TraceIn("T__57", 10);
 		try
 		{
-			int _type = T__28;
+			int _type = T__57;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:18:7: ( '+' )
 			DebugEnterAlt(1);
@@ -450,26 +476,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__28", 10);
-			LeaveRule("T__28", 10);
-			LeaveRule_T__28();
+			TraceOut("T__57", 10);
+			LeaveRule("T__57", 10);
+			LeaveRule_T__57();
 		}
 	}
-	// $ANTLR end "T__28"
+	// $ANTLR end "T__57"
 
-	partial void EnterRule_T__29();
-	partial void LeaveRule_T__29();
+	partial void EnterRule_T__58();
+	partial void LeaveRule_T__58();
 
-	// $ANTLR start "T__29"
-	[GrammarRule("T__29")]
-	private void mT__29()
+	// $ANTLR start "T__58"
+	[GrammarRule("T__58")]
+	private void mT__58()
 	{
-		EnterRule_T__29();
-		EnterRule("T__29", 11);
-		TraceIn("T__29", 11);
+		EnterRule_T__58();
+		EnterRule("T__58", 11);
+		TraceIn("T__58", 11);
 		try
 		{
-			int _type = T__29;
+			int _type = T__58;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:19:7: ( ',' )
 			DebugEnterAlt(1);
@@ -485,26 +511,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__29", 11);
-			LeaveRule("T__29", 11);
-			LeaveRule_T__29();
+			TraceOut("T__58", 11);
+			LeaveRule("T__58", 11);
+			LeaveRule_T__58();
 		}
 	}
-	// $ANTLR end "T__29"
+	// $ANTLR end "T__58"
 
-	partial void EnterRule_T__30();
-	partial void LeaveRule_T__30();
+	partial void EnterRule_T__59();
+	partial void LeaveRule_T__59();
 
-	// $ANTLR start "T__30"
-	[GrammarRule("T__30")]
-	private void mT__30()
+	// $ANTLR start "T__59"
+	[GrammarRule("T__59")]
+	private void mT__59()
 	{
-		EnterRule_T__30();
-		EnterRule("T__30", 12);
-		TraceIn("T__30", 12);
+		EnterRule_T__59();
+		EnterRule("T__59", 12);
+		TraceIn("T__59", 12);
 		try
 		{
-			int _type = T__30;
+			int _type = T__59;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:20:7: ( '-' )
 			DebugEnterAlt(1);
@@ -520,26 +546,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__30", 12);
-			LeaveRule("T__30", 12);
-			LeaveRule_T__30();
+			TraceOut("T__59", 12);
+			LeaveRule("T__59", 12);
+			LeaveRule_T__59();
 		}
 	}
-	// $ANTLR end "T__30"
+	// $ANTLR end "T__59"
 
-	partial void EnterRule_T__31();
-	partial void LeaveRule_T__31();
+	partial void EnterRule_T__60();
+	partial void LeaveRule_T__60();
 
-	// $ANTLR start "T__31"
-	[GrammarRule("T__31")]
-	private void mT__31()
+	// $ANTLR start "T__60"
+	[GrammarRule("T__60")]
+	private void mT__60()
 	{
-		EnterRule_T__31();
-		EnterRule("T__31", 13);
-		TraceIn("T__31", 13);
+		EnterRule_T__60();
+		EnterRule("T__60", 13);
+		TraceIn("T__60", 13);
 		try
 		{
-			int _type = T__31;
+			int _type = T__60;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:21:7: ( '/' )
 			DebugEnterAlt(1);
@@ -555,26 +581,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__31", 13);
-			LeaveRule("T__31", 13);
-			LeaveRule_T__31();
+			TraceOut("T__60", 13);
+			LeaveRule("T__60", 13);
+			LeaveRule_T__60();
 		}
 	}
-	// $ANTLR end "T__31"
+	// $ANTLR end "T__60"
 
-	partial void EnterRule_T__32();
-	partial void LeaveRule_T__32();
+	partial void EnterRule_T__61();
+	partial void LeaveRule_T__61();
 
-	// $ANTLR start "T__32"
-	[GrammarRule("T__32")]
-	private void mT__32()
+	// $ANTLR start "T__61"
+	[GrammarRule("T__61")]
+	private void mT__61()
 	{
-		EnterRule_T__32();
-		EnterRule("T__32", 14);
-		TraceIn("T__32", 14);
+		EnterRule_T__61();
+		EnterRule("T__61", 14);
+		TraceIn("T__61", 14);
 		try
 		{
-			int _type = T__32;
+			int _type = T__61;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:22:7: ( ':' )
 			DebugEnterAlt(1);
@@ -590,26 +616,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__32", 14);
-			LeaveRule("T__32", 14);
-			LeaveRule_T__32();
+			TraceOut("T__61", 14);
+			LeaveRule("T__61", 14);
+			LeaveRule_T__61();
 		}
 	}
-	// $ANTLR end "T__32"
+	// $ANTLR end "T__61"
 
-	partial void EnterRule_T__33();
-	partial void LeaveRule_T__33();
+	partial void EnterRule_T__62();
+	partial void LeaveRule_T__62();
 
-	// $ANTLR start "T__33"
-	[GrammarRule("T__33")]
-	private void mT__33()
+	// $ANTLR start "T__62"
+	[GrammarRule("T__62")]
+	private void mT__62()
 	{
-		EnterRule_T__33();
-		EnterRule("T__33", 15);
-		TraceIn("T__33", 15);
+		EnterRule_T__62();
+		EnterRule("T__62", 15);
+		TraceIn("T__62", 15);
 		try
 		{
-			int _type = T__33;
+			int _type = T__62;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:23:7: ( '<' )
 			DebugEnterAlt(1);
@@ -625,26 +651,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__33", 15);
-			LeaveRule("T__33", 15);
-			LeaveRule_T__33();
+			TraceOut("T__62", 15);
+			LeaveRule("T__62", 15);
+			LeaveRule_T__62();
 		}
 	}
-	// $ANTLR end "T__33"
+	// $ANTLR end "T__62"
 
-	partial void EnterRule_T__34();
-	partial void LeaveRule_T__34();
+	partial void EnterRule_T__63();
+	partial void LeaveRule_T__63();
 
-	// $ANTLR start "T__34"
-	[GrammarRule("T__34")]
-	private void mT__34()
+	// $ANTLR start "T__63"
+	[GrammarRule("T__63")]
+	private void mT__63()
 	{
-		EnterRule_T__34();
-		EnterRule("T__34", 16);
-		TraceIn("T__34", 16);
+		EnterRule_T__63();
+		EnterRule("T__63", 16);
+		TraceIn("T__63", 16);
 		try
 		{
-			int _type = T__34;
+			int _type = T__63;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:24:7: ( '<<' )
 			DebugEnterAlt(1);
@@ -661,26 +687,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__34", 16);
-			LeaveRule("T__34", 16);
-			LeaveRule_T__34();
+			TraceOut("T__63", 16);
+			LeaveRule("T__63", 16);
+			LeaveRule_T__63();
 		}
 	}
-	// $ANTLR end "T__34"
+	// $ANTLR end "T__63"
 
-	partial void EnterRule_T__35();
-	partial void LeaveRule_T__35();
+	partial void EnterRule_T__64();
+	partial void LeaveRule_T__64();
 
-	// $ANTLR start "T__35"
-	[GrammarRule("T__35")]
-	private void mT__35()
+	// $ANTLR start "T__64"
+	[GrammarRule("T__64")]
+	private void mT__64()
 	{
-		EnterRule_T__35();
-		EnterRule("T__35", 17);
-		TraceIn("T__35", 17);
+		EnterRule_T__64();
+		EnterRule("T__64", 17);
+		TraceIn("T__64", 17);
 		try
 		{
-			int _type = T__35;
+			int _type = T__64;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:25:7: ( '<=' )
 			DebugEnterAlt(1);
@@ -697,26 +723,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__35", 17);
-			LeaveRule("T__35", 17);
-			LeaveRule_T__35();
+			TraceOut("T__64", 17);
+			LeaveRule("T__64", 17);
+			LeaveRule_T__64();
 		}
 	}
-	// $ANTLR end "T__35"
+	// $ANTLR end "T__64"
 
-	partial void EnterRule_T__36();
-	partial void LeaveRule_T__36();
+	partial void EnterRule_T__65();
+	partial void LeaveRule_T__65();
 
-	// $ANTLR start "T__36"
-	[GrammarRule("T__36")]
-	private void mT__36()
+	// $ANTLR start "T__65"
+	[GrammarRule("T__65")]
+	private void mT__65()
 	{
-		EnterRule_T__36();
-		EnterRule("T__36", 18);
-		TraceIn("T__36", 18);
+		EnterRule_T__65();
+		EnterRule("T__65", 18);
+		TraceIn("T__65", 18);
 		try
 		{
-			int _type = T__36;
+			int _type = T__65;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:26:7: ( '<>' )
 			DebugEnterAlt(1);
@@ -733,26 +759,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__36", 18);
-			LeaveRule("T__36", 18);
-			LeaveRule_T__36();
+			TraceOut("T__65", 18);
+			LeaveRule("T__65", 18);
+			LeaveRule_T__65();
 		}
 	}
-	// $ANTLR end "T__36"
+	// $ANTLR end "T__65"
 
-	partial void EnterRule_T__37();
-	partial void LeaveRule_T__37();
+	partial void EnterRule_T__66();
+	partial void LeaveRule_T__66();
 
-	// $ANTLR start "T__37"
-	[GrammarRule("T__37")]
-	private void mT__37()
+	// $ANTLR start "T__66"
+	[GrammarRule("T__66")]
+	private void mT__66()
 	{
-		EnterRule_T__37();
-		EnterRule("T__37", 19);
-		TraceIn("T__37", 19);
+		EnterRule_T__66();
+		EnterRule("T__66", 19);
+		TraceIn("T__66", 19);
 		try
 		{
-			int _type = T__37;
+			int _type = T__66;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:27:7: ( '=' )
 			DebugEnterAlt(1);
@@ -768,26 +794,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__37", 19);
-			LeaveRule("T__37", 19);
-			LeaveRule_T__37();
+			TraceOut("T__66", 19);
+			LeaveRule("T__66", 19);
+			LeaveRule_T__66();
 		}
 	}
-	// $ANTLR end "T__37"
+	// $ANTLR end "T__66"
 
-	partial void EnterRule_T__38();
-	partial void LeaveRule_T__38();
+	partial void EnterRule_T__67();
+	partial void LeaveRule_T__67();
 
-	// $ANTLR start "T__38"
-	[GrammarRule("T__38")]
-	private void mT__38()
+	// $ANTLR start "T__67"
+	[GrammarRule("T__67")]
+	private void mT__67()
 	{
-		EnterRule_T__38();
-		EnterRule("T__38", 20);
-		TraceIn("T__38", 20);
+		EnterRule_T__67();
+		EnterRule("T__67", 20);
+		TraceIn("T__67", 20);
 		try
 		{
-			int _type = T__38;
+			int _type = T__67;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:28:7: ( '==' )
 			DebugEnterAlt(1);
@@ -804,26 +830,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__38", 20);
-			LeaveRule("T__38", 20);
-			LeaveRule_T__38();
+			TraceOut("T__67", 20);
+			LeaveRule("T__67", 20);
+			LeaveRule_T__67();
 		}
 	}
-	// $ANTLR end "T__38"
+	// $ANTLR end "T__67"
 
-	partial void EnterRule_T__39();
-	partial void LeaveRule_T__39();
+	partial void EnterRule_T__68();
+	partial void LeaveRule_T__68();
 
-	// $ANTLR start "T__39"
-	[GrammarRule("T__39")]
-	private void mT__39()
+	// $ANTLR start "T__68"
+	[GrammarRule("T__68")]
+	private void mT__68()
 	{
-		EnterRule_T__39();
-		EnterRule("T__39", 21);
-		TraceIn("T__39", 21);
+		EnterRule_T__68();
+		EnterRule("T__68", 21);
+		TraceIn("T__68", 21);
 		try
 		{
-			int _type = T__39;
+			int _type = T__68;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:29:7: ( '>' )
 			DebugEnterAlt(1);
@@ -839,26 +865,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__39", 21);
-			LeaveRule("T__39", 21);
-			LeaveRule_T__39();
+			TraceOut("T__68", 21);
+			LeaveRule("T__68", 21);
+			LeaveRule_T__68();
 		}
 	}
-	// $ANTLR end "T__39"
+	// $ANTLR end "T__68"
 
-	partial void EnterRule_T__40();
-	partial void LeaveRule_T__40();
+	partial void EnterRule_T__69();
+	partial void LeaveRule_T__69();
 
-	// $ANTLR start "T__40"
-	[GrammarRule("T__40")]
-	private void mT__40()
+	// $ANTLR start "T__69"
+	[GrammarRule("T__69")]
+	private void mT__69()
 	{
-		EnterRule_T__40();
-		EnterRule("T__40", 22);
-		TraceIn("T__40", 22);
+		EnterRule_T__69();
+		EnterRule("T__69", 22);
+		TraceIn("T__69", 22);
 		try
 		{
-			int _type = T__40;
+			int _type = T__69;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:30:7: ( '>=' )
 			DebugEnterAlt(1);
@@ -875,26 +901,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__40", 22);
-			LeaveRule("T__40", 22);
-			LeaveRule_T__40();
+			TraceOut("T__69", 22);
+			LeaveRule("T__69", 22);
+			LeaveRule_T__69();
 		}
 	}
-	// $ANTLR end "T__40"
+	// $ANTLR end "T__69"
 
-	partial void EnterRule_T__41();
-	partial void LeaveRule_T__41();
+	partial void EnterRule_T__70();
+	partial void LeaveRule_T__70();
 
-	// $ANTLR start "T__41"
-	[GrammarRule("T__41")]
-	private void mT__41()
+	// $ANTLR start "T__70"
+	[GrammarRule("T__70")]
+	private void mT__70()
 	{
-		EnterRule_T__41();
-		EnterRule("T__41", 23);
-		TraceIn("T__41", 23);
+		EnterRule_T__70();
+		EnterRule("T__70", 23);
+		TraceIn("T__70", 23);
 		try
 		{
-			int _type = T__41;
+			int _type = T__70;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:31:7: ( '>>' )
 			DebugEnterAlt(1);
@@ -911,26 +937,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__41", 23);
-			LeaveRule("T__41", 23);
-			LeaveRule_T__41();
+			TraceOut("T__70", 23);
+			LeaveRule("T__70", 23);
+			LeaveRule_T__70();
 		}
 	}
-	// $ANTLR end "T__41"
+	// $ANTLR end "T__70"
 
-	partial void EnterRule_T__42();
-	partial void LeaveRule_T__42();
+	partial void EnterRule_T__71();
+	partial void LeaveRule_T__71();
 
-	// $ANTLR start "T__42"
-	[GrammarRule("T__42")]
-	private void mT__42()
+	// $ANTLR start "T__71"
+	[GrammarRule("T__71")]
+	private void mT__71()
 	{
-		EnterRule_T__42();
-		EnterRule("T__42", 24);
-		TraceIn("T__42", 24);
+		EnterRule_T__71();
+		EnterRule("T__71", 24);
+		TraceIn("T__71", 24);
 		try
 		{
-			int _type = T__42;
+			int _type = T__71;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:32:7: ( '?' )
 			DebugEnterAlt(1);
@@ -946,26 +972,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__42", 24);
-			LeaveRule("T__42", 24);
-			LeaveRule_T__42();
+			TraceOut("T__71", 24);
+			LeaveRule("T__71", 24);
+			LeaveRule_T__71();
 		}
 	}
-	// $ANTLR end "T__42"
+	// $ANTLR end "T__71"
 
-	partial void EnterRule_T__43();
-	partial void LeaveRule_T__43();
+	partial void EnterRule_T__72();
+	partial void LeaveRule_T__72();
 
-	// $ANTLR start "T__43"
-	[GrammarRule("T__43")]
-	private void mT__43()
+	// $ANTLR start "T__72"
+	[GrammarRule("T__72")]
+	private void mT__72()
 	{
-		EnterRule_T__43();
-		EnterRule("T__43", 25);
-		TraceIn("T__43", 25);
+		EnterRule_T__72();
+		EnterRule("T__72", 25);
+		TraceIn("T__72", 25);
 		try
 		{
-			int _type = T__43;
+			int _type = T__72;
 			int _channel = DefaultTokenChannel;
 			// NCalc.g:33:7: ( '^' )
 			DebugEnterAlt(1);
@@ -981,140 +1007,32 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__43", 25);
-			LeaveRule("T__43", 25);
-			LeaveRule_T__43();
+			TraceOut("T__72", 25);
+			LeaveRule("T__72", 25);
+			LeaveRule_T__72();
 		}
 	}
-	// $ANTLR end "T__43"
+	// $ANTLR end "T__72"
 
-	partial void EnterRule_T__44();
-	partial void LeaveRule_T__44();
+	partial void EnterRule_T__73();
+	partial void LeaveRule_T__73();
 
-	// $ANTLR start "T__44"
-	[GrammarRule("T__44")]
-	private void mT__44()
+	// $ANTLR start "T__73"
+	[GrammarRule("T__73")]
+	private void mT__73()
 	{
-		EnterRule_T__44();
-		EnterRule("T__44", 26);
-		TraceIn("T__44", 26);
+		EnterRule_T__73();
+		EnterRule("T__73", 26);
+		TraceIn("T__73", 26);
 		try
 		{
-			int _type = T__44;
+			int _type = T__73;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:34:7: ( 'and' )
+			// NCalc.g:34:7: ( '|' )
 			DebugEnterAlt(1);
-			// NCalc.g:34:9: 'and'
+			// NCalc.g:34:9: '|'
 			{
 			DebugLocation(34, 9);
-			Match("and"); 
-
-
-			}
-
-			state.type = _type;
-			state.channel = _channel;
-		}
-		finally
-		{
-			TraceOut("T__44", 26);
-			LeaveRule("T__44", 26);
-			LeaveRule_T__44();
-		}
-	}
-	// $ANTLR end "T__44"
-
-	partial void EnterRule_T__45();
-	partial void LeaveRule_T__45();
-
-	// $ANTLR start "T__45"
-	[GrammarRule("T__45")]
-	private void mT__45()
-	{
-		EnterRule_T__45();
-		EnterRule("T__45", 27);
-		TraceIn("T__45", 27);
-		try
-		{
-			int _type = T__45;
-			int _channel = DefaultTokenChannel;
-			// NCalc.g:35:7: ( 'not' )
-			DebugEnterAlt(1);
-			// NCalc.g:35:9: 'not'
-			{
-			DebugLocation(35, 9);
-			Match("not"); 
-
-
-			}
-
-			state.type = _type;
-			state.channel = _channel;
-		}
-		finally
-		{
-			TraceOut("T__45", 27);
-			LeaveRule("T__45", 27);
-			LeaveRule_T__45();
-		}
-	}
-	// $ANTLR end "T__45"
-
-	partial void EnterRule_T__46();
-	partial void LeaveRule_T__46();
-
-	// $ANTLR start "T__46"
-	[GrammarRule("T__46")]
-	private void mT__46()
-	{
-		EnterRule_T__46();
-		EnterRule("T__46", 28);
-		TraceIn("T__46", 28);
-		try
-		{
-			int _type = T__46;
-			int _channel = DefaultTokenChannel;
-			// NCalc.g:36:7: ( 'or' )
-			DebugEnterAlt(1);
-			// NCalc.g:36:9: 'or'
-			{
-			DebugLocation(36, 9);
-			Match("or"); 
-
-
-			}
-
-			state.type = _type;
-			state.channel = _channel;
-		}
-		finally
-		{
-			TraceOut("T__46", 28);
-			LeaveRule("T__46", 28);
-			LeaveRule_T__46();
-		}
-	}
-	// $ANTLR end "T__46"
-
-	partial void EnterRule_T__47();
-	partial void LeaveRule_T__47();
-
-	// $ANTLR start "T__47"
-	[GrammarRule("T__47")]
-	private void mT__47()
-	{
-		EnterRule_T__47();
-		EnterRule("T__47", 29);
-		TraceIn("T__47", 29);
-		try
-		{
-			int _type = T__47;
-			int _channel = DefaultTokenChannel;
-			// NCalc.g:37:7: ( '|' )
-			DebugEnterAlt(1);
-			// NCalc.g:37:9: '|'
-			{
-			DebugLocation(37, 9);
 			Match('|'); 
 
 			}
@@ -1124,32 +1042,32 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__47", 29);
-			LeaveRule("T__47", 29);
-			LeaveRule_T__47();
+			TraceOut("T__73", 26);
+			LeaveRule("T__73", 26);
+			LeaveRule_T__73();
 		}
 	}
-	// $ANTLR end "T__47"
+	// $ANTLR end "T__73"
 
-	partial void EnterRule_T__48();
-	partial void LeaveRule_T__48();
+	partial void EnterRule_T__74();
+	partial void LeaveRule_T__74();
 
-	// $ANTLR start "T__48"
-	[GrammarRule("T__48")]
-	private void mT__48()
+	// $ANTLR start "T__74"
+	[GrammarRule("T__74")]
+	private void mT__74()
 	{
-		EnterRule_T__48();
-		EnterRule("T__48", 30);
-		TraceIn("T__48", 30);
+		EnterRule_T__74();
+		EnterRule("T__74", 27);
+		TraceIn("T__74", 27);
 		try
 		{
-			int _type = T__48;
+			int _type = T__74;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:38:7: ( '||' )
+			// NCalc.g:35:7: ( '||' )
 			DebugEnterAlt(1);
-			// NCalc.g:38:9: '||'
+			// NCalc.g:35:9: '||'
 			{
-			DebugLocation(38, 9);
+			DebugLocation(35, 9);
 			Match("||"); 
 
 
@@ -1160,32 +1078,32 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__48", 30);
-			LeaveRule("T__48", 30);
-			LeaveRule_T__48();
+			TraceOut("T__74", 27);
+			LeaveRule("T__74", 27);
+			LeaveRule_T__74();
 		}
 	}
-	// $ANTLR end "T__48"
+	// $ANTLR end "T__74"
 
-	partial void EnterRule_T__49();
-	partial void LeaveRule_T__49();
+	partial void EnterRule_T__75();
+	partial void LeaveRule_T__75();
 
-	// $ANTLR start "T__49"
-	[GrammarRule("T__49")]
-	private void mT__49()
+	// $ANTLR start "T__75"
+	[GrammarRule("T__75")]
+	private void mT__75()
 	{
-		EnterRule_T__49();
-		EnterRule("T__49", 31);
-		TraceIn("T__49", 31);
+		EnterRule_T__75();
+		EnterRule("T__75", 28);
+		TraceIn("T__75", 28);
 		try
 		{
-			int _type = T__49;
+			int _type = T__75;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:39:7: ( '~' )
+			// NCalc.g:36:7: ( '~' )
 			DebugEnterAlt(1);
-			// NCalc.g:39:9: '~'
+			// NCalc.g:36:9: '~'
 			{
-			DebugLocation(39, 9);
+			DebugLocation(36, 9);
 			Match('~'); 
 
 			}
@@ -1195,12 +1113,12 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__49", 31);
-			LeaveRule("T__49", 31);
-			LeaveRule_T__49();
+			TraceOut("T__75", 28);
+			LeaveRule("T__75", 28);
+			LeaveRule_T__75();
 		}
 	}
-	// $ANTLR end "T__49"
+	// $ANTLR end "T__75"
 
 	partial void EnterRule_TRUE();
 	partial void LeaveRule_TRUE();
@@ -1210,19 +1128,24 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 	private void mTRUE()
 	{
 		EnterRule_TRUE();
-		EnterRule("TRUE", 32);
-		TraceIn("TRUE", 32);
+		EnterRule("TRUE", 29);
+		TraceIn("TRUE", 29);
 		try
 		{
 			int _type = TRUE;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:248:2: ( 'true' )
+			// NCalc.g:247:5: ( T R U E )
 			DebugEnterAlt(1);
-			// NCalc.g:248:4: 'true'
+			// NCalc.g:247:7: T R U E
 			{
-			DebugLocation(248, 4);
-			Match("true"); 
-
+			DebugLocation(247, 7);
+			mT(); 
+			DebugLocation(247, 9);
+			mR(); 
+			DebugLocation(247, 11);
+			mU(); 
+			DebugLocation(247, 13);
+			mE(); 
 
 			}
 
@@ -1231,8 +1154,8 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("TRUE", 32);
-			LeaveRule("TRUE", 32);
+			TraceOut("TRUE", 29);
+			LeaveRule("TRUE", 29);
 			LeaveRule_TRUE();
 		}
 	}
@@ -1246,19 +1169,26 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 	private void mFALSE()
 	{
 		EnterRule_FALSE();
-		EnterRule("FALSE", 33);
-		TraceIn("FALSE", 33);
+		EnterRule("FALSE", 30);
+		TraceIn("FALSE", 30);
 		try
 		{
 			int _type = FALSE;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:252:2: ( 'false' )
+			// NCalc.g:248:6: ( F A L S E )
 			DebugEnterAlt(1);
-			// NCalc.g:252:4: 'false'
+			// NCalc.g:248:8: F A L S E
 			{
-			DebugLocation(252, 4);
-			Match("false"); 
-
+			DebugLocation(248, 8);
+			mF(); 
+			DebugLocation(248, 10);
+			mA(); 
+			DebugLocation(248, 12);
+			mL(); 
+			DebugLocation(248, 14);
+			mS(); 
+			DebugLocation(248, 16);
+			mE(); 
 
 			}
 
@@ -1267,12 +1197,127 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("FALSE", 33);
-			LeaveRule("FALSE", 33);
+			TraceOut("FALSE", 30);
+			LeaveRule("FALSE", 30);
 			LeaveRule_FALSE();
 		}
 	}
 	// $ANTLR end "FALSE"
+
+	partial void EnterRule_AND();
+	partial void LeaveRule_AND();
+
+	// $ANTLR start "AND"
+	[GrammarRule("AND")]
+	private void mAND()
+	{
+		EnterRule_AND();
+		EnterRule("AND", 31);
+		TraceIn("AND", 31);
+		try
+		{
+			int _type = AND;
+			int _channel = DefaultTokenChannel;
+			// NCalc.g:249:4: ( A N D )
+			DebugEnterAlt(1);
+			// NCalc.g:249:6: A N D
+			{
+			DebugLocation(249, 6);
+			mA(); 
+			DebugLocation(249, 8);
+			mN(); 
+			DebugLocation(249, 10);
+			mD(); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("AND", 31);
+			LeaveRule("AND", 31);
+			LeaveRule_AND();
+		}
+	}
+	// $ANTLR end "AND"
+
+	partial void EnterRule_OR();
+	partial void LeaveRule_OR();
+
+	// $ANTLR start "OR"
+	[GrammarRule("OR")]
+	private void mOR()
+	{
+		EnterRule_OR();
+		EnterRule("OR", 32);
+		TraceIn("OR", 32);
+		try
+		{
+			int _type = OR;
+			int _channel = DefaultTokenChannel;
+			// NCalc.g:250:3: ( O R )
+			DebugEnterAlt(1);
+			// NCalc.g:250:5: O R
+			{
+			DebugLocation(250, 5);
+			mO(); 
+			DebugLocation(250, 7);
+			mR(); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("OR", 32);
+			LeaveRule("OR", 32);
+			LeaveRule_OR();
+		}
+	}
+	// $ANTLR end "OR"
+
+	partial void EnterRule_NOT();
+	partial void LeaveRule_NOT();
+
+	// $ANTLR start "NOT"
+	[GrammarRule("NOT")]
+	private void mNOT()
+	{
+		EnterRule_NOT();
+		EnterRule("NOT", 33);
+		TraceIn("NOT", 33);
+		try
+		{
+			int _type = NOT;
+			int _channel = DefaultTokenChannel;
+			// NCalc.g:251:4: ( N O T )
+			DebugEnterAlt(1);
+			// NCalc.g:251:6: N O T
+			{
+			DebugLocation(251, 6);
+			mN(); 
+			DebugLocation(251, 8);
+			mO(); 
+			DebugLocation(251, 10);
+			mT(); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("NOT", 33);
+			LeaveRule("NOT", 33);
+			LeaveRule_NOT();
+		}
+	}
+	// $ANTLR end "NOT"
 
 	partial void EnterRule_ID();
 	partial void LeaveRule_ID();
@@ -1288,14 +1333,14 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = ID;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:256:2: ( LETTER ( LETTER | DIGIT )* )
+			// NCalc.g:254:2: ( LETTER ( LETTER | DIGIT )* )
 			DebugEnterAlt(1);
-			// NCalc.g:256:5: LETTER ( LETTER | DIGIT )*
+			// NCalc.g:254:5: LETTER ( LETTER | DIGIT )*
 			{
-			DebugLocation(256, 5);
+			DebugLocation(254, 5);
 			mLETTER(); 
-			DebugLocation(256, 12);
-			// NCalc.g:256:12: ( LETTER | DIGIT )*
+			DebugLocation(254, 12);
+			// NCalc.g:254:12: ( LETTER | DIGIT )*
 			try { DebugEnterSubRule(1);
 			while (true)
 			{
@@ -1316,7 +1361,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// NCalc.g:
 					{
-					DebugLocation(256, 12);
+					DebugLocation(254, 12);
 					input.Consume();
 
 
@@ -1362,12 +1407,12 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = INTEGER;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:260:2: ( ( DIGIT )+ )
+			// NCalc.g:258:2: ( ( DIGIT )+ )
 			DebugEnterAlt(1);
-			// NCalc.g:260:4: ( DIGIT )+
+			// NCalc.g:258:4: ( DIGIT )+
 			{
-			DebugLocation(260, 4);
-			// NCalc.g:260:4: ( DIGIT )+
+			DebugLocation(258, 4);
+			// NCalc.g:258:4: ( DIGIT )+
 			int cnt2=0;
 			try { DebugEnterSubRule(2);
 			while (true)
@@ -1389,7 +1434,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// NCalc.g:
 					{
-					DebugLocation(260, 4);
+					DebugLocation(258, 4);
 					input.Consume();
 
 
@@ -1440,7 +1485,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = FLOAT;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:264:2: ( ( DIGIT )* '.' ( DIGIT )+ ( E )? | ( DIGIT )+ E )
+			// NCalc.g:262:2: ( ( DIGIT )* '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ EXPONENT )
 			int alt7=2;
 			try { DebugEnterDecision(7, false);
 			try
@@ -1457,10 +1502,10 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// NCalc.g:264:4: ( DIGIT )* '.' ( DIGIT )+ ( E )?
+				// NCalc.g:262:4: ( DIGIT )* '.' ( DIGIT )+ ( EXPONENT )?
 				{
-				DebugLocation(264, 4);
-				// NCalc.g:264:4: ( DIGIT )*
+				DebugLocation(262, 4);
+				// NCalc.g:262:4: ( DIGIT )*
 				try { DebugEnterSubRule(3);
 				while (true)
 				{
@@ -1481,7 +1526,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 						DebugEnterAlt(1);
 						// NCalc.g:
 						{
-						DebugLocation(264, 4);
+						DebugLocation(262, 4);
 						input.Consume();
 
 
@@ -1498,10 +1543,10 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 
 				} finally { DebugExitSubRule(3); }
 
-				DebugLocation(264, 11);
+				DebugLocation(262, 11);
 				Match('.'); 
-				DebugLocation(264, 15);
-				// NCalc.g:264:15: ( DIGIT )+
+				DebugLocation(262, 15);
+				// NCalc.g:262:15: ( DIGIT )+
 				int cnt4=0;
 				try { DebugEnterSubRule(4);
 				while (true)
@@ -1523,7 +1568,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 						DebugEnterAlt(1);
 						// NCalc.g:
 						{
-						DebugLocation(264, 15);
+						DebugLocation(262, 15);
 						input.Consume();
 
 
@@ -1545,8 +1590,8 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 
 				} finally { DebugExitSubRule(4); }
 
-				DebugLocation(264, 22);
-				// NCalc.g:264:22: ( E )?
+				DebugLocation(262, 22);
+				// NCalc.g:262:22: ( EXPONENT )?
 				int alt5=2;
 				try { DebugEnterSubRule(5);
 				try { DebugEnterDecision(5, false);
@@ -1561,10 +1606,10 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// NCalc.g:264:22: E
+					// NCalc.g:262:22: EXPONENT
 					{
-					DebugLocation(264, 22);
-					mE(); 
+					DebugLocation(262, 22);
+					mEXPONENT(); 
 
 					}
 					break;
@@ -1577,10 +1622,10 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// NCalc.g:265:4: ( DIGIT )+ E
+				// NCalc.g:263:4: ( DIGIT )+ EXPONENT
 				{
-				DebugLocation(265, 4);
-				// NCalc.g:265:4: ( DIGIT )+
+				DebugLocation(263, 4);
+				// NCalc.g:263:4: ( DIGIT )+
 				int cnt6=0;
 				try { DebugEnterSubRule(6);
 				while (true)
@@ -1602,7 +1647,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 						DebugEnterAlt(1);
 						// NCalc.g:
 						{
-						DebugLocation(265, 4);
+						DebugLocation(263, 4);
 						input.Consume();
 
 
@@ -1624,8 +1669,8 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 
 				} finally { DebugExitSubRule(6); }
 
-				DebugLocation(265, 11);
-				mE(); 
+				DebugLocation(263, 11);
+				mEXPONENT(); 
 
 				}
 				break;
@@ -1657,14 +1702,14 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = STRING;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:269:6: ( '\\'' ( EscapeSequence | ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) ) )* '\\'' )
+			// NCalc.g:267:6: ( '\\'' ( EscapeSequence | ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) ) )* '\\'' )
 			DebugEnterAlt(1);
-			// NCalc.g:269:10: '\\'' ( EscapeSequence | ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) ) )* '\\''
+			// NCalc.g:267:10: '\\'' ( EscapeSequence | ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) ) )* '\\''
 			{
-			DebugLocation(269, 10);
+			DebugLocation(267, 10);
 			Match('\''); 
-			DebugLocation(269, 15);
-			// NCalc.g:269:15: ( EscapeSequence | ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) ) )*
+			DebugLocation(267, 15);
+			// NCalc.g:267:15: ( EscapeSequence | ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) ) )*
 			try { DebugEnterSubRule(8);
 			while (true)
 			{
@@ -1687,23 +1732,23 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// NCalc.g:269:17: EscapeSequence
+					// NCalc.g:267:17: EscapeSequence
 					{
-					DebugLocation(269, 17);
+					DebugLocation(267, 17);
 					mEscapeSequence(); 
 
 					}
 					break;
 				case 2:
 					DebugEnterAlt(2);
-					// NCalc.g:269:34: ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) )
+					// NCalc.g:267:34: ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) )
 					{
-					DebugLocation(269, 34);
-					// NCalc.g:269:34: ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) )
+					DebugLocation(267, 34);
+					// NCalc.g:267:34: ( options {greedy=false; } :~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' ) )
 					DebugEnterAlt(1);
-					// NCalc.g:269:61: ~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' )
+					// NCalc.g:267:61: ~ ( '\\u0000' .. '\\u001f' | '\\\\' | '\\'' )
 					{
-					DebugLocation(269, 61);
+					DebugLocation(267, 61);
 					input.Consume();
 
 
@@ -1723,7 +1768,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 
 			} finally { DebugExitSubRule(8); }
 
-			DebugLocation(269, 103);
+			DebugLocation(267, 103);
 			Match('\''); 
 
 			}
@@ -1754,19 +1799,19 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = DATETIME;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:273:3: ( '#' ( options {greedy=false; } : (~ ( '#' ) )* ) '#' )
+			// NCalc.g:271:3: ( '#' ( options {greedy=false; } : (~ ( '#' ) )* ) '#' )
 			DebugEnterAlt(1);
-			// NCalc.g:273:5: '#' ( options {greedy=false; } : (~ ( '#' ) )* ) '#'
+			// NCalc.g:271:5: '#' ( options {greedy=false; } : (~ ( '#' ) )* ) '#'
 			{
-			DebugLocation(273, 5);
+			DebugLocation(271, 5);
 			Match('#'); 
-			DebugLocation(273, 9);
-			// NCalc.g:273:9: ( options {greedy=false; } : (~ ( '#' ) )* )
+			DebugLocation(271, 9);
+			// NCalc.g:271:9: ( options {greedy=false; } : (~ ( '#' ) )* )
 			DebugEnterAlt(1);
-			// NCalc.g:273:36: (~ ( '#' ) )*
+			// NCalc.g:271:36: (~ ( '#' ) )*
 			{
-			DebugLocation(273, 36);
-			// NCalc.g:273:36: (~ ( '#' ) )*
+			DebugLocation(271, 36);
+			// NCalc.g:271:36: (~ ( '#' ) )*
 			try { DebugEnterSubRule(9);
 			while (true)
 			{
@@ -1787,7 +1832,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// NCalc.g:
 					{
-					DebugLocation(273, 36);
+					DebugLocation(271, 36);
 					input.Consume();
 
 
@@ -1807,7 +1852,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 
 			}
 
-			DebugLocation(273, 45);
+			DebugLocation(271, 45);
 			Match('#'); 
 
 			}
@@ -1838,19 +1883,19 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = NAME;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:276:6: ( '[' ( options {greedy=false; } : (~ ( ']' ) )* ) ']' )
+			// NCalc.g:274:6: ( '[' ( options {greedy=false; } : (~ ( ']' ) )* ) ']' )
 			DebugEnterAlt(1);
-			// NCalc.g:276:8: '[' ( options {greedy=false; } : (~ ( ']' ) )* ) ']'
+			// NCalc.g:274:8: '[' ( options {greedy=false; } : (~ ( ']' ) )* ) ']'
 			{
-			DebugLocation(276, 8);
+			DebugLocation(274, 8);
 			Match('['); 
-			DebugLocation(276, 12);
-			// NCalc.g:276:12: ( options {greedy=false; } : (~ ( ']' ) )* )
+			DebugLocation(274, 12);
+			// NCalc.g:274:12: ( options {greedy=false; } : (~ ( ']' ) )* )
 			DebugEnterAlt(1);
-			// NCalc.g:276:39: (~ ( ']' ) )*
+			// NCalc.g:274:39: (~ ( ']' ) )*
 			{
-			DebugLocation(276, 39);
-			// NCalc.g:276:39: (~ ( ']' ) )*
+			DebugLocation(274, 39);
+			// NCalc.g:274:39: (~ ( ']' ) )*
 			try { DebugEnterSubRule(10);
 			while (true)
 			{
@@ -1871,7 +1916,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// NCalc.g:
 					{
-					DebugLocation(276, 39);
+					DebugLocation(274, 39);
 					input.Consume();
 
 
@@ -1891,7 +1936,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 
 			}
 
-			DebugLocation(276, 48);
+			DebugLocation(274, 48);
 			Match(']'); 
 
 			}
@@ -1908,25 +1953,25 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 	}
 	// $ANTLR end "NAME"
 
-	partial void EnterRule_E();
-	partial void LeaveRule_E();
+	partial void EnterRule_EXPONENT();
+	partial void LeaveRule_EXPONENT();
 
-	// $ANTLR start "E"
-	[GrammarRule("E")]
-	private void mE()
+	// $ANTLR start "EXPONENT"
+	[GrammarRule("EXPONENT")]
+	private void mEXPONENT()
 	{
-		EnterRule_E();
-		EnterRule("E", 40);
-		TraceIn("E", 40);
+		EnterRule_EXPONENT();
+		EnterRule("EXPONENT", 40);
+		TraceIn("EXPONENT", 40);
 		try
 		{
-			int _type = E;
+			int _type = EXPONENT;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:279:3: ( ( 'E' | 'e' ) ( '+' | '-' )? ( DIGIT )+ )
+			// NCalc.g:278:2: ( ( 'E' | 'e' ) ( '+' | '-' )? ( DIGIT )+ )
 			DebugEnterAlt(1);
-			// NCalc.g:279:5: ( 'E' | 'e' ) ( '+' | '-' )? ( DIGIT )+
+			// NCalc.g:278:4: ( 'E' | 'e' ) ( '+' | '-' )? ( DIGIT )+
 			{
-			DebugLocation(279, 5);
+			DebugLocation(278, 4);
 			if (input.LA(1)=='E'||input.LA(1)=='e')
 			{
 				input.Consume();
@@ -1939,8 +1984,8 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 				throw mse;
 			}
 
-			DebugLocation(279, 15);
-			// NCalc.g:279:15: ( '+' | '-' )?
+			DebugLocation(278, 14);
+			// NCalc.g:278:14: ( '+' | '-' )?
 			int alt11=2;
 			try { DebugEnterSubRule(11);
 			try { DebugEnterDecision(11, false);
@@ -1957,7 +2002,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 				DebugEnterAlt(1);
 				// NCalc.g:
 				{
-				DebugLocation(279, 15);
+				DebugLocation(278, 14);
 				input.Consume();
 
 
@@ -1967,8 +2012,8 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 			}
 			} finally { DebugExitSubRule(11); }
 
-			DebugLocation(279, 26);
-			// NCalc.g:279:26: ( DIGIT )+
+			DebugLocation(278, 25);
+			// NCalc.g:278:25: ( DIGIT )+
 			int cnt12=0;
 			try { DebugEnterSubRule(12);
 			while (true)
@@ -1990,7 +2035,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// NCalc.g:
 					{
-					DebugLocation(279, 26);
+					DebugLocation(278, 25);
 					input.Consume();
 
 
@@ -2020,12 +2065,12 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("E", 40);
-			LeaveRule("E", 40);
-			LeaveRule_E();
+			TraceOut("EXPONENT", 40);
+			LeaveRule("EXPONENT", 40);
+			LeaveRule_EXPONENT();
 		}
 	}
-	// $ANTLR end "E"
+	// $ANTLR end "EXPONENT"
 
 	partial void EnterRule_LETTER();
 	partial void LeaveRule_LETTER();
@@ -2039,11 +2084,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("LETTER", 41);
 		try
 		{
-			// NCalc.g:283:2: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )
+			// NCalc.g:282:2: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(283, 2);
+			DebugLocation(282, 2);
 			if ((input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z'))
 			{
 				input.Consume();
@@ -2081,11 +2126,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("DIGIT", 42);
 		try
 		{
-			// NCalc.g:289:2: ( '0' .. '9' )
+			// NCalc.g:288:2: ( '0' .. '9' )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(289, 2);
+			DebugLocation(288, 2);
 			if ((input.LA(1)>='0' && input.LA(1)<='9'))
 			{
 				input.Consume();
@@ -2123,14 +2168,14 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("EscapeSequence", 43);
 		try
 		{
-			// NCalc.g:293:2: ( '\\\\' ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape ) )
+			// NCalc.g:292:2: ( '\\\\' ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape ) )
 			DebugEnterAlt(1);
-			// NCalc.g:293:4: '\\\\' ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape )
+			// NCalc.g:292:4: '\\\\' ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape )
 			{
-			DebugLocation(293, 4);
+			DebugLocation(292, 4);
 			Match('\\'); 
-			DebugLocation(294, 4);
-			// NCalc.g:294:4: ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape )
+			DebugLocation(293, 4);
+			// NCalc.g:293:4: ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape )
 			int alt13=6;
 			try { DebugEnterSubRule(13);
 			try { DebugEnterDecision(13, false);
@@ -2179,54 +2224,54 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// NCalc.g:295:5: 'n'
+				// NCalc.g:294:5: 'n'
 				{
-				DebugLocation(295, 5);
+				DebugLocation(294, 5);
 				Match('n'); 
 
 				}
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// NCalc.g:296:4: 'r'
+				// NCalc.g:295:4: 'r'
 				{
-				DebugLocation(296, 4);
+				DebugLocation(295, 4);
 				Match('r'); 
 
 				}
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// NCalc.g:297:4: 't'
+				// NCalc.g:296:4: 't'
 				{
-				DebugLocation(297, 4);
+				DebugLocation(296, 4);
 				Match('t'); 
 
 				}
 				break;
 			case 4:
 				DebugEnterAlt(4);
-				// NCalc.g:298:4: '\\''
+				// NCalc.g:297:4: '\\''
 				{
-				DebugLocation(298, 4);
+				DebugLocation(297, 4);
 				Match('\''); 
 
 				}
 				break;
 			case 5:
 				DebugEnterAlt(5);
-				// NCalc.g:299:4: '\\\\'
+				// NCalc.g:298:4: '\\\\'
 				{
-				DebugLocation(299, 4);
+				DebugLocation(298, 4);
 				Match('\\'); 
 
 				}
 				break;
 			case 6:
 				DebugEnterAlt(6);
-				// NCalc.g:300:4: UnicodeEscape
+				// NCalc.g:299:4: UnicodeEscape
 				{
-				DebugLocation(300, 4);
+				DebugLocation(299, 4);
 				mUnicodeEscape(); 
 
 				}
@@ -2260,11 +2305,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("HexDigit", 44);
 		try
 		{
-			// NCalc.g:305:2: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+			// NCalc.g:304:2: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
 			DebugEnterAlt(1);
 			// NCalc.g:
 			{
-			DebugLocation(305, 2);
+			DebugLocation(304, 2);
 			if ((input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f'))
 			{
 				input.Consume();
@@ -2302,19 +2347,19 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		TraceIn("UnicodeEscape", 45);
 		try
 		{
-			// NCalc.g:309:6: ( 'u' HexDigit HexDigit HexDigit HexDigit )
+			// NCalc.g:308:6: ( 'u' HexDigit HexDigit HexDigit HexDigit )
 			DebugEnterAlt(1);
-			// NCalc.g:309:12: 'u' HexDigit HexDigit HexDigit HexDigit
+			// NCalc.g:308:12: 'u' HexDigit HexDigit HexDigit HexDigit
 			{
-			DebugLocation(309, 12);
+			DebugLocation(308, 12);
 			Match('u'); 
-			DebugLocation(309, 16);
+			DebugLocation(308, 16);
 			mHexDigit(); 
-			DebugLocation(309, 25);
+			DebugLocation(308, 25);
 			mHexDigit(); 
-			DebugLocation(309, 34);
+			DebugLocation(308, 34);
 			mHexDigit(); 
-			DebugLocation(309, 43);
+			DebugLocation(308, 43);
 			mHexDigit(); 
 
 			}
@@ -2343,11 +2388,11 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 			int _type = WS;
 			int _channel = DefaultTokenChannel;
-			// NCalc.g:313:4: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
+			// NCalc.g:312:4: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
 			DebugEnterAlt(1);
-			// NCalc.g:313:7: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
+			// NCalc.g:312:7: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
 			{
-			DebugLocation(313, 7);
+			DebugLocation(312, 7);
 			if ((input.LA(1)>='\t' && input.LA(1)<='\n')||(input.LA(1)>='\f' && input.LA(1)<='\r')||input.LA(1)==' ')
 			{
 				input.Consume();
@@ -2360,7 +2405,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 				throw mse;
 			}
 
-			DebugLocation(313, 37);
+			DebugLocation(312, 37);
 			_channel=Hidden;
 
 			}
@@ -2377,9 +2422,1101 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 	}
 	// $ANTLR end "WS"
 
+	partial void EnterRule_A();
+	partial void LeaveRule_A();
+
+	// $ANTLR start "A"
+	[GrammarRule("A")]
+	private void mA()
+	{
+		EnterRule_A();
+		EnterRule("A", 47);
+		TraceIn("A", 47);
+		try
+		{
+			// NCalc.g:318:11: ( 'a' | 'A' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(318, 11);
+			if (input.LA(1)=='A'||input.LA(1)=='a')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("A", 47);
+			LeaveRule("A", 47);
+			LeaveRule_A();
+		}
+	}
+	// $ANTLR end "A"
+
+	partial void EnterRule_B();
+	partial void LeaveRule_B();
+
+	// $ANTLR start "B"
+	[GrammarRule("B")]
+	private void mB()
+	{
+		EnterRule_B();
+		EnterRule("B", 48);
+		TraceIn("B", 48);
+		try
+		{
+			// NCalc.g:319:11: ( 'b' | 'B' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(319, 11);
+			if (input.LA(1)=='B'||input.LA(1)=='b')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("B", 48);
+			LeaveRule("B", 48);
+			LeaveRule_B();
+		}
+	}
+	// $ANTLR end "B"
+
+	partial void EnterRule_C();
+	partial void LeaveRule_C();
+
+	// $ANTLR start "C"
+	[GrammarRule("C")]
+	private void mC()
+	{
+		EnterRule_C();
+		EnterRule("C", 49);
+		TraceIn("C", 49);
+		try
+		{
+			// NCalc.g:320:11: ( 'c' | 'C' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(320, 11);
+			if (input.LA(1)=='C'||input.LA(1)=='c')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("C", 49);
+			LeaveRule("C", 49);
+			LeaveRule_C();
+		}
+	}
+	// $ANTLR end "C"
+
+	partial void EnterRule_D();
+	partial void LeaveRule_D();
+
+	// $ANTLR start "D"
+	[GrammarRule("D")]
+	private void mD()
+	{
+		EnterRule_D();
+		EnterRule("D", 50);
+		TraceIn("D", 50);
+		try
+		{
+			// NCalc.g:321:11: ( 'd' | 'D' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(321, 11);
+			if (input.LA(1)=='D'||input.LA(1)=='d')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("D", 50);
+			LeaveRule("D", 50);
+			LeaveRule_D();
+		}
+	}
+	// $ANTLR end "D"
+
+	partial void EnterRule_E();
+	partial void LeaveRule_E();
+
+	// $ANTLR start "E"
+	[GrammarRule("E")]
+	private void mE()
+	{
+		EnterRule_E();
+		EnterRule("E", 51);
+		TraceIn("E", 51);
+		try
+		{
+			// NCalc.g:322:11: ( 'e' | 'E' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(322, 11);
+			if (input.LA(1)=='E'||input.LA(1)=='e')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("E", 51);
+			LeaveRule("E", 51);
+			LeaveRule_E();
+		}
+	}
+	// $ANTLR end "E"
+
+	partial void EnterRule_F();
+	partial void LeaveRule_F();
+
+	// $ANTLR start "F"
+	[GrammarRule("F")]
+	private void mF()
+	{
+		EnterRule_F();
+		EnterRule("F", 52);
+		TraceIn("F", 52);
+		try
+		{
+			// NCalc.g:323:11: ( 'f' | 'F' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(323, 11);
+			if (input.LA(1)=='F'||input.LA(1)=='f')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("F", 52);
+			LeaveRule("F", 52);
+			LeaveRule_F();
+		}
+	}
+	// $ANTLR end "F"
+
+	partial void EnterRule_G();
+	partial void LeaveRule_G();
+
+	// $ANTLR start "G"
+	[GrammarRule("G")]
+	private void mG()
+	{
+		EnterRule_G();
+		EnterRule("G", 53);
+		TraceIn("G", 53);
+		try
+		{
+			// NCalc.g:324:11: ( 'g' | 'G' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(324, 11);
+			if (input.LA(1)=='G'||input.LA(1)=='g')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("G", 53);
+			LeaveRule("G", 53);
+			LeaveRule_G();
+		}
+	}
+	// $ANTLR end "G"
+
+	partial void EnterRule_H();
+	partial void LeaveRule_H();
+
+	// $ANTLR start "H"
+	[GrammarRule("H")]
+	private void mH()
+	{
+		EnterRule_H();
+		EnterRule("H", 54);
+		TraceIn("H", 54);
+		try
+		{
+			// NCalc.g:325:11: ( 'h' | 'H' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(325, 11);
+			if (input.LA(1)=='H'||input.LA(1)=='h')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("H", 54);
+			LeaveRule("H", 54);
+			LeaveRule_H();
+		}
+	}
+	// $ANTLR end "H"
+
+	partial void EnterRule_I();
+	partial void LeaveRule_I();
+
+	// $ANTLR start "I"
+	[GrammarRule("I")]
+	private void mI()
+	{
+		EnterRule_I();
+		EnterRule("I", 55);
+		TraceIn("I", 55);
+		try
+		{
+			// NCalc.g:326:11: ( 'i' | 'I' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(326, 11);
+			if (input.LA(1)=='I'||input.LA(1)=='i')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("I", 55);
+			LeaveRule("I", 55);
+			LeaveRule_I();
+		}
+	}
+	// $ANTLR end "I"
+
+	partial void EnterRule_J();
+	partial void LeaveRule_J();
+
+	// $ANTLR start "J"
+	[GrammarRule("J")]
+	private void mJ()
+	{
+		EnterRule_J();
+		EnterRule("J", 56);
+		TraceIn("J", 56);
+		try
+		{
+			// NCalc.g:327:11: ( 'j' | 'J' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(327, 11);
+			if (input.LA(1)=='J'||input.LA(1)=='j')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("J", 56);
+			LeaveRule("J", 56);
+			LeaveRule_J();
+		}
+	}
+	// $ANTLR end "J"
+
+	partial void EnterRule_K();
+	partial void LeaveRule_K();
+
+	// $ANTLR start "K"
+	[GrammarRule("K")]
+	private void mK()
+	{
+		EnterRule_K();
+		EnterRule("K", 57);
+		TraceIn("K", 57);
+		try
+		{
+			// NCalc.g:328:11: ( 'k' | 'K' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(328, 11);
+			if (input.LA(1)=='K'||input.LA(1)=='k')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("K", 57);
+			LeaveRule("K", 57);
+			LeaveRule_K();
+		}
+	}
+	// $ANTLR end "K"
+
+	partial void EnterRule_L();
+	partial void LeaveRule_L();
+
+	// $ANTLR start "L"
+	[GrammarRule("L")]
+	private void mL()
+	{
+		EnterRule_L();
+		EnterRule("L", 58);
+		TraceIn("L", 58);
+		try
+		{
+			// NCalc.g:329:11: ( 'l' | 'L' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(329, 11);
+			if (input.LA(1)=='L'||input.LA(1)=='l')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("L", 58);
+			LeaveRule("L", 58);
+			LeaveRule_L();
+		}
+	}
+	// $ANTLR end "L"
+
+	partial void EnterRule_M();
+	partial void LeaveRule_M();
+
+	// $ANTLR start "M"
+	[GrammarRule("M")]
+	private void mM()
+	{
+		EnterRule_M();
+		EnterRule("M", 59);
+		TraceIn("M", 59);
+		try
+		{
+			// NCalc.g:330:11: ( 'm' | 'M' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(330, 11);
+			if (input.LA(1)=='M'||input.LA(1)=='m')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("M", 59);
+			LeaveRule("M", 59);
+			LeaveRule_M();
+		}
+	}
+	// $ANTLR end "M"
+
+	partial void EnterRule_N();
+	partial void LeaveRule_N();
+
+	// $ANTLR start "N"
+	[GrammarRule("N")]
+	private void mN()
+	{
+		EnterRule_N();
+		EnterRule("N", 60);
+		TraceIn("N", 60);
+		try
+		{
+			// NCalc.g:331:11: ( 'n' | 'N' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(331, 11);
+			if (input.LA(1)=='N'||input.LA(1)=='n')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("N", 60);
+			LeaveRule("N", 60);
+			LeaveRule_N();
+		}
+	}
+	// $ANTLR end "N"
+
+	partial void EnterRule_O();
+	partial void LeaveRule_O();
+
+	// $ANTLR start "O"
+	[GrammarRule("O")]
+	private void mO()
+	{
+		EnterRule_O();
+		EnterRule("O", 61);
+		TraceIn("O", 61);
+		try
+		{
+			// NCalc.g:332:11: ( 'o' | 'O' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(332, 11);
+			if (input.LA(1)=='O'||input.LA(1)=='o')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("O", 61);
+			LeaveRule("O", 61);
+			LeaveRule_O();
+		}
+	}
+	// $ANTLR end "O"
+
+	partial void EnterRule_P();
+	partial void LeaveRule_P();
+
+	// $ANTLR start "P"
+	[GrammarRule("P")]
+	private void mP()
+	{
+		EnterRule_P();
+		EnterRule("P", 62);
+		TraceIn("P", 62);
+		try
+		{
+			// NCalc.g:333:11: ( 'p' | 'P' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(333, 11);
+			if (input.LA(1)=='P'||input.LA(1)=='p')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("P", 62);
+			LeaveRule("P", 62);
+			LeaveRule_P();
+		}
+	}
+	// $ANTLR end "P"
+
+	partial void EnterRule_Q();
+	partial void LeaveRule_Q();
+
+	// $ANTLR start "Q"
+	[GrammarRule("Q")]
+	private void mQ()
+	{
+		EnterRule_Q();
+		EnterRule("Q", 63);
+		TraceIn("Q", 63);
+		try
+		{
+			// NCalc.g:334:11: ( 'q' | 'Q' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(334, 11);
+			if (input.LA(1)=='Q'||input.LA(1)=='q')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("Q", 63);
+			LeaveRule("Q", 63);
+			LeaveRule_Q();
+		}
+	}
+	// $ANTLR end "Q"
+
+	partial void EnterRule_R();
+	partial void LeaveRule_R();
+
+	// $ANTLR start "R"
+	[GrammarRule("R")]
+	private void mR()
+	{
+		EnterRule_R();
+		EnterRule("R", 64);
+		TraceIn("R", 64);
+		try
+		{
+			// NCalc.g:335:11: ( 'r' | 'R' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(335, 11);
+			if (input.LA(1)=='R'||input.LA(1)=='r')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("R", 64);
+			LeaveRule("R", 64);
+			LeaveRule_R();
+		}
+	}
+	// $ANTLR end "R"
+
+	partial void EnterRule_S();
+	partial void LeaveRule_S();
+
+	// $ANTLR start "S"
+	[GrammarRule("S")]
+	private void mS()
+	{
+		EnterRule_S();
+		EnterRule("S", 65);
+		TraceIn("S", 65);
+		try
+		{
+			// NCalc.g:336:11: ( 's' | 'S' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(336, 11);
+			if (input.LA(1)=='S'||input.LA(1)=='s')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("S", 65);
+			LeaveRule("S", 65);
+			LeaveRule_S();
+		}
+	}
+	// $ANTLR end "S"
+
+	partial void EnterRule_T();
+	partial void LeaveRule_T();
+
+	// $ANTLR start "T"
+	[GrammarRule("T")]
+	private void mT()
+	{
+		EnterRule_T();
+		EnterRule("T", 66);
+		TraceIn("T", 66);
+		try
+		{
+			// NCalc.g:337:11: ( 't' | 'T' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(337, 11);
+			if (input.LA(1)=='T'||input.LA(1)=='t')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("T", 66);
+			LeaveRule("T", 66);
+			LeaveRule_T();
+		}
+	}
+	// $ANTLR end "T"
+
+	partial void EnterRule_U();
+	partial void LeaveRule_U();
+
+	// $ANTLR start "U"
+	[GrammarRule("U")]
+	private void mU()
+	{
+		EnterRule_U();
+		EnterRule("U", 67);
+		TraceIn("U", 67);
+		try
+		{
+			// NCalc.g:338:11: ( 'u' | 'U' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(338, 11);
+			if (input.LA(1)=='U'||input.LA(1)=='u')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("U", 67);
+			LeaveRule("U", 67);
+			LeaveRule_U();
+		}
+	}
+	// $ANTLR end "U"
+
+	partial void EnterRule_V();
+	partial void LeaveRule_V();
+
+	// $ANTLR start "V"
+	[GrammarRule("V")]
+	private void mV()
+	{
+		EnterRule_V();
+		EnterRule("V", 68);
+		TraceIn("V", 68);
+		try
+		{
+			// NCalc.g:339:11: ( 'v' | 'V' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(339, 11);
+			if (input.LA(1)=='V'||input.LA(1)=='v')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("V", 68);
+			LeaveRule("V", 68);
+			LeaveRule_V();
+		}
+	}
+	// $ANTLR end "V"
+
+	partial void EnterRule_W();
+	partial void LeaveRule_W();
+
+	// $ANTLR start "W"
+	[GrammarRule("W")]
+	private void mW()
+	{
+		EnterRule_W();
+		EnterRule("W", 69);
+		TraceIn("W", 69);
+		try
+		{
+			// NCalc.g:340:11: ( 'w' | 'W' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(340, 11);
+			if (input.LA(1)=='W'||input.LA(1)=='w')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("W", 69);
+			LeaveRule("W", 69);
+			LeaveRule_W();
+		}
+	}
+	// $ANTLR end "W"
+
+	partial void EnterRule_X();
+	partial void LeaveRule_X();
+
+	// $ANTLR start "X"
+	[GrammarRule("X")]
+	private void mX()
+	{
+		EnterRule_X();
+		EnterRule("X", 70);
+		TraceIn("X", 70);
+		try
+		{
+			// NCalc.g:341:11: ( 'x' | 'X' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(341, 11);
+			if (input.LA(1)=='X'||input.LA(1)=='x')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("X", 70);
+			LeaveRule("X", 70);
+			LeaveRule_X();
+		}
+	}
+	// $ANTLR end "X"
+
+	partial void EnterRule_Y();
+	partial void LeaveRule_Y();
+
+	// $ANTLR start "Y"
+	[GrammarRule("Y")]
+	private void mY()
+	{
+		EnterRule_Y();
+		EnterRule("Y", 71);
+		TraceIn("Y", 71);
+		try
+		{
+			// NCalc.g:342:11: ( 'y' | 'Y' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(342, 11);
+			if (input.LA(1)=='Y'||input.LA(1)=='y')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("Y", 71);
+			LeaveRule("Y", 71);
+			LeaveRule_Y();
+		}
+	}
+	// $ANTLR end "Y"
+
+	partial void EnterRule_Z();
+	partial void LeaveRule_Z();
+
+	// $ANTLR start "Z"
+	[GrammarRule("Z")]
+	private void mZ()
+	{
+		EnterRule_Z();
+		EnterRule("Z", 72);
+		TraceIn("Z", 72);
+		try
+		{
+			// NCalc.g:343:11: ( 'z' | 'Z' )
+			DebugEnterAlt(1);
+			// NCalc.g:
+			{
+			DebugLocation(343, 11);
+			if (input.LA(1)=='Z'||input.LA(1)=='z')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("Z", 72);
+			LeaveRule("Z", 72);
+			LeaveRule_Z();
+		}
+	}
+	// $ANTLR end "Z"
+
 	public override void mTokens()
 	{
-		// NCalc.g:1:8: ( T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | TRUE | FALSE | ID | INTEGER | FLOAT | STRING | DATETIME | NAME | E | WS )
+		// NCalc.g:1:8: ( T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | TRUE | FALSE | AND | OR | NOT | ID | INTEGER | FLOAT | STRING | DATETIME | NAME | EXPONENT | WS )
 		int alt14=41;
 		try { DebugEnterDecision(14, false);
 		try
@@ -2396,361 +3533,361 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 		{
 		case 1:
 			DebugEnterAlt(1);
-			// NCalc.g:1:10: T__19
+			// NCalc.g:1:10: T__48
 			{
 			DebugLocation(1, 10);
-			mT__19(); 
+			mT__48(); 
 
 			}
 			break;
 		case 2:
 			DebugEnterAlt(2);
-			// NCalc.g:1:16: T__20
+			// NCalc.g:1:16: T__49
 			{
 			DebugLocation(1, 16);
-			mT__20(); 
+			mT__49(); 
 
 			}
 			break;
 		case 3:
 			DebugEnterAlt(3);
-			// NCalc.g:1:22: T__21
+			// NCalc.g:1:22: T__50
 			{
 			DebugLocation(1, 22);
-			mT__21(); 
+			mT__50(); 
 
 			}
 			break;
 		case 4:
 			DebugEnterAlt(4);
-			// NCalc.g:1:28: T__22
+			// NCalc.g:1:28: T__51
 			{
 			DebugLocation(1, 28);
-			mT__22(); 
+			mT__51(); 
 
 			}
 			break;
 		case 5:
 			DebugEnterAlt(5);
-			// NCalc.g:1:34: T__23
+			// NCalc.g:1:34: T__52
 			{
 			DebugLocation(1, 34);
-			mT__23(); 
+			mT__52(); 
 
 			}
 			break;
 		case 6:
 			DebugEnterAlt(6);
-			// NCalc.g:1:40: T__24
+			// NCalc.g:1:40: T__53
 			{
 			DebugLocation(1, 40);
-			mT__24(); 
+			mT__53(); 
 
 			}
 			break;
 		case 7:
 			DebugEnterAlt(7);
-			// NCalc.g:1:46: T__25
+			// NCalc.g:1:46: T__54
 			{
 			DebugLocation(1, 46);
-			mT__25(); 
+			mT__54(); 
 
 			}
 			break;
 		case 8:
 			DebugEnterAlt(8);
-			// NCalc.g:1:52: T__26
+			// NCalc.g:1:52: T__55
 			{
 			DebugLocation(1, 52);
-			mT__26(); 
+			mT__55(); 
 
 			}
 			break;
 		case 9:
 			DebugEnterAlt(9);
-			// NCalc.g:1:58: T__27
+			// NCalc.g:1:58: T__56
 			{
 			DebugLocation(1, 58);
-			mT__27(); 
+			mT__56(); 
 
 			}
 			break;
 		case 10:
 			DebugEnterAlt(10);
-			// NCalc.g:1:64: T__28
+			// NCalc.g:1:64: T__57
 			{
 			DebugLocation(1, 64);
-			mT__28(); 
+			mT__57(); 
 
 			}
 			break;
 		case 11:
 			DebugEnterAlt(11);
-			// NCalc.g:1:70: T__29
+			// NCalc.g:1:70: T__58
 			{
 			DebugLocation(1, 70);
-			mT__29(); 
+			mT__58(); 
 
 			}
 			break;
 		case 12:
 			DebugEnterAlt(12);
-			// NCalc.g:1:76: T__30
+			// NCalc.g:1:76: T__59
 			{
 			DebugLocation(1, 76);
-			mT__30(); 
+			mT__59(); 
 
 			}
 			break;
 		case 13:
 			DebugEnterAlt(13);
-			// NCalc.g:1:82: T__31
+			// NCalc.g:1:82: T__60
 			{
 			DebugLocation(1, 82);
-			mT__31(); 
+			mT__60(); 
 
 			}
 			break;
 		case 14:
 			DebugEnterAlt(14);
-			// NCalc.g:1:88: T__32
+			// NCalc.g:1:88: T__61
 			{
 			DebugLocation(1, 88);
-			mT__32(); 
+			mT__61(); 
 
 			}
 			break;
 		case 15:
 			DebugEnterAlt(15);
-			// NCalc.g:1:94: T__33
+			// NCalc.g:1:94: T__62
 			{
 			DebugLocation(1, 94);
-			mT__33(); 
+			mT__62(); 
 
 			}
 			break;
 		case 16:
 			DebugEnterAlt(16);
-			// NCalc.g:1:100: T__34
+			// NCalc.g:1:100: T__63
 			{
 			DebugLocation(1, 100);
-			mT__34(); 
+			mT__63(); 
 
 			}
 			break;
 		case 17:
 			DebugEnterAlt(17);
-			// NCalc.g:1:106: T__35
+			// NCalc.g:1:106: T__64
 			{
 			DebugLocation(1, 106);
-			mT__35(); 
+			mT__64(); 
 
 			}
 			break;
 		case 18:
 			DebugEnterAlt(18);
-			// NCalc.g:1:112: T__36
+			// NCalc.g:1:112: T__65
 			{
 			DebugLocation(1, 112);
-			mT__36(); 
+			mT__65(); 
 
 			}
 			break;
 		case 19:
 			DebugEnterAlt(19);
-			// NCalc.g:1:118: T__37
+			// NCalc.g:1:118: T__66
 			{
 			DebugLocation(1, 118);
-			mT__37(); 
+			mT__66(); 
 
 			}
 			break;
 		case 20:
 			DebugEnterAlt(20);
-			// NCalc.g:1:124: T__38
+			// NCalc.g:1:124: T__67
 			{
 			DebugLocation(1, 124);
-			mT__38(); 
+			mT__67(); 
 
 			}
 			break;
 		case 21:
 			DebugEnterAlt(21);
-			// NCalc.g:1:130: T__39
+			// NCalc.g:1:130: T__68
 			{
 			DebugLocation(1, 130);
-			mT__39(); 
+			mT__68(); 
 
 			}
 			break;
 		case 22:
 			DebugEnterAlt(22);
-			// NCalc.g:1:136: T__40
+			// NCalc.g:1:136: T__69
 			{
 			DebugLocation(1, 136);
-			mT__40(); 
+			mT__69(); 
 
 			}
 			break;
 		case 23:
 			DebugEnterAlt(23);
-			// NCalc.g:1:142: T__41
+			// NCalc.g:1:142: T__70
 			{
 			DebugLocation(1, 142);
-			mT__41(); 
+			mT__70(); 
 
 			}
 			break;
 		case 24:
 			DebugEnterAlt(24);
-			// NCalc.g:1:148: T__42
+			// NCalc.g:1:148: T__71
 			{
 			DebugLocation(1, 148);
-			mT__42(); 
+			mT__71(); 
 
 			}
 			break;
 		case 25:
 			DebugEnterAlt(25);
-			// NCalc.g:1:154: T__43
+			// NCalc.g:1:154: T__72
 			{
 			DebugLocation(1, 154);
-			mT__43(); 
+			mT__72(); 
 
 			}
 			break;
 		case 26:
 			DebugEnterAlt(26);
-			// NCalc.g:1:160: T__44
+			// NCalc.g:1:160: T__73
 			{
 			DebugLocation(1, 160);
-			mT__44(); 
+			mT__73(); 
 
 			}
 			break;
 		case 27:
 			DebugEnterAlt(27);
-			// NCalc.g:1:166: T__45
+			// NCalc.g:1:166: T__74
 			{
 			DebugLocation(1, 166);
-			mT__45(); 
+			mT__74(); 
 
 			}
 			break;
 		case 28:
 			DebugEnterAlt(28);
-			// NCalc.g:1:172: T__46
+			// NCalc.g:1:172: T__75
 			{
 			DebugLocation(1, 172);
-			mT__46(); 
+			mT__75(); 
 
 			}
 			break;
 		case 29:
 			DebugEnterAlt(29);
-			// NCalc.g:1:178: T__47
+			// NCalc.g:1:178: TRUE
 			{
 			DebugLocation(1, 178);
-			mT__47(); 
+			mTRUE(); 
 
 			}
 			break;
 		case 30:
 			DebugEnterAlt(30);
-			// NCalc.g:1:184: T__48
+			// NCalc.g:1:183: FALSE
 			{
-			DebugLocation(1, 184);
-			mT__48(); 
+			DebugLocation(1, 183);
+			mFALSE(); 
 
 			}
 			break;
 		case 31:
 			DebugEnterAlt(31);
-			// NCalc.g:1:190: T__49
+			// NCalc.g:1:189: AND
 			{
-			DebugLocation(1, 190);
-			mT__49(); 
+			DebugLocation(1, 189);
+			mAND(); 
 
 			}
 			break;
 		case 32:
 			DebugEnterAlt(32);
-			// NCalc.g:1:196: TRUE
+			// NCalc.g:1:193: OR
 			{
-			DebugLocation(1, 196);
-			mTRUE(); 
+			DebugLocation(1, 193);
+			mOR(); 
 
 			}
 			break;
 		case 33:
 			DebugEnterAlt(33);
-			// NCalc.g:1:201: FALSE
+			// NCalc.g:1:196: NOT
 			{
-			DebugLocation(1, 201);
-			mFALSE(); 
+			DebugLocation(1, 196);
+			mNOT(); 
 
 			}
 			break;
 		case 34:
 			DebugEnterAlt(34);
-			// NCalc.g:1:207: ID
+			// NCalc.g:1:200: ID
 			{
-			DebugLocation(1, 207);
+			DebugLocation(1, 200);
 			mID(); 
 
 			}
 			break;
 		case 35:
 			DebugEnterAlt(35);
-			// NCalc.g:1:210: INTEGER
+			// NCalc.g:1:203: INTEGER
 			{
-			DebugLocation(1, 210);
+			DebugLocation(1, 203);
 			mINTEGER(); 
 
 			}
 			break;
 		case 36:
 			DebugEnterAlt(36);
-			// NCalc.g:1:218: FLOAT
+			// NCalc.g:1:211: FLOAT
 			{
-			DebugLocation(1, 218);
+			DebugLocation(1, 211);
 			mFLOAT(); 
 
 			}
 			break;
 		case 37:
 			DebugEnterAlt(37);
-			// NCalc.g:1:224: STRING
+			// NCalc.g:1:217: STRING
 			{
-			DebugLocation(1, 224);
+			DebugLocation(1, 217);
 			mSTRING(); 
 
 			}
 			break;
 		case 38:
 			DebugEnterAlt(38);
-			// NCalc.g:1:231: DATETIME
+			// NCalc.g:1:224: DATETIME
 			{
-			DebugLocation(1, 231);
+			DebugLocation(1, 224);
 			mDATETIME(); 
 
 			}
 			break;
 		case 39:
 			DebugEnterAlt(39);
-			// NCalc.g:1:240: NAME
+			// NCalc.g:1:233: NAME
 			{
-			DebugLocation(1, 240);
+			DebugLocation(1, 233);
 			mNAME(); 
 
 			}
 			break;
 		case 40:
 			DebugEnterAlt(40);
-			// NCalc.g:1:245: E
+			// NCalc.g:1:238: EXPONENT
 			{
-			DebugLocation(1, 245);
-			mE(); 
+			DebugLocation(1, 238);
+			mEXPONENT(); 
 
 			}
 			break;
@@ -2833,7 +3970,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 			this.transition = DFA7_transition;
 		}
 
-		public override string Description { get { return "263:1: FLOAT : ( ( DIGIT )* '.' ( DIGIT )+ ( E )? | ( DIGIT )+ E );"; } }
+		public override string Description { get { return "261:1: FLOAT : ( ( DIGIT )* '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ EXPONENT );"; } }
 
 		public override void Error(NoViableAltException nvae)
 		{
@@ -2845,40 +3982,38 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 	{
 		private const string DFA14_eotS =
 			"\x1\xFFFF\x1\x21\x1\xFFFF\x1\x23\x2\xFFFF\x1\x25\x5\xFFFF\x1\x29\x1\x2B"+
-			"\x1\x2E\x2\xFFFF\x3\x1E\x1\x33\x1\xFFFF\x3\x1E\x1\x38\x15\xFFFF\x2\x1E"+
-			"\x1\x3B\x2\xFFFF\x3\x1E\x2\xFFFF\x1\x3E\x1\x3F\x1\xFFFF\x2\x1E\x2\xFFFF"+
-			"\x1\x42\x1\x1E\x1\xFFFF\x1\x44\x1\xFFFF";
+			"\x1\x2E\x2\xFFFF\x1\x30\x1\xFFFF\x6\x1E\x1\x38\x17\xFFFF\x3\x1E\x1\x3C"+
+			"\x2\x1E\x2\xFFFF\x2\x1E\x1\x40\x1\xFFFF\x1\x41\x1\x42\x1\x1E\x3\xFFFF"+
+			"\x1\x44\x1\xFFFF";
 		private const string DFA14_eofS =
 			"\x45\xFFFF";
 		private const string DFA14_minS =
 			"\x1\x9\x1\x3D\x1\xFFFF\x1\x26\x2\xFFFF\x1\x2A\x5\xFFFF\x1\x3C\x2\x3D"+
-			"\x2\xFFFF\x1\x6E\x1\x6F\x1\x72\x1\x7C\x1\xFFFF\x1\x72\x1\x61\x1\x2B\x1"+
-			"\x2E\x15\xFFFF\x1\x64\x1\x74\x1\x30\x2\xFFFF\x1\x75\x1\x6C\x1\x30\x2"+
-			"\xFFFF\x2\x30\x1\xFFFF\x1\x65\x1\x73\x2\xFFFF\x1\x30\x1\x65\x1\xFFFF"+
-			"\x1\x30\x1\xFFFF";
+			"\x2\xFFFF\x1\x7C\x1\xFFFF\x1\x52\x1\x41\x1\x4E\x1\x52\x1\x4F\x1\x2B\x1"+
+			"\x2E\x17\xFFFF\x1\x55\x1\x4C\x1\x44\x1\x30\x1\x54\x1\x30\x2\xFFFF\x1"+
+			"\x45\x1\x53\x1\x30\x1\xFFFF\x2\x30\x1\x45\x3\xFFFF\x1\x30\x1\xFFFF";
 		private const string DFA14_maxS =
 			"\x1\x7E\x1\x3D\x1\xFFFF\x1\x26\x2\xFFFF\x1\x2A\x5\xFFFF\x1\x3E\x1\x3D"+
-			"\x1\x3E\x2\xFFFF\x1\x6E\x1\x6F\x1\x72\x1\x7C\x1\xFFFF\x1\x72\x1\x61\x1"+
-			"\x39\x1\x65\x15\xFFFF\x1\x64\x1\x74\x1\x7A\x2\xFFFF\x1\x75\x1\x6C\x1"+
-			"\x39\x2\xFFFF\x2\x7A\x1\xFFFF\x1\x65\x1\x73\x2\xFFFF\x1\x7A\x1\x65\x1"+
-			"\xFFFF\x1\x7A\x1\xFFFF";
+			"\x1\x3E\x2\xFFFF\x1\x7C\x1\xFFFF\x1\x72\x1\x61\x1\x6E\x1\x72\x1\x6F\x1"+
+			"\x39\x1\x65\x17\xFFFF\x1\x75\x1\x6C\x1\x64\x1\x7A\x1\x74\x1\x39\x2\xFFFF"+
+			"\x1\x65\x1\x73\x1\x7A\x1\xFFFF\x2\x7A\x1\x65\x3\xFFFF\x1\x7A\x1\xFFFF";
 		private const string DFA14_acceptS =
 			"\x2\xFFFF\x1\x3\x1\xFFFF\x1\x6\x1\x7\x1\xFFFF\x1\xA\x1\xB\x1\xC\x1\xD"+
-			"\x1\xE\x3\xFFFF\x1\x18\x1\x19\x4\xFFFF\x1\x1F\x4\xFFFF\x1\x24\x1\x25"+
+			"\x1\xE\x3\xFFFF\x1\x18\x1\x19\x1\xFFFF\x1\x1C\x7\xFFFF\x1\x24\x1\x25"+
 			"\x1\x26\x1\x27\x1\x22\x1\x29\x1\x2\x1\x1\x1\x4\x1\x5\x1\x9\x1\x8\x1\x10"+
-			"\x1\x11\x1\x12\x1\xF\x1\x14\x1\x13\x1\x16\x1\x17\x1\x15\x3\xFFFF\x1\x1E"+
-			"\x1\x1D\x3\xFFFF\x1\x28\x1\x23\x2\xFFFF\x1\x1C\x2\xFFFF\x1\x1A\x1\x1B"+
-			"\x2\xFFFF\x1\x20\x1\xFFFF\x1\x21";
+			"\x1\x11\x1\x12\x1\xF\x1\x14\x1\x13\x1\x16\x1\x17\x1\x15\x1\x1B\x1\x1A"+
+			"\x6\xFFFF\x1\x28\x1\x23\x3\xFFFF\x1\x20\x3\xFFFF\x1\x1F\x1\x21\x1\x1D"+
+			"\x1\xFFFF\x1\x1E";
 		private const string DFA14_specialS =
 			"\x45\xFFFF}>";
 		private static readonly string[] DFA14_transitionS =
 			{
 				"\x2\x1F\x1\xFFFF\x2\x1F\x12\xFFFF\x1\x1F\x1\x1\x1\xFFFF\x1\x1C\x1\xFFFF"+
 				"\x1\x2\x1\x3\x1\x1B\x1\x4\x1\x5\x1\x6\x1\x7\x1\x8\x1\x9\x1\x1A\x1\xA"+
-				"\xA\x19\x1\xB\x1\xFFFF\x1\xC\x1\xD\x1\xE\x1\xF\x1\xFFFF\x4\x1E\x1\x18"+
-				"\x15\x1E\x1\x1D\x2\xFFFF\x1\x10\x1\x1E\x1\xFFFF\x1\x11\x3\x1E\x1\x18"+
-				"\x1\x17\x7\x1E\x1\x12\x1\x13\x4\x1E\x1\x16\x6\x1E\x1\xFFFF\x1\x14\x1"+
-				"\xFFFF\x1\x15",
+				"\xA\x19\x1\xB\x1\xFFFF\x1\xC\x1\xD\x1\xE\x1\xF\x1\xFFFF\x1\x15\x3\x1E"+
+				"\x1\x18\x1\x14\x7\x1E\x1\x17\x1\x16\x4\x1E\x1\x13\x6\x1E\x1\x1D\x2\xFFFF"+
+				"\x1\x10\x1\x1E\x1\xFFFF\x1\x15\x3\x1E\x1\x18\x1\x14\x7\x1E\x1\x17\x1"+
+				"\x16\x4\x1E\x1\x13\x6\x1E\x1\xFFFF\x1\x11\x1\xFFFF\x1\x12",
 				"\x1\x20",
 				"",
 				"\x1\x22",
@@ -2896,12 +4031,12 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 				"",
 				"",
 				"\x1\x2F",
-				"\x1\x30",
-				"\x1\x31",
-				"\x1\x32",
 				"",
-				"\x1\x34",
-				"\x1\x35",
+				"\x1\x31\x1F\xFFFF\x1\x31",
+				"\x1\x32\x1F\xFFFF\x1\x32",
+				"\x1\x33\x1F\xFFFF\x1\x33",
+				"\x1\x34\x1F\xFFFF\x1\x34",
+				"\x1\x35\x1F\xFFFF\x1\x35",
 				"\x1\x37\x1\xFFFF\x1\x37\x2\xFFFF\xA\x36",
 				"\x1\x1A\x1\xFFFF\xA\x19\xB\xFFFF\x1\x1A\x1F\xFFFF\x1\x1A",
 				"",
@@ -2925,25 +4060,25 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 				"",
 				"",
 				"",
-				"\x1\x39",
-				"\x1\x3A",
+				"",
+				"",
+				"\x1\x39\x1F\xFFFF\x1\x39",
+				"\x1\x3A\x1F\xFFFF\x1\x3A",
+				"\x1\x3B\x1F\xFFFF\x1\x3B",
 				"\xA\x1E\x7\xFFFF\x1A\x1E\x4\xFFFF\x1\x1E\x1\xFFFF\x1A\x1E",
-				"",
-				"",
-				"\x1\x3C",
-				"\x1\x3D",
+				"\x1\x3D\x1F\xFFFF\x1\x3D",
 				"\xA\x36",
 				"",
 				"",
-				"\xA\x1E\x7\xFFFF\x1A\x1E\x4\xFFFF\x1\x1E\x1\xFFFF\x1A\x1E",
+				"\x1\x3E\x1F\xFFFF\x1\x3E",
+				"\x1\x3F\x1F\xFFFF\x1\x3F",
 				"\xA\x1E\x7\xFFFF\x1A\x1E\x4\xFFFF\x1\x1E\x1\xFFFF\x1A\x1E",
 				"",
-				"\x1\x40",
-				"\x1\x41",
-				"",
-				"",
 				"\xA\x1E\x7\xFFFF\x1A\x1E\x4\xFFFF\x1\x1E\x1\xFFFF\x1A\x1E",
-				"\x1\x43",
+				"\xA\x1E\x7\xFFFF\x1A\x1E\x4\xFFFF\x1\x1E\x1\xFFFF\x1A\x1E",
+				"\x1\x43\x1F\xFFFF\x1\x43",
+				"",
+				"",
 				"",
 				"\xA\x1E\x7\xFFFF\x1A\x1E\x4\xFFFF\x1\x1E\x1\xFFFF\x1A\x1E",
 				""
@@ -2980,7 +4115,7 @@ public partial class NCalcLexer : Antlr.Runtime.Lexer
 			this.transition = DFA14_transition;
 		}
 
-		public override string Description { get { return "1:1: Tokens : ( T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | TRUE | FALSE | ID | INTEGER | FLOAT | STRING | DATETIME | NAME | E | WS );"; } }
+		public override string Description { get { return "1:1: Tokens : ( T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | TRUE | FALSE | AND | OR | NOT | ID | INTEGER | FLOAT | STRING | DATETIME | NAME | EXPONENT | WS );"; } }
 
 		public override void Error(NoViableAltException nvae)
 		{

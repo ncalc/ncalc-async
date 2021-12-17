@@ -217,6 +217,8 @@ namespace NCalcAsync.Tests
                                   {
                                       {"!true", false},
                                       {"not false", true},
+                                      {"Not false", true},
+                                      {"NOT false", true},
                                       {"2**-1", 0.5 },
                                       {"2 * 3", 6},
                                       {"6 / 2", 3d},
@@ -240,9 +242,14 @@ namespace NCalcAsync.Tests
                                       {"2 >> 1", 1},
                                       {"2 << 1", 4},
                                       {"true && false", false},
-                                      {"true and false", false},
+                                      {"True and False", false},
+                                      {"tRue aNd faLse", false},
+                                      {"TRUE ANd fALSE", false},
+                                      {"true AND FALSE", false},
                                       {"true || false", true},
                                       {"true or false", true},
+                                      {"true Or false", true},
+                                      {"true OR false", true},
                                       {"if(true, 0, 1)", 0},
                                       {"if(false, 0, 1)", 1}
                                   };
