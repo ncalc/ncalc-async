@@ -2,3 +2,6 @@
 
 # CS4014: Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.
 dotnet_diagnostic.CS4014.severity = error
+
+# CS3021: Type or member does not need a CLSCompliant attribute because the assembly does not have a CLSCompliant attribute
+dotnet_diagnostic.CS3021.severity = silent

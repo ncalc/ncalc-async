@@ -135,7 +135,7 @@ namespace NCalcAsync
                 var lexer = new NCalcLexer(new ANTLRStringStream(expression));
                 var parser = new NCalcParser(new CommonTokenStream(lexer));
 
-                logicalExpression = parser.ncalcExpression().value;
+                logicalExpression = parser.GetExpression();
 
                 if (parser.Errors != null && parser.Errors.Count > 0)
                 {

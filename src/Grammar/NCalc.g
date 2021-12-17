@@ -11,8 +11,7 @@ options
 using System;
 using System.Text;
 using System.Globalization;
-using System.Collections.Generic;
-using NCalc.Domain;
+using NCalcAsync.Domain;
 }
 
 @members {
@@ -69,11 +68,17 @@ public override void DisplayRecognitionError(String[] tokenNames, RecognitionExc
     String msg = GetErrorMessage(e, tokenNames);
     Errors.Add(msg + " at " + hdr);
 }
+
+public LogicalExpression GetExpression() => ncalcExpression().value;
+
 }
 
 @init {
     numberFormatInfo.NumberDecimalSeparator = ".";
 }
+
+@lexer::namespace { NCalcAsync }
+@parser::namespace { NCalcAsync }
 
 ncalcExpression returns [LogicalExpression value]
 	: logicalExpression EOF! {$value = $logicalExpression.value; }
@@ -183,22 +188,27 @@ multiplicativeExpression returns [LogicalExpression value]
 @init {
 BinaryExpressionType type = BinaryExpressionType.Unknown;
 }
-	:	left=unaryExpression { $value = $left.value); } (
+	:	left=unaryExpression { $value = $left.value; } (
 			( '*' { type = BinaryExpressionType.Times; } 
 			| '/' { type = BinaryExpressionType.Div; } 
 			| '%' { type = BinaryExpressionType.Modulo; } ) 
 			right=unaryExpression { $value = new BinaryExpression(type, $value, $right.value); } 
 			)* 
 	;
-
 	
 unaryExpression returns [LogicalExpression value]
-	:	primaryExpression { $value = $primaryExpression.value; }
-    	|	('!' | 'not') primaryExpression { $value = new UnaryExpression(UnaryExpressionType.Not, $primaryExpression.value); }
-    	|	('~') primaryExpression { $value = new UnaryExpression(UnaryExpressionType.BitwiseNot, $primaryExpression.value); }
-    	|	'-' primaryExpression { $value = new UnaryExpression(UnaryExpressionType.Negate, $primaryExpression.value); }
+	:	exponentialExpression { $value = $exponentialExpression.value; }
+    |	('!' | 'not') exponentialExpression { $value = new UnaryExpression(UnaryExpressionType.Not, $exponentialExpression.value); }
+    |	('~') exponentialExpression { $value = new UnaryExpression(UnaryExpressionType.BitwiseNot, $exponentialExpression.value); }
+    |	'-' exponentialExpression { $value = new UnaryExpression(UnaryExpressionType.Negate, $exponentialExpression.value); }
    	;
 		
+exponentialExpression returns [LogicalExpression value]
+	: 	left=primaryExpression { $value = $left.value; } (
+			'**' right=unaryExpression { $value = new BinaryExpression(BinaryExpressionType.Exponentiation, $value, $right.value); }
+			)*
+	;
+
 primaryExpression returns [LogicalExpression value]
 	:	'(' logicalExpression ')' 	{ $value = $logicalExpression.value; }
 	|	expr=value		{ $value = $expr.value; }

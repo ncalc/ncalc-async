@@ -214,6 +214,10 @@ namespace NCalcAsync.Domain
                 case BinaryExpressionType.RightShift:
                     Result = Convert.ToUInt16(await Left()) >> Convert.ToUInt16(await Right());
                     break;
+
+                case BinaryExpressionType.Exponentiation:
+                    Result = Math.Pow(Convert.ToDouble(await Left()), Convert.ToDouble(await Right()));
+                    break;
             }
         }
 
