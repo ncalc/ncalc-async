@@ -44,7 +44,10 @@ namespace NCalcAsync.Tests
         {
             Assert.AreEqual(123456, await new Expression("123456").EvaluateAsync());
             Assert.AreEqual(new DateTime(2001, 01, 01), await new Expression("#01/01/2001#").EvaluateAsync());
+            Assert.AreEqual(0.2d, await new Expression(".2").EvaluateAsync());
             Assert.AreEqual(123.456d, await new Expression("123.456").EvaluateAsync());
+            Assert.AreEqual(123d, await new Expression("123.").EvaluateAsync());
+            Assert.AreEqual(12300d, await new Expression("123.E2").EvaluateAsync());
             Assert.AreEqual(true, await new Expression("true").EvaluateAsync());
             Assert.AreEqual("true", await new Expression("'true'").EvaluateAsync());
             Assert.AreEqual("azerty", await new Expression("'azerty'").EvaluateAsync());
@@ -217,7 +220,12 @@ namespace NCalcAsync.Tests
                                   {
                                       {"!true", false},
                                       {"not false", true},
-                                      {"2**-1", 0.5 },
+                                      {"Not false", true},
+                                      {"NOT false", true},
+                                      {"-10", -10},
+                                      {"+20", 20},
+                                      {"2**-1", 0.5},
+                                      {"2**+2", 4.0},
                                       {"2 * 3", 6},
                                       {"6 / 2", 3d},
                                       {"7 % 2", 1},
@@ -240,9 +248,14 @@ namespace NCalcAsync.Tests
                                       {"2 >> 1", 1},
                                       {"2 << 1", 4},
                                       {"true && false", false},
-                                      {"true and false", false},
+                                      {"True and False", false},
+                                      {"tRue aNd faLse", false},
+                                      {"TRUE ANd fALSE", false},
+                                      {"true AND FALSE", false},
                                       {"true || false", true},
                                       {"true or false", true},
+                                      {"true Or false", true},
+                                      {"true OR false", true},
                                       {"if(true, 0, 1)", 0},
                                       {"if(false, 0, 1)", 1}
                                   };
@@ -284,7 +297,7 @@ namespace NCalcAsync.Tests
         {
             try
             {
-                await new Expression("4. + 2").EvaluateAsync();
+                await new Expression(". + 2").EvaluateAsync();
                 Assert.Fail();
             }
             catch (EvaluationException e)
@@ -323,7 +336,7 @@ namespace NCalcAsync.Tests
             Assert.IsTrue(e.HasErrors());
             Assert.IsNotNull(e.Error);
 
-            e = new Expression("+ b ");
+            e = new Expression("* b ");
             Assert.IsNull(e.Error);
             Assert.IsTrue(e.HasErrors());
             Assert.IsNotNull(e.Error);

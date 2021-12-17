@@ -239,6 +239,10 @@ namespace NCalcAsync.Domain
                 case UnaryExpressionType.BitwiseNot:
                     Result = ~Convert.ToUInt16(Result);
                     break;
+
+                case UnaryExpressionType.Positive:
+                    // No-op
+                    break;
             }
         }
 

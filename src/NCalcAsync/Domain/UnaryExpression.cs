@@ -24,6 +24,7 @@ namespace NCalcAsync.Domain
     {
         Not,
         Negate,
-        BitwiseNot
+        BitwiseNot,
+        Positive
     }
 }
