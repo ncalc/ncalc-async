@@ -28,23 +28,23 @@ namespace NCalcAsync
                     switch (typeCodeB)
                     {
                         case TypeCode.Boolean: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'bool' and 'bool'");
-                        case TypeCode.Byte: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.SByte: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.Int16: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.UInt16: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.Int32: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.UInt32: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.Int64: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.UInt64: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.Single: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.Double: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.Decimal: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'bool' and 'byte'");
+                        case TypeCode.Byte: return Convert.ToByte((Boolean)a) + (Byte)b;
+                        case TypeCode.SByte: return Convert.ToSByte((Boolean)a) + (SByte)b;
+                        case TypeCode.Int16: return Convert.ToInt16((Boolean)a) + (Int16)b;
+                        case TypeCode.UInt16: return Convert.ToUInt16((Boolean)a) + (UInt16)b;
+                        case TypeCode.Int32: return Convert.ToInt32((Boolean)a) + (Int32)b;
+                        case TypeCode.UInt32: return Convert.ToUInt32((Boolean)a) + (UInt32)b;
+                        case TypeCode.Int64: return Convert.ToInt64((Boolean)a) + (Int64)b;
+                        case TypeCode.UInt64: return Convert.ToUInt64((Boolean)a) + (UInt64)b;
+                        case TypeCode.Single: return Convert.ToSingle((Boolean)a) + (Single)b;
+                        case TypeCode.Double: return Convert.ToDouble((Boolean)a) + (Double)b;
+                        case TypeCode.Decimal: return Convert.ToDecimal((Boolean)a) + (Decimal)b;
                     }
                     break;
                 case TypeCode.Byte:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'byte' and 'bool'");
+                        case TypeCode.Boolean: return (Byte)a + Convert.ToByte((Boolean)b);
                         case TypeCode.Byte: return (Byte)a + (Byte)b;
                         case TypeCode.SByte: return (Byte)a + (SByte)b;
                         case TypeCode.Int16: return (Byte)a + (Int16)b;
@@ -61,7 +61,7 @@ namespace NCalcAsync
                 case TypeCode.SByte:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'sbyte' and 'bool'");
+                        case TypeCode.Boolean: return (SByte)a + Convert.ToSByte((Boolean)b);
                         case TypeCode.Byte: return (SByte)a + (Byte)b;
                         case TypeCode.SByte: return (SByte)a + (SByte)b;
                         case TypeCode.Int16: return (SByte)a + (Int16)b;
@@ -79,7 +79,7 @@ namespace NCalcAsync
                 case TypeCode.Int16:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'short' and 'bool'");
+                        case TypeCode.Boolean: return (Int16)a + Convert.ToInt16((Boolean)b);
                         case TypeCode.Byte: return (Int16)a + (Byte)b;
                         case TypeCode.SByte: return (Int16)a + (SByte)b;
                         case TypeCode.Int16: return (Int16)a + (Int16)b;
@@ -97,7 +97,7 @@ namespace NCalcAsync
                 case TypeCode.UInt16:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'ushort' and 'bool'");
+                        case TypeCode.Boolean: return (UInt16)a + Convert.ToUInt16((Boolean)b);
                         case TypeCode.Byte: return (UInt16)a + (Byte)b;
                         case TypeCode.SByte: return (UInt16)a + (SByte)b;
                         case TypeCode.Int16: return (UInt16)a + (Int16)b;
@@ -115,7 +115,7 @@ namespace NCalcAsync
                 case TypeCode.Int32:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'int' and 'bool'");
+                        case TypeCode.Boolean: return (Int32)a + Convert.ToInt32((Boolean)b);
                         case TypeCode.Byte: return (Int32)a + (Byte)b;
                         case TypeCode.SByte: return (Int32)a + (SByte)b;
                         case TypeCode.Int16: return (Int32)a + (Int16)b;
@@ -133,7 +133,7 @@ namespace NCalcAsync
                 case TypeCode.UInt32:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'unit' and 'bool'");
+                        case TypeCode.Boolean: return (UInt32)a + Convert.ToUInt32((Boolean)b);
                         case TypeCode.Byte: return (UInt32)a + (Byte)b;
                         case TypeCode.SByte: return (UInt32)a + (SByte)b;
                         case TypeCode.Int16: return (UInt32)a + (Int16)b;
@@ -151,7 +151,7 @@ namespace NCalcAsync
                 case TypeCode.Int64:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'long' and 'bool'");
+                        case TypeCode.Boolean: return (Int64)a + Convert.ToInt64((Boolean)b);
                         case TypeCode.Byte: return (Int64)a + (Byte)b;
                         case TypeCode.SByte: return (Int64)a + (SByte)b;
                         case TypeCode.Int16: return (Int64)a + (Int16)b;
@@ -169,7 +169,7 @@ namespace NCalcAsync
                 case TypeCode.UInt64:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'ulong' and 'bool'");
+                        case TypeCode.Boolean: return (UInt64)a + Convert.ToUInt64((Boolean)b);
                         case TypeCode.Byte: return (UInt64)a + (Byte)b;
                         case TypeCode.SByte: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'ulong' and 'sbyte'");
                         case TypeCode.Int16: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'ulong' and 'short'");
@@ -187,7 +187,7 @@ namespace NCalcAsync
                 case TypeCode.Single:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'float' and 'bool'");
+                        case TypeCode.Boolean: return (Single)a + Convert.ToSingle((Boolean)b);
                         case TypeCode.Byte: return (Single)a + (Byte)b;
                         case TypeCode.SByte: return (Single)a + (SByte)b;
                         case TypeCode.Int16: return (Single)a + (Int16)b;
@@ -205,7 +205,7 @@ namespace NCalcAsync
                 case TypeCode.Double:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'double' and 'bool'");
+                        case TypeCode.Boolean: return (Double)a + Convert.ToDouble((Boolean)b);
                         case TypeCode.Byte: return (Double)a + (Byte)b;
                         case TypeCode.SByte: return (Double)a + (SByte)b;
                         case TypeCode.Int16: return (Double)a + (Int16)b;
@@ -223,7 +223,7 @@ namespace NCalcAsync
                 case TypeCode.Decimal:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '+' can't be applied to operands of types 'decimal' and 'bool'");
+                        case TypeCode.Boolean: return (Decimal)a + Convert.ToDecimal((Boolean)b);
                         case TypeCode.Byte: return (Decimal)a + (Byte)b;
                         case TypeCode.SByte: return (Decimal)a + (SByte)b;
                         case TypeCode.Int16: return (Decimal)a + (Int16)b;
@@ -256,23 +256,23 @@ namespace NCalcAsync
                     switch (typeCodeB)
                     {
                         case TypeCode.Boolean: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'bool' and 'bool'");
-                        case TypeCode.Byte: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.SByte: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.Int16: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.UInt16: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.Int32: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.UInt32: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.Int64: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.UInt64: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.Single: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.Double: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'bool' and 'byte'");
-                        case TypeCode.Decimal: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'bool' and 'byte'");
+                        case TypeCode.Byte: return Convert.ToByte((Boolean)a) - (Byte)b;
+                        case TypeCode.SByte: return Convert.ToSByte((Boolean)a) - (SByte)b;
+                        case TypeCode.Int16: return Convert.ToInt16((Boolean)a) - (Int16)b;
+                        case TypeCode.UInt16: return Convert.ToUInt16((Boolean)a) - (UInt16)b;
+                        case TypeCode.Int32: return Convert.ToInt32((Boolean)a) - (Int32)b;
+                        case TypeCode.UInt32: return Convert.ToUInt32((Boolean)a) - (UInt32)b;
+                        case TypeCode.Int64: return Convert.ToInt64((Boolean)a) - (Int64)b;
+                        case TypeCode.UInt64: return Convert.ToUInt64((Boolean)a) - (UInt64)b;
+                        case TypeCode.Single: return Convert.ToSingle((Boolean)a) - (Single)b;
+                        case TypeCode.Double: return Convert.ToDouble((Boolean)a) - (Double)b;
+                        case TypeCode.Decimal: return Convert.ToDecimal((Boolean)a) - (Decimal)b;
                     }
                     break;
                 case TypeCode.Byte:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'byte' and 'bool'");
+                        case TypeCode.Boolean: return (Byte)a - Convert.ToByte((Boolean)b);
                         case TypeCode.SByte: return (Byte)a - (SByte)b;
                         case TypeCode.Int16: return (Byte)a - (Int16)b;
                         case TypeCode.UInt16: return (Byte)a - (UInt16)b;
@@ -288,7 +288,7 @@ namespace NCalcAsync
                 case TypeCode.SByte:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'sbyte' and 'bool'");
+                        case TypeCode.Boolean: return (SByte)a - Convert.ToSByte((Boolean)b);
                         case TypeCode.SByte: return (SByte)a - (SByte)b;
                         case TypeCode.Int16: return (SByte)a - (Int16)b;
                         case TypeCode.UInt16: return (SByte)a - (UInt16)b;
@@ -305,7 +305,7 @@ namespace NCalcAsync
                 case TypeCode.Int16:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'short' and 'bool'");
+                        case TypeCode.Boolean: return (Int16)a - Convert.ToInt16((Boolean)b);
                         case TypeCode.SByte: return (Int16)a - (SByte)b;
                         case TypeCode.Int16: return (Int16)a - (Int16)b;
                         case TypeCode.UInt16: return (Int16)a - (UInt16)b;
@@ -322,7 +322,7 @@ namespace NCalcAsync
                 case TypeCode.UInt16:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'ushort' and 'bool'");
+                        case TypeCode.Boolean: return (UInt16)a - Convert.ToUInt16((Boolean)b);
                         case TypeCode.SByte: return (UInt16)a - (SByte)b;
                         case TypeCode.Int16: return (UInt16)a - (Int16)b;
                         case TypeCode.UInt16: return (UInt16)a - (UInt16)b;
@@ -339,7 +339,7 @@ namespace NCalcAsync
                 case TypeCode.Int32:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'int' and 'bool'");
+                        case TypeCode.Boolean: return (Int32)a - Convert.ToInt32((Boolean)b);
                         case TypeCode.SByte: return (Int32)a - (SByte)b;
                         case TypeCode.Int16: return (Int32)a - (Int16)b;
                         case TypeCode.UInt16: return (Int32)a - (UInt16)b;
@@ -356,7 +356,7 @@ namespace NCalcAsync
                 case TypeCode.UInt32:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'uint' and 'bool'");
+                        case TypeCode.Boolean: return (UInt32)a - Convert.ToUInt32((Boolean)b);
                         case TypeCode.SByte: return (UInt32)a - (SByte)b;
                         case TypeCode.Int16: return (UInt32)a - (Int16)b;
                         case TypeCode.UInt16: return (UInt32)a - (UInt16)b;
@@ -373,7 +373,7 @@ namespace NCalcAsync
                 case TypeCode.Int64:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'long' and 'bool'");
+                        case TypeCode.Boolean: return (Int64)a - Convert.ToInt64((Boolean)b);
                         case TypeCode.SByte: return (Int64)a - (SByte)b;
                         case TypeCode.Int16: return (Int64)a - (Int16)b;
                         case TypeCode.UInt16: return (Int64)a - (UInt16)b;
@@ -390,7 +390,7 @@ namespace NCalcAsync
                 case TypeCode.UInt64:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'ulong' and 'bool'");
+                        case TypeCode.Boolean: return (UInt64)a - Convert.ToUInt64((Boolean)b);
                         case TypeCode.SByte: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'ulong' and 'double'");
                         case TypeCode.Int16: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'ulong' and 'short'");
                         case TypeCode.UInt16: return (UInt64)a - (UInt16)b;
@@ -407,7 +407,7 @@ namespace NCalcAsync
                 case TypeCode.Single:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'float' and 'bool'");
+                        case TypeCode.Boolean: return (Single)a - Convert.ToSingle((Boolean)b);
                         case TypeCode.SByte: return (Single)a - (SByte)b;
                         case TypeCode.Int16: return (Single)a - (Int16)b;
                         case TypeCode.UInt16: return (Single)a - (UInt16)b;
@@ -424,7 +424,7 @@ namespace NCalcAsync
                 case TypeCode.Double:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'double' and 'bool'");
+                        case TypeCode.Boolean: return (Double)a - Convert.ToDouble((Boolean)b);
                         case TypeCode.SByte: return (Double)a - (SByte)b;
                         case TypeCode.Int16: return (Double)a - (Int16)b;
                         case TypeCode.UInt16: return (Double)a - (UInt16)b;
@@ -441,7 +441,7 @@ namespace NCalcAsync
                 case TypeCode.Decimal:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'decimal' and 'bool'");
+                        case TypeCode.Boolean: return (Decimal)a - Convert.ToDecimal((Boolean)b);
                         case TypeCode.SByte: return (Decimal)a - (SByte)b;
                         case TypeCode.Int16: return (Decimal)a - (Int16)b;
                         case TypeCode.UInt16: return (Decimal)a - (UInt16)b;
@@ -468,10 +468,27 @@ namespace NCalcAsync
 
             switch (typeCodeA)
             {
+                case TypeCode.Boolean:
+                    switch (typeCodeB)
+                    {
+                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '*' can't be applied to operands of types 'bool' and 'bool'");
+                        case TypeCode.Byte: return Convert.ToByte((Boolean)a) * (Byte)b;
+                        case TypeCode.SByte: return Convert.ToSByte((Boolean)a) * (SByte)b;
+                        case TypeCode.Int16: return Convert.ToInt16((Boolean)a) * (Int16)b;
+                        case TypeCode.UInt16: return Convert.ToUInt16((Boolean)a) * (UInt16)b;
+                        case TypeCode.Int32: return Convert.ToInt32((Boolean)a) * (Int32)b;
+                        case TypeCode.UInt32: return Convert.ToUInt32((Boolean)a) * (UInt32)b;
+                        case TypeCode.Int64: return Convert.ToInt64((Boolean)a) * (Int64)b;
+                        case TypeCode.UInt64: return Convert.ToUInt64((Boolean)a) * (UInt64)b;
+                        case TypeCode.Single: return Convert.ToSingle((Boolean)a) * (Single)b;
+                        case TypeCode.Double: return Convert.ToDouble((Boolean)a) * (Double)b;
+                        case TypeCode.Decimal: return Convert.ToDecimal((Boolean)a) * (Decimal)b;
+                    }
+                    break;
                 case TypeCode.Byte:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '*' can't be applied to operands of types 'byte' and 'bool'");
+                        case TypeCode.Boolean: return (Byte)a * Convert.ToByte((Boolean)b);
                         case TypeCode.SByte: return (Byte)a * (SByte)b;
                         case TypeCode.Int16: return (Byte)a * (Int16)b;
                         case TypeCode.UInt16: return (Byte)a * (UInt16)b;
@@ -487,7 +504,7 @@ namespace NCalcAsync
                 case TypeCode.SByte:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '*' can't be applied to operands of types 'sbyte' and 'bool'");
+                        case TypeCode.Boolean: return (SByte)a * Convert.ToSByte((Boolean)b);
                         case TypeCode.SByte: return (SByte)a * (SByte)b;
                         case TypeCode.Int16: return (SByte)a * (Int16)b;
                         case TypeCode.UInt16: return (SByte)a * (UInt16)b;
@@ -504,7 +521,7 @@ namespace NCalcAsync
                 case TypeCode.Int16:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '*' can't be applied to operands of types 'short' and 'bool'");
+                        case TypeCode.Boolean: return (Int16)a * Convert.ToInt16((Boolean)b);
                         case TypeCode.SByte: return (Int16)a * (SByte)b;
                         case TypeCode.Int16: return (Int16)a * (Int16)b;
                         case TypeCode.UInt16: return (Int16)a * (UInt16)b;
@@ -521,7 +538,7 @@ namespace NCalcAsync
                 case TypeCode.UInt16:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '*' can't be applied to operands of types 'ushort' and 'bool'");
+                        case TypeCode.Boolean: return (UInt16)a * Convert.ToUInt16((Boolean)b);
                         case TypeCode.SByte: return (UInt16)a * (SByte)b;
                         case TypeCode.Int16: return (UInt16)a * (Int16)b;
                         case TypeCode.UInt16: return (UInt16)a * (UInt16)b;
@@ -538,7 +555,7 @@ namespace NCalcAsync
                 case TypeCode.Int32:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '*' can't be applied to operands of types 'int' and 'bool'");
+                        case TypeCode.Boolean: return (Int32)a * Convert.ToInt32((Boolean)b);
                         case TypeCode.SByte: return (Int32)a * (SByte)b;
                         case TypeCode.Int16: return (Int32)a * (Int16)b;
                         case TypeCode.UInt16: return (Int32)a * (UInt16)b;
@@ -555,7 +572,7 @@ namespace NCalcAsync
                 case TypeCode.UInt32:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '*' can't be applied to operands of types 'uint' and 'bool'");
+                        case TypeCode.Boolean: return (UInt32)a * Convert.ToUInt32((Boolean)b);
                         case TypeCode.SByte: return (UInt32)a * (SByte)b;
                         case TypeCode.Int16: return (UInt32)a * (Int16)b;
                         case TypeCode.UInt16: return (UInt32)a * (UInt16)b;
@@ -572,7 +589,7 @@ namespace NCalcAsync
                 case TypeCode.Int64:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '*' can't be applied to operands of types 'long' and 'bool'");
+                        case TypeCode.Boolean: return (Int64)a * Convert.ToInt64((Boolean)b);
                         case TypeCode.SByte: return (Int64)a * (SByte)b;
                         case TypeCode.Int16: return (Int64)a * (Int16)b;
                         case TypeCode.UInt16: return (Int64)a * (UInt16)b;
@@ -589,7 +606,7 @@ namespace NCalcAsync
                 case TypeCode.UInt64:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '*' can't be applied to operands of types 'ulong' and 'bool'");
+                        case TypeCode.Boolean: return (UInt64)a * Convert.ToUInt64((Boolean)b);
                         case TypeCode.SByte: throw new InvalidOperationException("Operator '*' can't be applied to operands of types 'ulong' and 'sbyte'");
                         case TypeCode.Int16: throw new InvalidOperationException("Operator '*' can't be applied to operands of types 'ulong' and 'short'");
                         case TypeCode.UInt16: return (UInt64)a * (UInt16)b;
@@ -606,7 +623,7 @@ namespace NCalcAsync
                 case TypeCode.Single:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '*' can't be applied to operands of types 'float' and 'bool'");
+                        case TypeCode.Boolean: return (Single)a * Convert.ToSingle((Boolean)b);
                         case TypeCode.SByte: return (Single)a * (SByte)b;
                         case TypeCode.Int16: return (Single)a * (Int16)b;
                         case TypeCode.UInt16: return (Single)a * (UInt16)b;
@@ -623,7 +640,7 @@ namespace NCalcAsync
                 case TypeCode.Double:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '*' can't be applied to operands of types 'double' and 'bool'");
+                        case TypeCode.Boolean: return (Double)a * Convert.ToDouble((Boolean)b);
                         case TypeCode.SByte: return (Double)a * (SByte)b;
                         case TypeCode.Int16: return (Double)a * (Int16)b;
                         case TypeCode.UInt16: return (Double)a * (UInt16)b;
@@ -640,7 +657,7 @@ namespace NCalcAsync
                 case TypeCode.Decimal:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '*' can't be applied to operands of types 'decimal' and 'bool'");
+                        case TypeCode.Boolean: return (Decimal)a * Convert.ToDecimal((Boolean)b);
                         case TypeCode.SByte: return (Decimal)a * (SByte)b;
                         case TypeCode.Int16: return (Decimal)a * (Int16)b;
                         case TypeCode.UInt16: return (Decimal)a * (UInt16)b;
@@ -667,10 +684,27 @@ namespace NCalcAsync
 
             switch (typeCodeA)
             {
+                case TypeCode.Boolean:
+                    switch (typeCodeB)
+                    {
+                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '/' can't be applied to operands of types 'bool' and 'bool'");
+                        case TypeCode.Byte: return Convert.ToByte((Boolean)a) / (Byte)b;
+                        case TypeCode.SByte: return Convert.ToSByte((Boolean)a) / (SByte)b;
+                        case TypeCode.Int16: return Convert.ToInt16((Boolean)a) / (Int16)b;
+                        case TypeCode.UInt16: return Convert.ToUInt16((Boolean)a) / (UInt16)b;
+                        case TypeCode.Int32: return Convert.ToInt32((Boolean)a) / (Int32)b;
+                        case TypeCode.UInt32: return Convert.ToUInt32((Boolean)a) / (UInt32)b;
+                        case TypeCode.Int64: return Convert.ToInt64((Boolean)a) / (Int64)b;
+                        case TypeCode.UInt64: return Convert.ToUInt64((Boolean)a) / (UInt64)b;
+                        case TypeCode.Single: return Convert.ToSingle((Boolean)a) / (Single)b;
+                        case TypeCode.Double: return Convert.ToDouble((Boolean)a) / (Double)b;
+                        case TypeCode.Decimal: return Convert.ToDecimal((Boolean)a) / (Decimal)b;
+                    }
+                    break;
                 case TypeCode.Byte:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '/' can't be applied to operands of types 'byte' and 'bool'");
+                        case TypeCode.Boolean: return (Byte)a / Convert.ToByte((Boolean)b);
                         case TypeCode.SByte: return (Byte)a / (SByte)b;
                         case TypeCode.Int16: return (Byte)a / (Int16)b;
                         case TypeCode.UInt16: return (Byte)a / (UInt16)b;
@@ -686,7 +720,7 @@ namespace NCalcAsync
                 case TypeCode.SByte:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '/' can't be applied to operands of types 'sbyte' and 'bool'");
+                        case TypeCode.Boolean: return (SByte)a / Convert.ToSByte((Boolean)b);
                         case TypeCode.SByte: return (SByte)a / (SByte)b;
                         case TypeCode.Int16: return (SByte)a / (Int16)b;
                         case TypeCode.UInt16: return (SByte)a / (UInt16)b;
@@ -703,7 +737,7 @@ namespace NCalcAsync
                 case TypeCode.Int16:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '/' can't be applied to operands of types 'short' and 'bool'");
+                        case TypeCode.Boolean: return (Int16)a / Convert.ToInt16((Boolean)b);
                         case TypeCode.SByte: return (Int16)a / (SByte)b;
                         case TypeCode.Int16: return (Int16)a / (Int16)b;
                         case TypeCode.UInt16: return (Int16)a / (UInt16)b;
@@ -720,7 +754,7 @@ namespace NCalcAsync
                 case TypeCode.UInt16:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '/' can't be applied to operands of types 'ushort' and 'bool'");
+                        case TypeCode.Boolean: return (UInt16)a / Convert.ToUInt16((Boolean)b);
                         case TypeCode.SByte: return (UInt16)a / (SByte)b;
                         case TypeCode.Int16: return (UInt16)a / (Int16)b;
                         case TypeCode.UInt16: return (UInt16)a / (UInt16)b;
@@ -737,7 +771,7 @@ namespace NCalcAsync
                 case TypeCode.Int32:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '/' can't be applied to operands of types 'int' and 'bool'");
+                        case TypeCode.Boolean: return (Int32)a / Convert.ToInt32((Boolean)b);
                         case TypeCode.SByte: return (Int32)a / (SByte)b;
                         case TypeCode.Int16: return (Int32)a / (Int16)b;
                         case TypeCode.UInt16: return (Int32)a / (UInt16)b;
@@ -754,7 +788,7 @@ namespace NCalcAsync
                 case TypeCode.UInt32:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '/' can't be applied to operands of types 'uint' and 'bool'");
+                        case TypeCode.Boolean: return (UInt32)a / Convert.ToUInt32((Boolean)b);
                         case TypeCode.SByte: return (UInt32)a / (SByte)b;
                         case TypeCode.Int16: return (UInt32)a / (Int16)b;
                         case TypeCode.UInt16: return (UInt32)a / (UInt16)b;
@@ -771,7 +805,7 @@ namespace NCalcAsync
                 case TypeCode.Int64:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '/' can't be applied to operands of types 'long' and 'bool'");
+                        case TypeCode.Boolean: return (Int64)a / Convert.ToInt64((Boolean)b);
                         case TypeCode.SByte: return (Int64)a / (SByte)b;
                         case TypeCode.Int16: return (Int64)a / (Int16)b;
                         case TypeCode.UInt16: return (Int64)a / (UInt16)b;
@@ -788,7 +822,7 @@ namespace NCalcAsync
                 case TypeCode.UInt64:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '-' can't be applied to operands of types 'ulong' and 'bool'");
+                        case TypeCode.Boolean: return (UInt64)a / Convert.ToUInt64((Boolean)b);
                         case TypeCode.SByte: throw new InvalidOperationException("Operator '/' can't be applied to operands of types 'ulong' and 'sbyte'");
                         case TypeCode.Int16: throw new InvalidOperationException("Operator '/' can't be applied to operands of types 'ulong' and 'short'");
                         case TypeCode.UInt16: return (UInt64)a / (UInt16)b;
@@ -805,7 +839,7 @@ namespace NCalcAsync
                 case TypeCode.Single:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '/' can't be applied to operands of types 'float' and 'bool'");
+                        case TypeCode.Boolean: return (Single)a / Convert.ToSingle((Boolean)b);
                         case TypeCode.SByte: return (Single)a / (SByte)b;
                         case TypeCode.Int16: return (Single)a / (Int16)b;
                         case TypeCode.UInt16: return (Single)a / (UInt16)b;
@@ -822,7 +856,7 @@ namespace NCalcAsync
                 case TypeCode.Double:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '/' can't be applied to operands of types 'double' and 'bool'");
+                        case TypeCode.Boolean: return (Double)a / Convert.ToDouble((Boolean)b);
                         case TypeCode.SByte: return (Double)a / (SByte)b;
                         case TypeCode.Int16: return (Double)a / (Int16)b;
                         case TypeCode.UInt16: return (Double)a / (UInt16)b;
@@ -839,7 +873,7 @@ namespace NCalcAsync
                 case TypeCode.Decimal:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '/' can't be applied to operands of types 'decimal' and 'bool'");
+                        case TypeCode.Boolean: return (Decimal)a / Convert.ToDecimal((Boolean)b);
                         case TypeCode.SByte: return (Decimal)a / (SByte)b;
                         case TypeCode.Int16: return (Decimal)a / (Int16)b;
                         case TypeCode.UInt16: return (Decimal)a / (UInt16)b;
@@ -867,10 +901,27 @@ namespace NCalcAsync
 
             switch (typeCodeA)
             {
+                case TypeCode.Boolean:
+                    switch (typeCodeB)
+                    {
+                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '%' can't be applied to operands of types 'bool' and 'bool'");
+                        case TypeCode.Byte: return Convert.ToByte((Boolean)a) % (Byte)b;
+                        case TypeCode.SByte: return Convert.ToSByte((Boolean)a) % (SByte)b;
+                        case TypeCode.Int16: return Convert.ToInt16((Boolean)a) % (Int16)b;
+                        case TypeCode.UInt16: return Convert.ToUInt16((Boolean)a) % (UInt16)b;
+                        case TypeCode.Int32: return Convert.ToInt32((Boolean)a) % (Int32)b;
+                        case TypeCode.UInt32: return Convert.ToUInt32((Boolean)a) % (UInt32)b;
+                        case TypeCode.Int64: return Convert.ToInt64((Boolean)a) % (Int64)b;
+                        case TypeCode.UInt64: return Convert.ToUInt64((Boolean)a) % (UInt64)b;
+                        case TypeCode.Single: return Convert.ToSingle((Boolean)a) % (Single)b;
+                        case TypeCode.Double: return Convert.ToDouble((Boolean)a) % (Double)b;
+                        case TypeCode.Decimal: return Convert.ToDecimal((Boolean)a) % (Decimal)b;
+                    }
+                    break;
                 case TypeCode.Byte:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '%' can't be applied to operands of types 'byte' and 'bool'");
+                        case TypeCode.Boolean: return (Byte)a % Convert.ToByte((Boolean)b);
                         case TypeCode.SByte: return (Byte)a % (SByte)b;
                         case TypeCode.Int16: return (Byte)a % (Int16)b;
                         case TypeCode.UInt16: return (Byte)a % (UInt16)b;
@@ -886,7 +937,7 @@ namespace NCalcAsync
                 case TypeCode.SByte:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '%' can't be applied to operands of types 'sbyte' and 'bool'");
+                        case TypeCode.Boolean: return (SByte)a % Convert.ToSByte((Boolean)b);
                         case TypeCode.SByte: return (SByte)a % (SByte)b;
                         case TypeCode.Int16: return (SByte)a % (Int16)b;
                         case TypeCode.UInt16: return (SByte)a % (UInt16)b;
@@ -903,7 +954,7 @@ namespace NCalcAsync
                 case TypeCode.Int16:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '%' can't be applied to operands of types 'short' and 'bool'");
+                        case TypeCode.Boolean: return (Int16)a % Convert.ToInt16((Boolean)b);
                         case TypeCode.SByte: return (Int16)a % (SByte)b;
                         case TypeCode.Int16: return (Int16)a % (Int16)b;
                         case TypeCode.UInt16: return (Int16)a % (UInt16)b;
@@ -920,7 +971,7 @@ namespace NCalcAsync
                 case TypeCode.UInt16:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '%' can't be applied to operands of types 'ushort' and 'bool'");
+                        case TypeCode.Boolean: return (UInt16)a % Convert.ToUInt16((Boolean)b);
                         case TypeCode.SByte: return (UInt16)a % (SByte)b;
                         case TypeCode.Int16: return (UInt16)a % (Int16)b;
                         case TypeCode.UInt16: return (UInt16)a % (UInt16)b;
@@ -937,7 +988,7 @@ namespace NCalcAsync
                 case TypeCode.Int32:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '%' can't be applied to operands of types 'int' and 'bool'");
+                        case TypeCode.Boolean: return (Int32)a % Convert.ToInt32((Boolean)b);
                         case TypeCode.SByte: return (Int32)a % (SByte)b;
                         case TypeCode.Int16: return (Int32)a % (Int16)b;
                         case TypeCode.UInt16: return (Int32)a % (UInt16)b;
@@ -954,7 +1005,7 @@ namespace NCalcAsync
                 case TypeCode.UInt32:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '%' can't be applied to operands of types 'uint' and 'bool'");
+                        case TypeCode.Boolean: return (UInt32)a % Convert.ToUInt32((Boolean)b);
                         case TypeCode.SByte: return (UInt32)a % (SByte)b;
                         case TypeCode.Int16: return (UInt32)a % (Int16)b;
                         case TypeCode.UInt16: return (UInt32)a % (UInt16)b;
@@ -971,7 +1022,7 @@ namespace NCalcAsync
                 case TypeCode.Int64:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '%' can't be applied to operands of types 'long' and 'bool'");
+                        case TypeCode.Boolean: return (Int64)a % Convert.ToInt64((Boolean)b);
                         case TypeCode.SByte: return (Int64)a % (SByte)b;
                         case TypeCode.Int16: return (Int64)a % (Int16)b;
                         case TypeCode.UInt16: return (Int64)a % (UInt16)b;
@@ -988,7 +1039,7 @@ namespace NCalcAsync
                 case TypeCode.UInt64:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '%' can't be applied to operands of types 'ulong' and 'bool'");
+                        case TypeCode.Boolean: return (UInt64)a % Convert.ToUInt64((Boolean)b);
                         case TypeCode.SByte: throw new InvalidOperationException("Operator '%' can't be applied to operands of types 'ulong' and 'sbyte'");
                         case TypeCode.Int16: throw new InvalidOperationException("Operator '%' can't be applied to operands of types 'ulong' and 'short'");
                         case TypeCode.UInt16: return (UInt64)a % (UInt16)b;
@@ -1005,7 +1056,7 @@ namespace NCalcAsync
                 case TypeCode.Single:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '%' can't be applied to operands of types 'float' and 'bool'");
+                        case TypeCode.Boolean: return (Single)a % Convert.ToSingle((Boolean)b);
                         case TypeCode.SByte: return (Single)a % (SByte)b;
                         case TypeCode.Int16: return (Single)a % (Int16)b;
                         case TypeCode.UInt16: return (Single)a % (UInt16)b;
@@ -1022,7 +1073,7 @@ namespace NCalcAsync
                 case TypeCode.Double:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '%' can't be applied to operands of types 'double' and 'bool'");
+                        case TypeCode.Boolean: return (Double)a % Convert.ToDouble((Boolean)b);
                         case TypeCode.SByte: return (Double)a % (SByte)b;
                         case TypeCode.Int16: return (Double)a % (Int16)b;
                         case TypeCode.UInt16: return (Double)a % (UInt16)b;
@@ -1039,7 +1090,7 @@ namespace NCalcAsync
                 case TypeCode.Decimal:
                     switch (typeCodeB)
                     {
-                        case TypeCode.Boolean: throw new InvalidOperationException("Operator '%' can't be applied to operands of types 'decimal' and 'bool'");
+                        case TypeCode.Boolean: return (Decimal)a % Convert.ToDecimal((Boolean)b);
                         case TypeCode.SByte: return (Decimal)a % (SByte)b;
                         case TypeCode.Int16: return (Decimal)a % (Int16)b;
                         case TypeCode.UInt16: return (Decimal)a % (UInt16)b;
@@ -1080,6 +1131,8 @@ namespace NCalcAsync
 
             switch (typeCodeA)
             {
+                case TypeCode.Boolean:
+                    throw new InvalidOperationException("Function 'MAX' can't be applied to operands of using 'bool'");
                 case TypeCode.Byte:
                     return Math.Max((Byte)a, Convert.ToByte(b));
                 case TypeCode.SByte:
@@ -1130,6 +1183,8 @@ namespace NCalcAsync
 
             switch (typeCodeA)
             {
+                case TypeCode.Boolean:
+                    throw new InvalidOperationException("Function 'MIN' can't be applied to operands of using 'bool'");
                 case TypeCode.Byte:
                     return Math.Min((Byte)a, Convert.ToByte(b));
                 case TypeCode.SByte:
