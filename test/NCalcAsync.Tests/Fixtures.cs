@@ -106,10 +106,10 @@ namespace NCalcAsync.Tests
             Assert.AreEqual(2d, await new Expression("Sqrt(4)").EvaluateAsync());
             Assert.AreEqual(0d, await new Expression("Tan(0)").EvaluateAsync());
             Assert.AreEqual(1d, await new Expression("Truncate(1.7)").EvaluateAsync());
-            Assert.AreEqual(-Math.PI / 2, (double)await new Expression("Atan2(-1,0)").Evaluate(), 1e-16);
-            Assert.AreEqual(Math.PI / 2, (double)await new Expression("Atan2(1,0)").Evaluate(), 1e-16);
-            Assert.AreEqual(Math.PI, (double)await new Expression("Atan2(0,-1)").Evaluate(), 1e-16);
-            Assert.AreEqual(0, (double)await new Expression("Atan2(0,1)").Evaluate(), 1e-16);
+            Assert.AreEqual(-Math.PI / 2, (double)await new Expression("Atan2(-1,0)").EvaluateAsync(), 1e-16);
+            Assert.AreEqual(Math.PI / 2, (double)await new Expression("Atan2(1,0)").EvaluateAsync(), 1e-16);
+            Assert.AreEqual(Math.PI, (double)await new Expression("Atan2(0,-1)").EvaluateAsync(), 1e-16);
+            Assert.AreEqual(0, (double)await new Expression("Atan2(0,1)").EvaluateAsync(), 1e-16);
         }
 
         [TestMethod]
