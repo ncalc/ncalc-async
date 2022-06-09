@@ -355,6 +355,20 @@ namespace NCalcAsync.Domain
 
                 #endregion
 
+                #region Atan2
+                case "atan2":
+
+                    CheckCase("Atan2", function.Identifier.Name);
+
+                    if (function.Expressions.Length != 2)
+                        throw new ArgumentException("Atan2() takes exactly 2 argument");
+
+                    Result = Math.Atan2(Convert.ToDouble(await EvaluateAsync(function.Expressions[0])), Convert.ToDouble(await EvaluateAsync(function.Expressions[1])));
+
+                    break;
+
+                #endregion
+
                 #region Ceiling
                 case "ceiling":
 
