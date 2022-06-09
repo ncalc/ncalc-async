@@ -1,3 +1,7 @@
+# 3.1:
+
+* [New function `Atan2`](https://github.com/ncalc/ncalc-async/pull/15)
+
 # 3.0:
 
 Several syntax changes to the grammar:
