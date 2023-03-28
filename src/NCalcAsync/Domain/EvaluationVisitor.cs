@@ -13,14 +13,16 @@ namespace NCalcAsync.Domain
         private readonly EvaluateOptions _options = EvaluateOptions.None;
         private readonly EvaluateParameterAsyncHandler _evaluateParameterAsync;
         private readonly EvaluateFunctionAsyncHandler _evaluateFunctionAsync;
+        private readonly NumberConversionTypePreference _numberConversionTypePreference;
 
         private bool IgnoreCase { get { return (_options & EvaluateOptions.IgnoreCase) == EvaluateOptions.IgnoreCase; } }
 
-        public EvaluationVisitor(EvaluateOptions options, EvaluateParameterAsyncHandler evaluateParameterAsync, EvaluateFunctionAsyncHandler evaluateFunctionAsync)
+        public EvaluationVisitor(EvaluateOptions options, EvaluateParameterAsyncHandler evaluateParameterAsync, EvaluateFunctionAsyncHandler evaluateFunctionAsync, NumberConversionTypePreference numberConversionTypePreference = NumberConversionTypePreference.Decimal)
         {
             _options = options;
             _evaluateParameterAsync = evaluateParameterAsync;
             _evaluateFunctionAsync = evaluateFunctionAsync;
+            _numberConversionTypePreference = numberConversionTypePreference;
         }
 
         public object Result { get; private set; }
@@ -137,8 +139,8 @@ namespace NCalcAsync.Domain
 
                 case BinaryExpressionType.Div:
                     Result = IsReal(await Left()) || IsReal(await Right())
-                                 ? Numbers.Divide(await Left(), await Right())
-                                 : Numbers.Divide(Convert.ToDouble(await Left()), await Right());
+                                 ? Numbers.Divide(await Left(), await Right(), _numberConversionTypePreference)
+                                 : Numbers.Divide(Convert.ToDouble(await Left()), await Right(), _numberConversionTypePreference);
                     break;
 
                 case BinaryExpressionType.Equal:
@@ -167,11 +169,11 @@ namespace NCalcAsync.Domain
                     break;
 
                 case BinaryExpressionType.Minus:
-                    Result = Numbers.Soustract(await Left(), await Right());
+                    Result = Numbers.Soustract(await Left(), await Right(), _numberConversionTypePreference);
                     break;
 
                 case BinaryExpressionType.Modulo:
-                    Result = Numbers.Modulo(await Left(), await Right());
+                    Result = Numbers.Modulo(await Left(), await Right(), _numberConversionTypePreference);
                     break;
 
                 case BinaryExpressionType.NotEqual:
@@ -186,13 +188,13 @@ namespace NCalcAsync.Domain
                     }
                     else
                     {
-                        Result = Numbers.Add(await Left(), await Right());
+                        Result = Numbers.Add(await Left(), await Right(), _numberConversionTypePreference);
                     }
 
                     break;
 
                 case BinaryExpressionType.Times:
-                    Result = Numbers.Multiply(await Left(), await Right());
+                    Result = Numbers.Multiply(await Left(), await Right(), _numberConversionTypePreference);
                     break;
 
                 case BinaryExpressionType.BitwiseAnd:
@@ -233,7 +235,7 @@ namespace NCalcAsync.Domain
                     break;
 
                 case UnaryExpressionType.Negate:
-                    Result = Numbers.Soustract(0, Result);
+                    Result = Numbers.Soustract(0, Result, _numberConversionTypePreference);
                     break;
 
                 case UnaryExpressionType.BitwiseNot:
@@ -593,7 +595,7 @@ namespace NCalcAsync.Domain
                     object maxleft = await EvaluateAsync(function.Expressions[0]);
                     object maxright = await EvaluateAsync(function.Expressions[1]);
 
-                    Result = Numbers.Max(maxleft, maxright);
+                    Result = Numbers.Max(maxleft, maxright, _numberConversionTypePreference);
                     break;
 
                 #endregion
@@ -609,7 +611,7 @@ namespace NCalcAsync.Domain
                     object minleft = await EvaluateAsync(function.Expressions[0]);
                     object minright = await EvaluateAsync(function.Expressions[1]);
 
-                    Result = Numbers.Min(minleft, minright);
+                    Result = Numbers.Min(minleft, minright, _numberConversionTypePreference);
                     break;
 
                 #endregion
