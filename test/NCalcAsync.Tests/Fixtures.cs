@@ -750,6 +750,103 @@ namespace NCalcAsync.Tests
 
             Assert.AreEqual(1m, await e.EvaluateAsync());
         }
+
+        [TestMethod]
+        public async Task Should_Do_Number_Conversion()
+        {
+            int intValue = 10;
+            float floatValue = 10.0F;
+            double doubleValue = 10.0;
+            decimal decimalValue = 10.00M;
+            string stringValue = "3703";
+
+            var decimalNumberConversions = new Dictionary<string, object>()
+            {
+                { "[intValue] + [stringValue]", 3713M },
+                { "[floatValue] + [stringValue]", 3713M },
+                { "[doubleValue] + [stringValue]", 3713M },
+                { "[decimalValue] + [stringValue]", 3713M },
+                { "[stringValue] - [intValue]", 3693M },
+                { "[stringValue] - [doubleValue]", 3693M },
+                { "[stringValue] - [decimalValue]", 3693M },
+                { "[stringValue] - [stringValue]", 0M },
+                { "[stringValue] * [intValue]", 37030M },
+                { "[stringValue] * [doubleValue]", 37030M },
+                { "[stringValue] * [decimalValue]", 37030M },
+                { "[stringValue] * [stringValue]", 13712209M },
+                { "[stringValue] / [intValue]",  370.3D },
+                { "[stringValue] / [floatValue]", 370.3M },
+                { "[stringValue] / [doubleValue]", 370.3M },
+                { "[stringValue] / [decimalValue]", 370.3M },
+                { "[stringValue] / [stringValue]", 1M },
+                { "[stringValue] % [intValue]", 3M },
+                { "[stringValue] % [stringValue]", 0M }
+            };
+
+            var doubleNumberConversions = new Dictionary<string, object>()
+            {
+                { "[intValue] + [stringValue]", 3713D },
+                { "[floatValue] + [stringValue]", 3713D },
+                { "[doubleValue] + [stringValue]", 3713D },
+                { "[decimalValue] + [stringValue]", 3713M },
+                { "[stringValue] - [intValue]", 3693D },
+                { "[stringValue] - [doubleValue]", 3693D },
+                { "[stringValue] - [decimalValue]", 3693M },
+                { "[stringValue] - [stringValue]", 0D },
+                { "[stringValue] * [intValue]", 37030D },
+                { "[stringValue] * [doubleValue]", 37030D },
+                { "[stringValue] * [decimalValue]", 37030M },
+                { "[stringValue] * [stringValue]", 13712209D },
+                { "[stringValue] / [intValue]",  370.3D },
+                { "[stringValue] / [floatValue]", 370.3D },
+                { "[stringValue] / [doubleValue]", 370.3D },
+                { "[stringValue] / [decimalValue]", 370.3M },
+                { "[stringValue] / [stringValue]", 1D },
+                { "[stringValue] % [intValue]", 3D },
+                { "[stringValue] % [stringValue]", 0D }
+            };
+
+            foreach (var (decimalNumberConversionExpression, calculatedValue) in decimalNumberConversions)
+            {
+                var expression = new Expression(decimalNumberConversionExpression, numberConversionTypePreference: NumberConversionTypePreference.Decimal);
+
+                expression.EvaluateParameterAsync += async (name, args) =>
+                {
+                    args.Result = name switch
+                    {
+                        "intValue" => intValue,
+                        "floatValue" => floatValue,
+                        "doubleValue" => doubleValue,
+                        "decimalValue" => decimalValue,
+                        "stringValue" => stringValue,
+                        _ => throw new NotImplementedException()
+                    };
+                };
+
+                Assert.AreEqual(calculatedValue, await expression.EvaluateAsync());
+            }
+
+            foreach (var (doubleNumberConversionExpression, calculatedValue) in doubleNumberConversions)
+            {
+                var expression = new Expression(doubleNumberConversionExpression, numberConversionTypePreference: NumberConversionTypePreference.Double);
+
+                expression.EvaluateParameterAsync += (name, args) =>
+                {
+                    args.Result = name switch
+                    {
+                        "intValue" => intValue,
+                        "floatValue" => floatValue,
+                        "doubleValue" => doubleValue,
+                        "decimalValue" => decimalValue,
+                        "stringValue" => stringValue,
+                        _ => throw new NotImplementedException()
+                    };
+                    return Task.CompletedTask;
+                };
+
+                Assert.AreEqual(calculatedValue, await expression.EvaluateAsync());
+            }
+        }
     }
 }
 
