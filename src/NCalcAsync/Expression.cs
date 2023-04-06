@@ -11,6 +11,7 @@ namespace NCalcAsync
 {
     public class Expression
     {
+        public NumberConversionTypePreference NumberConversionTypePreference { get; set; }
         public EvaluateOptions Options { get; set; }
 
         /// <summary>
@@ -21,11 +22,7 @@ namespace NCalcAsync
         public EvaluateParameterAsyncHandler EvaluateParameterAsync { get; set; }
         public EvaluateFunctionAsyncHandler EvaluateFunctionAsync { get; set; }
 
-        public Expression(string expression) : this(expression, EvaluateOptions.None)
-        {
-        }
-
-        public Expression(string expression, EvaluateOptions options)
+        public Expression(string expression, EvaluateOptions options = EvaluateOptions.None, NumberConversionTypePreference numberConversionTypePreference = NumberConversionTypePreference.Decimal)
         {
             if (String.IsNullOrEmpty(expression))
                 throw new
@@ -33,13 +30,10 @@ namespace NCalcAsync
 
             OriginalExpression = expression;
             Options = options;
+            NumberConversionTypePreference = numberConversionTypePreference;
         }
 
-        public Expression(LogicalExpression expression) : this(expression, EvaluateOptions.None)
-        {
-        }
-
-        public Expression(LogicalExpression expression, EvaluateOptions options)
+        public Expression(LogicalExpression expression, EvaluateOptions options = EvaluateOptions.None, NumberConversionTypePreference numberConversionTypePreference = NumberConversionTypePreference.Decimal)
         {
             if (expression == null)
                 throw new
@@ -47,6 +41,7 @@ namespace NCalcAsync
             
             ParsedExpression = expression;
             Options = options;
+            NumberConversionTypePreference = numberConversionTypePreference;
         }
 
         #region Cache management
@@ -221,7 +216,7 @@ namespace NCalcAsync
                 ParsedExpression = Compile(OriginalExpression, (Options & EvaluateOptions.NoCache) == EvaluateOptions.NoCache);
             }
 
-            var visitor = new EvaluationVisitor(Options, evaluateParameterAsync, evaluateFunctionAsync)
+            var visitor = new EvaluationVisitor(Options, evaluateParameterAsync, evaluateFunctionAsync, NumberConversionTypePreference)
             {
                 Parameters = Parameters
             };

@@ -4,20 +4,28 @@ namespace NCalcAsync
 {
     public class Numbers
     {
-        private static object ConvertIfString(object s)
+        private static object ConvertIfString(object s, NumberConversionTypePreference numberConversionTypePreference)
         {
             if (s is String|| s is char)
             {
-                return Decimal.Parse(s.ToString());
+                switch (numberConversionTypePreference)
+                {
+                    case NumberConversionTypePreference.Decimal:
+                        return Decimal.Parse(s.ToString());
+                    case NumberConversionTypePreference.Double:
+                        return Double.Parse(s.ToString());
+                    default:
+                        throw new NotImplementedException($"{nameof(ConvertIfString)} does not implement number conversion type: {numberConversionTypePreference}");
+                }
             }
 
             return s;
         }
 
-        public static object Add(object a, object b)
+        public static object Add(object a, object b, NumberConversionTypePreference numberConversionTypePreference)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, numberConversionTypePreference);
+            b = ConvertIfString(b, numberConversionTypePreference);
 
             TypeCode typeCodeA = Type.GetTypeCode(a.GetType());
             TypeCode typeCodeB = Type.GetTypeCode(b.GetType());
@@ -242,10 +250,10 @@ namespace NCalcAsync
             return null;
         }
 
-        public static object Soustract(object a, object b)
+        public static object Soustract(object a, object b, NumberConversionTypePreference numberConversionTypePreference)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, numberConversionTypePreference);
+            b = ConvertIfString(b, numberConversionTypePreference);
 
             TypeCode typeCodeA = Type.GetTypeCode(a.GetType());
             TypeCode typeCodeB = Type.GetTypeCode(b.GetType());
@@ -458,10 +466,10 @@ namespace NCalcAsync
 
             return null;
         }
-        public static object Multiply(object a, object b)
+        public static object Multiply(object a, object b, NumberConversionTypePreference numberConversionTypePreference)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, numberConversionTypePreference);
+            b = ConvertIfString(b, numberConversionTypePreference);
 
             TypeCode typeCodeA = Type.GetTypeCode(a.GetType());
             TypeCode typeCodeB = Type.GetTypeCode(b.GetType());
@@ -657,10 +665,10 @@ namespace NCalcAsync
 
             return null;
         }
-        public static object Divide(object a, object b)
+        public static object Divide(object a, object b, NumberConversionTypePreference numberConversionTypePreference)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, numberConversionTypePreference);
+            b = ConvertIfString(b, numberConversionTypePreference);
 
             TypeCode typeCodeA = Type.GetTypeCode(a.GetType());
             TypeCode typeCodeB = Type.GetTypeCode(b.GetType());
@@ -857,10 +865,10 @@ namespace NCalcAsync
             return null;
         }
 
-        public static object Modulo(object a, object b)
+        public static object Modulo(object a, object b, NumberConversionTypePreference numberConversionTypePreference)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, numberConversionTypePreference);
+            b = ConvertIfString(b, numberConversionTypePreference);
 
             TypeCode typeCodeA = Type.GetTypeCode(a.GetType());
             TypeCode typeCodeB = Type.GetTypeCode(b.GetType());
@@ -1056,10 +1064,10 @@ namespace NCalcAsync
 
             return null;
         }
-        public static object Max(object a, object b)
+        public static object Max(object a, object b, NumberConversionTypePreference numberConversionTypePreference)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, numberConversionTypePreference);
+            b = ConvertIfString(b, numberConversionTypePreference);
 
             if (a == null && b == null)
             {
@@ -1106,10 +1114,10 @@ namespace NCalcAsync
 
             return null;
         }
-        public static object Min(object a, object b)
+        public static object Min(object a, object b, NumberConversionTypePreference numberConversionTypePreference)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, numberConversionTypePreference);
+            b = ConvertIfString(b, numberConversionTypePreference);
 
             if (a == null && b == null)
             {
