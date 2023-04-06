@@ -1,3 +1,7 @@
+# 3.2:
+
+* [Flag to control if string parameters should be converted to decimal (the default) or double](https://github.com/ncalc/ncalc-async/pull/16)
+
 # 3.1:
 
 * [New function `Atan2`](https://github.com/ncalc/ncalc-async/pull/15)
