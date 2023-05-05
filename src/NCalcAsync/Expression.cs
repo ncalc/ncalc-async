@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Antlr.Runtime;
+using Antlr4.Runtime;
 using NCalcAsync.Domain;
 
 namespace NCalcAsync
@@ -127,14 +129,41 @@ namespace NCalcAsync
 
             if (logicalExpression == null)
             {
-                var lexer = new NCalcLexer(new ANTLRStringStream(expression));
+                var lexer = new NCalcLexer(new AntlrInputStream(expression));
+                var errorListenerLexer = new ErrorListenerLexer();
+                lexer.AddErrorListener(errorListenerLexer);
+
                 var parser = new NCalcParser(new CommonTokenStream(lexer));
+                var errorListenerParser = new ErrorListenerParser();
+                parser.AddErrorListener(errorListenerParser);
 
-                logicalExpression = parser.GetExpression();
-
-                if (parser.Errors != null && parser.Errors.Count > 0)
+                try
                 {
-                    throw new EvaluationException(String.Join(Environment.NewLine, parser.Errors.ToArray()));
+                    logicalExpression = parser.ncalcExpression().retValue;
+                }
+                catch(Exception ex)
+                {
+                    StringBuilder message = new StringBuilder(ex.Message);
+                    if (errorListenerLexer.Errors.Any())
+                    {
+                        message.AppendLine();
+                        message.AppendLine(String.Join(Environment.NewLine, errorListenerLexer.Errors.ToArray()));
+                    }
+                    if (errorListenerParser.Errors.Any())
+                    {
+                        message.AppendLine();
+                        message.AppendLine(String.Join(Environment.NewLine, errorListenerParser.Errors.ToArray()));
+                    }
+
+                    throw new EvaluationException(message.ToString());
+                }
+                if (errorListenerLexer.Errors.Any())
+                {
+                    throw new EvaluationException(String.Join(Environment.NewLine, errorListenerLexer.Errors.ToArray()));
+                }
+                if (errorListenerParser.Errors.Any())
+                {
+                    throw new EvaluationException(String.Join(Environment.NewLine, errorListenerParser.Errors.ToArray()));
                 }
 
                 if (_cacheEnabled && !nocache)
