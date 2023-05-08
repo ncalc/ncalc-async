@@ -1,3 +1,7 @@
+# 4.0:
+
+* [Update ANTLR to v4 to remove transient targeting of NETStandard 1.6.0, which caused problems when publishing solutions on a modern .NET](https://github.com/ncalc/ncalc-async/pull/18) (Thanks @markcanary!)
+
 # 3.2:
 
 * [Flag to control if string parameters should be converted to decimal (the default) or double](https://github.com/ncalc/ncalc-async/pull/16)

@@ -39,7 +39,7 @@ The [`nbgv`](https://github.com/AArnott/Nerdbank.GitVersioning/blob/master/doc/n
 Any non-backward compatible features require a new major release. This should be created from `master` with `nbgv`:
 
     git checkout master
-    nbgv set-release X.0-alpha
+    nbgv set-version X.0-alpha
     
 Commit the new `version.json`.  Create a branch for the new major release:
 
