@@ -19,7 +19,7 @@ namespace NCalcAsync.Tests
         [TestMethod]
         public async Task ExpressionShouldEvaluate()
         {
-            var expressions = new []
+            var expressions = new[]
             {
                 "2 + 3 + 5",
                 "2 * 3 + 5",
@@ -78,7 +78,7 @@ namespace NCalcAsync.Tests
                 await new Expression("(3 + 2").EvaluateAsync();
                 Assert.Fail();
             }
-            catch(EvaluationException e)
+            catch (EvaluationException e)
             {
                 Console.WriteLine("Error catched: " + e.Message);
             }
@@ -405,11 +405,14 @@ namespace NCalcAsync.Tests
             {
                 switch (name)
                 {
-                    case "func1": arg.Result = 1;
+                    case "func1":
+                        arg.Result = 1;
                         break;
-                    case "func2": arg.Result = 2 * Convert.ToDouble(await arg.Parameters[0].EvaluateAsync());
+                    case "func2":
+                        arg.Result = 2 * Convert.ToDouble(await arg.Parameters[0].EvaluateAsync());
                         break;
-                    case "func3": arg.Result = 3 * Convert.ToDouble(await arg.Parameters[0].EvaluateAsync());
+                    case "func3":
+                        arg.Result = 3 * Convert.ToDouble(await arg.Parameters[0].EvaluateAsync());
                         break;
                 }
             };
@@ -418,11 +421,14 @@ namespace NCalcAsync.Tests
             {
                 switch (name)
                 {
-                    case "x": arg.Result = 1;
+                    case "x":
+                        arg.Result = 1;
                         break;
-                    case "y": arg.Result = 2;
+                    case "y":
+                        arg.Result = 2;
                         break;
-                    case "z": arg.Result = 3;
+                    case "z":
+                        arg.Result = 3;
                         break;
                 }
 
@@ -448,7 +454,7 @@ namespace NCalcAsync.Tests
         public async Task ShouldEvaluateArrayParameters()
         {
             var e = new Expression("x * x", EvaluateOptions.IterateParameters);
-            e.Parameters["x"] = new [] { 0, 1, 2, 3, 4 };
+            e.Parameters["x"] = new[] { 0, 1, 2, 3, 4 };
 
             var result = (IList)await e.EvaluateAsync();
 
@@ -619,7 +625,7 @@ namespace NCalcAsync.Tests
                 {
                     if (name == "delay")
                     {
-                        var ms = (int) await args.Parameters[0].EvaluateAsync();
+                        var ms = (int)await args.Parameters[0].EvaluateAsync();
                         await Task.Delay(ms);
 
                         args.Result = ms;
@@ -665,7 +671,7 @@ namespace NCalcAsync.Tests
                 await Task.Delay(200);
                 if (name == "a")
                 {
-                    args.Result = 10 * (int) await args.Parameters[0].EvaluateAsync();
+                    args.Result = 10 * (int)await args.Parameters[0].EvaluateAsync();
                 }
             };
 
@@ -673,7 +679,7 @@ namespace NCalcAsync.Tests
             {
                 if (name == "b")
                 {
-                    args.Result = 100 * (int) await args.Parameters[0].EvaluateAsync();
+                    args.Result = 100 * (int)await args.Parameters[0].EvaluateAsync();
                 }
             };
 
@@ -810,7 +816,7 @@ namespace NCalcAsync.Tests
             {
                 var expression = new Expression(decimalNumberConversionExpression, numberConversionTypePreference: NumberConversionTypePreference.Decimal);
 
-                expression.EvaluateParameterAsync += async (name, args) =>
+                expression.EvaluateParameterAsync += (name, args) =>
                 {
                     args.Result = name switch
                     {
@@ -821,6 +827,7 @@ namespace NCalcAsync.Tests
                         "stringValue" => stringValue,
                         _ => throw new NotImplementedException()
                     };
+                    return Task.CompletedTask;
                 };
 
                 Assert.AreEqual(calculatedValue, await expression.EvaluateAsync());
