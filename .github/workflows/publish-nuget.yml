@@ -24,4 +24,4 @@ jobs:
     - name: Pack
       run: dotnet pack -c Release --no-build
     - name: Publish
-      run: dotnet nuget push src/NCalcAsync/bin/Release/NCalcAsync.nupkg -k "${{ secrets.NUGET_API_TOKEN }}" -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push src/NCalcAsync/bin/Release/NCalcAsync*.nupkg -k "${{ secrets.NUGET_API_TOKEN }}" -s https://api.nuget.org/v3/index.json
