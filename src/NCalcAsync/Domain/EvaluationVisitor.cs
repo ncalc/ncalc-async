@@ -659,6 +659,19 @@ namespace NCalcAsync.Domain
 
                 #endregion
 
+                #region Pos
+                case "pos":
+
+                    CheckCase("Pos", function.Identifier.Name);
+
+                    if (function.Expressions.Length != 1)
+                        throw new ArgumentException("Pos() takes exactly 1 argument");
+                    var temp = Convert.ToDouble(await EvaluateAsync(function.Expressions[0]));
+                    Result = temp > 0 ? temp : 0;
+                    break;
+
+                #endregion
+
                 default:
                     throw new ArgumentException("Function not found",
                         function.Identifier.Name);
