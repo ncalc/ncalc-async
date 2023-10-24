@@ -111,6 +111,7 @@ namespace NCalcAsync.Tests
             Assert.AreEqual(Math.PI, (double)await new Expression("Atan2(0,-1)").EvaluateAsync(), 1e-16);
             Assert.AreEqual(0, (double)await new Expression("Atan2(0,1)").EvaluateAsync(), 1e-16);
             Assert.AreEqual(0d, await new Expression("Pos(-1)").EvaluateAsync());
+            Assert.AreEqual(1d, await new Expression("Pos(1)").EvaluateAsync());
         }
 
         [TestMethod]
