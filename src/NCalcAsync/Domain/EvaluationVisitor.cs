@@ -8,14 +8,14 @@ namespace NCalcAsync.Domain
 {
     public class EvaluationVisitor : LogicalExpressionVisitor
     {
-        private delegate T Func<T>();
+        private delegate T Func<out T>();
 
-        private readonly EvaluateOptions _options = EvaluateOptions.None;
+        private readonly EvaluateOptions _options;
         private readonly EvaluateParameterAsyncHandler _evaluateParameterAsync;
         private readonly EvaluateFunctionAsyncHandler _evaluateFunctionAsync;
         private readonly NumberConversionTypePreference _numberConversionTypePreference;
 
-        private bool IgnoreCase { get { return (_options & EvaluateOptions.IgnoreCase) == EvaluateOptions.IgnoreCase; } }
+        private bool IgnoreCase => (_options & EvaluateOptions.IgnoreCase) == EvaluateOptions.IgnoreCase;
 
         public EvaluationVisitor(EvaluateOptions options, EvaluateParameterAsyncHandler evaluateParameterAsync, EvaluateFunctionAsyncHandler evaluateFunctionAsync, NumberConversionTypePreference numberConversionTypePreference = NumberConversionTypePreference.Decimal)
         {
@@ -38,7 +38,7 @@ namespace NCalcAsync.Domain
             return Task.FromException(new Exception("The method or operation is not implemented."));
         }
 
-        private static Type[] CommonTypes = new[] { typeof(Int64), typeof(Double), typeof(Boolean), typeof(String), typeof(Decimal) };
+        private static readonly Type[] CommonTypes = { typeof(Int64), typeof(Double), typeof(Boolean), typeof(String), typeof(Decimal) };
 
         /// <summary>
         /// Gets the the most precise type.
@@ -73,7 +73,11 @@ namespace NCalcAsync.Domain
                 mpt = GetMostPreciseType(a.GetType(), b?.GetType());
             }
             
-            return Comparer.Default.Compare(Convert.ChangeType(a, mpt), Convert.ChangeType(b, mpt));
+            bool isCaseSensitiveComparer = (_options & EvaluateOptions.CaseInsensitiveComparer) == 0;
+
+            var comparer = isCaseSensitiveComparer ? (IComparer)Comparer.Default : CaseInsensitiveComparer.Default;
+
+            return comparer.Compare(Convert.ChangeType(a, mpt), Convert.ChangeType(b, mpt));
         }
 
         public override async Task VisitAsync(TernaryExpression expression)
