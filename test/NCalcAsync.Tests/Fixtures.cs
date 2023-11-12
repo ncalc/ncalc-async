@@ -854,6 +854,16 @@ namespace NCalcAsync.Tests
                 Assert.AreEqual(calculatedValue, await expression.EvaluateAsync());
             }
         }
+        
+                
+        [TestMethod]
+        public async Task Should_Use_Case_Insensitive_Comparer_Issue_24()
+        {
+            var eif = new Expression("PageState == 'LIST'", EvaluateOptions.CaseInsensitiveComparer);
+            eif.Parameters["PageState"] = "List";
+
+            Assert.AreEqual(true, await eif.EvaluateAsync());
+        }
     }
 }
 
